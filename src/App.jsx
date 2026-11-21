@@ -121,7 +121,7 @@ const vehiclePages = {
 }
 
 function VehiclePage({ path }) {
-  const [lang, setLang] = useState('ne')
+  const [lang, setLang] = useState('en')
   const [menu, setMenu] = useState(false)
   const page = vehiclePages[path][lang]
   const mapUrl = branchMapUrl
@@ -148,12 +148,35 @@ function VehiclePage({ path }) {
 export default function App() {
   const currentPath = window.location.pathname
   if (vehiclePages[currentPath]) return <VehiclePage path={currentPath} />
-  const [lang, setLang] = useState('ne')
+  const [lang, setLang] = useState('en')
   const [menu, setMenu] = useState(false)
   const [sent, setSent] = useState(false)
   const [selectedSubject, setSelectedSubject] = useState('')
   const [activeService, setActiveService] = useState(null)
+  const [heroSlide, setHeroSlide] = useState(0)
+  const [slidePaused, setSlidePaused] = useState(false)
   const t = content[lang]
+  const heroSlides = [
+    { label: 'AGRICULTURE & UTILITY', title: 'Tractors', sub: 'Explore agricultural and utility tractor options.', image: vehicleImages.tractors, href: '/tractors', index: '01' },
+    { label: 'ELECTRIC TWO-WHEELERS', title: 'Electric scooters', sub: 'Discover electric mobility for everyday journeys.', image: vehicleImages.scooters, href: '/electric-scooters', index: '02' },
+    { label: 'ELECTRIC THREE-WHEELERS', title: 'Electric tempos', sub: 'Explore electric passenger and utility transport.', image: vehicleImages.tempos, href: '/electric-tempos', index: '03' }
+  ]
+
+  useEffect(() => {
+    if (slidePaused) return
+    const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % heroSlides.length), 5200)
+    return () => window.clearInterval(timer)
+  }, [slidePaused, heroSlides.length])
+
+  useEffect(() => {
+    const nodes = document.querySelectorAll('[data-reveal]')
+    if (!('IntersectionObserver' in window)) { nodes.forEach(node => node.classList.add('is-visible')); return }
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target) }
+    }), { threshold: 0.12 })
+    nodes.forEach(node => observer.observe(node))
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     document.documentElement.lang = lang === 'ne' ? 'ne' : 'en'
@@ -168,19 +191,39 @@ export default function App() {
     <div className="topline"><span>{t.top}</span><span className="top-location"><MapPin size={12}/>{t.location}</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
     <header className="header"><Logo/><nav id="primary-navigation" className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href={branchMapUrl} target="_blank" rel="noreferrer" onClick={() => setMenu(false)}>{t.topAction}<MapPin size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label={menu ? "Close navigation" : "Open navigation"} aria-expanded={menu} aria-controls="primary-navigation">{menu ? <X/> : <Menu/>}</button></header>
     <main>
-      <section className="hero" id="home">
-        <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
-        <aside className="hero-category-panel" aria-label="सवारी साधनका श्रेणी">
-          <div className="hero-panel-heading"><span>हाम्रा सवारी साधन</span><small>VEHICLE CATEGORIES</small></div>
-          <a href="/tractors"><span>०१</span><strong>ट्र्याक्टर</strong><ArrowUpRight size={18}/></a>
-          <a href="/electric-scooters"><span>०२</span><strong>इलेक्ट्रिक स्कुटर</strong><ArrowUpRight size={18}/></a>
-          <a href="/electric-tempos"><span>०३</span><strong>इलेक्ट्रिक टेम्पो</strong><ArrowUpRight size={18}/></a>
-          <p>मोडेल, मूल्य तथा उपलब्धताबारे विराटनगर शाखाबाट जानकारी लिनुहोस्।</p>
-        </aside>
+      <section className="hero showroom-hero" id="home">
+        <div className="hero-text" data-reveal>
+          <div className="eyebrow"><span/>{t.kicker}</div>
+          <p className="hero-overline">MOBILITY · AGRICULTURE · ELECTRIC</p>
+          <h1>{lang === 'en' ? <>The right vehicle<br/>for <i>what moves you.</i></> : <>तपाईंको आवश्यकताका लागि<br/><i>उपयुक्त सवारी।</i></>}</h1>
+          <p>{t.intro}</p>
+          <div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div>
+          <div className="hero-address"><MapPin size={16}/>{t.address}</div>
+          <div className="hero-slide-progress"><span>0{heroSlide + 1}</span><div><i style={{width: slidePaused ? '100%' : '100%'}}/></div><span>03</span></div>
+        </div>
+        <div className="showroom-stage" onMouseEnter={() => setSlidePaused(true)} onMouseLeave={() => setSlidePaused(false)} onFocus={() => setSlidePaused(true)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setSlidePaused(false) }}>
+          <div className="stage-topline"><span>FEATURED CATEGORIES</span><span>01 / 03</span></div>
+          {heroSlides.map((slide, index) => <div className={index === heroSlide ? 'stage-slide active' : 'stage-slide'} key={slide.index} aria-hidden={index !== heroSlide}>
+            <img src={slide.image} alt={slide.title + ' illustrative vehicle image'} />
+            <div className="stage-image-wash"/>
+            <div className="stage-caption"><span>{slide.label}</span><strong>{slide.title}</strong><p>{slide.sub}</p><a href={slide.href}>Explore category <ArrowUpRight size={16}/></a></div>
+          </div>)}
+          <div className="stage-controls"><div className="stage-dots">{heroSlides.map((slide,index)=><button key={slide.index} className={index===heroSlide?'active':''} onClick={()=>setHeroSlide(index)} aria-label={'Show '+slide.title}/>)}</div><div className="stage-arrows"><button onClick={()=>setHeroSlide(current=>(current+2)%3)} aria-label="Previous slide"><ChevronRight className="flip-arrow"/></button><button onClick={()=>setHeroSlide(current=>(current+1)%3)} aria-label="Next slide"><ChevronRight/></button></div></div>
+        </div>
       </section>
+      <div className="category-marquee" aria-label="Vehicle categories"><div className="marquee-track">{Array.from({length:2}).map((_,i)=><span key={i}>TRACTORS <b>✳</b> ELECTRIC SCOOTERS <b>✳</b> ELECTRIC TEMPOS <b>✳</b> NTSL AUTOMOTIVE <b>✳</b> कृषि तथा यातायात <b>✳</b></span>)}</div></div>
       <div className="trust-strip"><div><span>०१</span><strong>विराटनगर शाखा</strong><small>मुनालपथ, कोशी प्रदेश</small></div><div><span>०२</span><strong>तीन सवारी श्रेणी</strong><small>ट्र्याक्टर · इलेक्ट्रिक स्कुटर · इलेक्ट्रिक टेम्पो</small></div><div><span>०३</span><strong>सिधा सोधपुछ</strong><small>मोडेल, मूल्य र उपलब्धता पुष्टि गर्न</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
       <section className="vehicle-section section" id="tractors"><div className="section-label">{lang === 'ne' ? 'हाम्रा सवारी साधन' : 'OUR VEHICLES'}<span>02 — 03</span></div><div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो आवश्यकता अनुसार छान्नुहोस्।' : 'Explore our vehicle categories.'}</h2><p>{lang === 'ne' ? 'मोडेल, मूल्य र उपलब्धता कम्पनीबाट पुष्टि भएपछि थपिनेछ।' : 'Model details, prices and availability will be added after confirmation by the company.'}</p></div><div className="vehicle-categories"><article className="vehicle-card tractor-card"><div className="vehicle-card-image"><img src={vehicleImages.tractors} alt="Agricultural tractor illustrative photo" loading="lazy" /></div><div className="vehicle-card-copy"><span>01</span><h3>{lang === 'ne' ? 'ट्र्याक्टर' : 'Tractors'}</h3><p>{lang === 'ne' ? 'कृषि तथा अन्य कामका लागि।' : 'Agricultural and utility tractors.'}</p><a href="/tractors">{lang === 'ne' ? 'विवरण हेर्नुहोस्' : 'View category'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-image"><img src={vehicleImages.scooters} alt="Two-wheel electric scooter illustrative photo" loading="lazy" /></div><div className="vehicle-card-copy"><span>02</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक स्कुटर' : 'Electric scooters'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="/electric-scooters">{lang === 'ne' ? 'विवरण हेर्नुहोस्' : 'View category'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-image"><img src={vehicleImages.tempos} alt="Electric passenger tempo illustrative photo" loading="lazy" /></div><div className="vehicle-card-copy"><span>03</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempos'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="/electric-tempos">{lang === 'ne' ? 'विवरण हेर्नुहोस्' : 'View category'} <ArrowUpRight size={15}/></a></div></article></div></section>
+      <section className="showroom-services section" data-reveal>
+        <div className="section-label">{lang === 'en' ? 'THE NTSL SHOWROOM' : 'NTSL शोरुम'}<span>03 — 04</span></div>
+        <div className="showroom-services-head"><h2>{lang === 'en' ? <>A clearer way to<br/><i>explore your options.</i></> : <>आफ्ना विकल्पहरू<br/><i>सजिलै बुझ्नुहोस्।</i></>}</h2><p>{lang === 'en' ? 'Start with the vehicle category, get the details that matter, then speak with the Biratnagar branch.' : 'सवारीको श्रेणी छान्नुहोस्, आवश्यक जानकारी लिनुहोस् र विराटनगर शाखासँग सम्पर्क गर्नुहोस्।'}</p></div>
+        <div className="showroom-service-grid">
+          <article><span>01 / DISCOVER</span><div className="showroom-service-icon"><Tractor/></div><h3>{lang === 'en' ? 'Explore vehicle categories' : 'सवारीका श्रेणी हेर्नुहोस्'}</h3><p>{lang === 'en' ? 'Browse tractors, electric scooters and electric tempos in one place.' : 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर र इलेक्ट्रिक टेम्पो एउटै ठाउँमा हेर्नुहोस्।'}</p><a href="#tractors">{lang === 'en' ? 'Browse categories' : 'श्रेणी हेर्नुहोस्'} <ArrowUpRight size={15}/></a></article>
+          <article><span>02 / UNDERSTAND</span><div className="showroom-service-icon"><Settings/></div><h3>{lang === 'en' ? 'Ask for product details' : 'उत्पादनको विवरण बुझ्नुहोस्'}</h3><p>{lang === 'en' ? 'Ask the team to confirm model information, specifications and availability.' : 'मोडेल, विशेषता र उपलब्धताबारे टोलीसँग पुष्टि गर्नुहोस्।'}</p><a href="#contact">{lang === 'en' ? 'Make an enquiry' : 'सोधपुछ गर्नुहोस्'} <ArrowUpRight size={15}/></a></article>
+          <article><span>03 / CONNECT</span><div className="showroom-service-icon"><MapPin/></div><h3>{lang === 'en' ? 'Visit the Biratnagar branch' : 'विराटनगर शाखामा आउनुहोस्'}</h3><p>{lang === 'en' ? 'Find the Munalpath location and connect with the local branch.' : 'मुनालपथस्थित शाखाको स्थान हेर्नुहोस् र सम्पर्क गर्नुहोस्।'}</p><a href={branchMapUrl} target="_blank" rel="noreferrer">{lang === 'en' ? 'Get directions' : 'नक्सामा हेर्नुहोस्'} <ArrowUpRight size={15}/></a></article>
+        </div>
+      </section>
       <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];const subject = t.subjects[i === 0 ? 0 : i === 1 ? 4 : 5];return <a className="service-row" href="#service-details" key={title} onClick={() => setActiveService(i)}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p><span className="service-action">सोधपुछ गर्नुहोस् <ArrowUpRight size={13}/></span></div><ArrowUpRight className="service-arrow" size={19}/></a>})}</div>{activeService !== null && <div className="service-detail" id="service-details"><div><span className="eyebrow">{t.services[activeService][0]}</span><h3>{t.services[activeService][0]}</h3><p>{t.services[activeService][1]}</p></div><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[activeService === 0 ? 0 : activeService === 1 ? 4 : 5])}>सोधपुछ गर्नुहोस् <ArrowUpRight size={16}/></a></div>}</section>
       <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href={branchMapUrl} target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required value={selectedSubject} onChange={event => setSelectedSubject(event.target.value)}><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">Submit enquiry<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
