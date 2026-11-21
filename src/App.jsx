@@ -140,7 +140,7 @@ function VehiclePage({ path }) {
 }
 
 export default function App() {
-  const currentPath = window.location.pathname.replace(/\\/$/, '') || '/'
+  const currentPath = window.location.pathname
   if (vehiclePages[currentPath]) return <VehiclePage path={currentPath} />
   const [lang, setLang] = useState('en')
   const [menu, setMenu] = useState(false)
