@@ -392,3 +392,36 @@ body{min-width:320px}
  .catalogue-empty{padding:25px}
  .nepali .category-copy h1{font-size:clamp(40px,10vw,54px)}
 }
+
+
+/* Refined business homepage additions */
+.hero-gallery{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;padding:12px;min-height:420px;background:#fff;border:1px solid var(--brand-border)}
+.hero-gallery-main,.hero-gallery-side>div{position:relative;min-width:0;overflow:hidden;background:#f1eee5}
+.hero-gallery-main img,.hero-gallery-side img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-gallery-main span,.hero-gallery-side span{position:absolute;left:0;right:0;bottom:0;padding:13px 15px;background:linear-gradient(transparent,rgba(20,41,27,.88));color:#fff;font-weight:700;font-size:14px}
+.hero-gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:12px;min-height:0}
+.hero-gallery-side>div{min-height:0}
+.faq-section{background:#fff}
+.faq-heading{display:grid;grid-template-columns:1fr .8fr;gap:8%;align-items:end;margin:30px 0}
+.faq-heading h2{font-size:clamp(30px,3.8vw,46px);line-height:1.25;color:var(--brand-green);margin:0}
+.faq-heading p{font-size:14px;line-height:1.9;color:var(--brand-muted);margin:0}
+.faq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--brand-border);border-bottom:1px solid var(--brand-border)}
+.faq-grid article{padding:26px 24px 28px;border-right:1px solid var(--brand-border)}
+.faq-grid article:first-child{padding-left:0}
+.faq-grid article:last-child{border-right:0}
+.faq-grid article>span{font-size:12px;color:var(--brand-crimson);font-weight:800}
+.faq-grid h3{font-size:19px;color:var(--brand-green);margin:18px 0 9px}
+.faq-grid p{font-size:13px;line-height:1.9;color:var(--brand-muted);margin:0}
+.faq-grid a{display:inline-flex;align-items:center;gap:8px;margin-top:17px;color:var(--brand-crimson);font-weight:700;font-size:13px}
+.nepali .faq-heading h2,.nepali .faq-grid h3{font-family:'Noto Sans Devanagari',sans-serif;line-height:1.6}
+.nepali .faq-heading p,.nepali .faq-grid p{font-size:15px;line-height:2}
+.nepali .faq-grid h3{font-size:19px}
+@media(max-width:700px){
+ .hero-gallery{min-height:290px;height:290px;gap:8px;padding:8px}
+ .hero-gallery-side{gap:8px}
+ .hero-gallery-main span,.hero-gallery-side span{font-size:11px;padding:9px}
+ .faq-heading{grid-template-columns:1fr;gap:12px}
+ .faq-grid{grid-template-columns:1fr}
+ .faq-grid article,.faq-grid article:first-child{padding:21px 0;border-right:0;border-bottom:1px solid var(--brand-border)}
+ .faq-grid article:last-child{border-bottom:0}
+}
