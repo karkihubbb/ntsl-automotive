@@ -461,3 +461,39 @@ body{min-width:320px}
  .hero-photo img{padding:12px}
  .hero-address{margin-top:24px}
 }
+
+
+/* Homepage redesign v3: calm, confident dealership hierarchy */
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  gap:7%;align-items:center;padding:76px 7.2% 78px;background:#f7f4ec;
+}
+.hero-text{max-width:720px}
+.hero h1{max-width:720px;font-size:clamp(42px,4.5vw,64px);line-height:1.28;letter-spacing:0;margin:20px 0 22px}
+.nepali .hero h1{font-size:clamp(42px,4.4vw,60px);line-height:1.55;max-width:720px}
+.hero-text>p{max-width:610px;font-size:16px;line-height:2}
+.hero-category-panel{background:#1f4d2e;color:#fff;padding:28px 30px 24px;border-top:4px solid #b4232a}
+.hero-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:20px;border-bottom:1px solid #ffffff35}
+.hero-panel-heading span{font-size:20px;font-weight:800}
+.hero-panel-heading small{font-size:9px;letter-spacing:.13em;color:#d7e1d6}
+.hero-category-panel>a{display:grid;grid-template-columns:38px 1fr 20px;align-items:center;gap:12px;padding:21px 0;border-bottom:1px solid #ffffff35;color:#fff;text-decoration:none}
+.hero-category-panel>a>span{font-size:12px;color:#e0a526;font-weight:800}
+.hero-category-panel>a strong{font-size:19px;font-weight:700}
+.hero-category-panel>a svg{color:#f2dfb0;transition:transform .2s}
+.hero-category-panel>a:hover svg{transform:translate(3px,-3px)}
+.hero-category-panel>p{font-size:13px;line-height:1.9;color:#e0e8df;margin:19px 0 0}
+.hero-address{margin-top:30px}
+.hero-photo,.hero-gallery{display:none!important}
+.nepali .hero-panel-heading span,.nepali .hero-category-panel>a strong,.nepali .hero-category-panel>p{font-family:'Noto Sans Devanagari',sans-serif}
+.nepali .hero-category-panel>a strong{font-size:19px;line-height:1.7}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;gap:34px;padding:54px 5% 58px}
+ .hero-text{max-width:760px}
+ .hero-category-panel{max-width:none}
+}
+@media(max-width:650px){
+ .hero{padding:38px 5% 42px;gap:26px}
+ .hero h1,.nepali .hero h1{font-size:clamp(36px,9vw,46px);line-height:1.55}
+ .hero-category-panel{padding:22px 20px}
+ .hero-category-panel>a{padding:17px 0}
+}
