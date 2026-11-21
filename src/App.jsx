@@ -8,10 +8,10 @@ const content = {
     nav: [['Home', '#home'], ['Company', '#company'], ['Tractors', '#tractors'], ['After-sales', '#support'], ['Contact', '#contact']],
     contact: 'Contact us',
     topAction: 'View location',
-    kicker: 'AGRICULTURAL MACHINERY & CUSTOMER SUPPORT',
-    headline: <>Supporting work<br/>that moves <i>you forward.</i></>,
-    intro: 'A local point of contact for tractor enquiries, product information and customer support in Biratnagar.',
-    primary: 'Enquire now', secondary: 'Explore our services',
+    kicker: 'NTSL AUTOMOTIVE · BIRATNAGAR BRANCH',
+    headline: <>Tractors & agricultural<br/>machinery in <i>Biratnagar.</i></>,
+    intro: 'Explore tractor models, compare specifications and contact our Biratnagar branch for prices and availability.',
+    primary: 'View tractor models', secondary: 'Contact the branch',
     address: 'Munalpath, Biratnagar, Koshi Province',
     aboutLabel: 'COMPANY PROFILE',
     aboutTitle: <>A local presence<br/>in <i>Biratnagar.</i></>,
@@ -50,10 +50,10 @@ const content = {
     nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['ट्र्याक्टर', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
     contact: 'Contact us',
     topAction: 'नक्सामा हेर्नुहोस्',
-    kicker: 'कृषि यन्त्र तथा ग्राहक सहयोग',
-    headline: <>कामलाई सहज<br/>बनाउने <i>सहयोग।</i></>,
-    intro: 'विराटनगरमा ट्र्याक्टरसम्बन्धी जानकारी, सोधपुछ तथा ग्राहक सहयोगका लागि स्थानीय सम्पर्क।',
-    primary: 'सोधपुछ गर्नुहोस्', secondary: 'हाम्रा सेवाहरू',
+    kicker: 'NTSL अटोमोटिभ · विराटनगर शाखा',
+    headline: <>ट्र्याक्टर तथा<br/><i>कृषि यन्त्र</i></>,
+    intro: 'ट्र्याक्टरका मोडेल, विशेषता, मूल्य तथा उपलब्धताबारे जानकारीका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्।',
+    primary: 'ट्र्याक्टरका मोडेल हेर्नुहोस्', secondary: 'शाखामा सम्पर्क गर्नुहोस्',
     address: 'मुनालपथ, विराटनगर, कोशी प्रदेश',
     aboutLabel: 'कम्पनी परिचय',
     aboutTitle: <>विराटनगरमा<br/><i>स्थानीय उपस्थिति।</i></>,
@@ -120,8 +120,8 @@ export default function App() {
     <header className="header"><Logo/><nav id="primary-navigation" className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href={branchMapUrl} target="_blank" rel="noreferrer" onClick={() => setMenu(false)}>{t.topAction}<MapPin size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label={menu ? "Close navigation" : "Open navigation"} aria-expanded={menu} aria-controls="primary-navigation">{menu ? <X/> : <Menu/>}</button></header>
     <main>
       <section className="hero" id="home">
-        <div className="hero-text"><div className="eyebrow"><span/>कृषि यन्त्र तथा ग्राहक सेवा</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[0])}>सोधपुछ गर्नुहोस्<ArrowUpRight size={16}/></a><a className="text-button" href="#support">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
-        <div className="hero-photo"><div className="photo-heading"><span>NTSL AUTOMOTIVE</span><span>०१ / उत्पादन</span></div><img src={tractorImage} alt="Blue agricultural tractor" fetchPriority="high" decoding="async" /><div className="photo-caption"><span>कृषि यन्त्र</span><span>विराटनगर, नेपाल</span></div></div>
+        <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
+        <div className="hero-photo"><img src={tractorImage} alt="Agricultural tractor product image; local dealership photo pending" fetchPriority="high" decoding="async" /></div>
       </section>
       <div className="trust-strip"><div><span>०१</span><strong>स्थानीय शाखा</strong><small>विराटनगर, कोशी प्रदेश</small></div><div><span>०२</span><strong>ट्र्याक्टर तथा उपकरण</strong><small>उत्पादनसम्बन्धी जानकारी</small></div><div><span>०३</span><strong>बिक्रीपछिको सेवा</strong><small>मर्मत तथा पार्टपुर्जासम्बन्धी सहयोग</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
