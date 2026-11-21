@@ -497,3 +497,76 @@ body{min-width:320px}
  .hero-category-panel{padding:22px 20px}
  .hero-category-panel>a{padding:17px 0}
 }
+
+
+/* Premium motion-led concept — isolated preview branch */
+:root{scroll-behavior:smooth}
+.site{overflow:hidden}
+.topline{font-size:10px;letter-spacing:.13em}
+.header{background:rgba(247,244,236,.96);color:var(--brand-ink);backdrop-filter:blur(14px);border-bottom:1px solid var(--brand-border);border-top:3px solid var(--brand-crimson);position:sticky;top:0;z-index:30}
+.header .logo strong{color:var(--brand-green)}
+.header .logo small{color:var(--brand-muted)}
+.header .logo-mark{background:var(--brand-crimson);color:white}
+.header .nav{color:var(--brand-ink)}
+.header .nav-contact{background:var(--brand-crimson)}
+.header .menu-button{color:var(--brand-green)}
+.hero{position:relative;isolation:isolate;min-height:570px;padding-top:80px;padding-bottom:84px}
+.hero:after{content:"NTSL";position:absolute;z-index:-1;right:-.03em;bottom:-.32em;font-size:clamp(180px,29vw,430px);font-weight:900;letter-spacing:-.09em;line-height:1;color:rgba(31,77,46,.045);pointer-events:none}
+.hero-text{animation:ntsl-rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .eyebrow{letter-spacing:.14em;font-size:11px}
+.hero h1{font-size:clamp(48px,5.2vw,76px);line-height:1.06;letter-spacing:-.055em;max-width:760px;margin:24px 0}
+.hero h1 i{font-style:normal;color:var(--brand-crimson);display:inline-block;animation:ntsl-word-in 1s .18s both}
+.hero-text>p{max-width:530px;font-size:16px;line-height:1.85}
+.hero-actions{margin-top:30px;gap:14px}
+.hero-photo{display:flex!important;height:440px;min-height:440px;background:#e9e7dd;clip-path:polygon(9% 0,100% 0,100% 100%,0 100%,0 12%);animation:ntsl-photo-in 1s .12s both}
+.hero-photo img{object-fit:contain;mix-blend-mode:multiply;transform:scale(1.02);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.hero-photo:hover img{transform:scale(1.07)}
+.hero-photo-caption{letter-spacing:.04em}
+.trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:18px 6%;align-items:center}
+.trust-strip>div{padding:0 24px;border-right:1px solid #ffffff55}
+.trust-strip>div:last-child{border:0}
+.trust-strip span{font-size:11px}
+.trust-strip strong{font-size:13px}
+.trust-strip small{font-size:11px}
+.motion-marquee{overflow:hidden;background:#eae5d8;border-bottom:1px solid var(--brand-border);padding:15px 0;color:var(--brand-green)}
+.motion-marquee-track{display:flex;width:max-content;animation:ntsl-marquee 34s linear infinite}
+.motion-marquee-track span{white-space:nowrap;font-size:11px;letter-spacing:.2em;font-weight:800;padding-right:30px}
+.motion-marquee-track b{color:var(--brand-crimson);padding:0 22px;font-size:15px}
+.motion-marquee:hover .motion-marquee-track{animation-play-state:paused}
+.vehicle-section{padding-top:90px;padding-bottom:100px}
+.vehicle-intro h2{font-size:clamp(32px,4vw,52px);letter-spacing:-.04em;line-height:1.12}
+.vehicle-card{border:0;border-bottom:2px solid var(--brand-border);background:#fff;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.vehicle-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(20,41,27,.10);border-bottom-color:var(--brand-crimson)}
+.vehicle-card-image{height:245px;overflow:hidden}
+.vehicle-card-image img{transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.vehicle-card:hover .vehicle-card-image img{transform:scale(1.055)}
+.vehicle-card-copy h3{font-size:22px;letter-spacing:-.02em}
+.section-label{letter-spacing:.12em;font-size:10px}
+.company,.support,.faq-section{padding-top:86px;padding-bottom:90px}
+.company h2,.support-heading h2{letter-spacing:-.04em}
+.contact-section{position:relative;overflow:hidden}
+.contact-section:after{content:"NTSL";position:absolute;right:-.04em;bottom:-.28em;font-size:clamp(150px,25vw,360px);font-weight:900;letter-spacing:-.09em;color:#ffffff09;pointer-events:none}
+@keyframes ntsl-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ntsl-word-in{from{opacity:0;transform:translateY(22px) skewY(4deg)}to{opacity:1;transform:translateY(0) skewY(0)}}
+@keyframes ntsl-photo-in{from{opacity:0;transform:translateX(34px) scale(.985)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes ntsl-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.nepali .hero h1{font-size:clamp(42px,4.8vw,66px);line-height:1.5;letter-spacing:0}
+@media(max-width:900px){
+ .hero{min-height:unset;padding-top:55px;padding-bottom:58px}
+ .hero-photo{height:350px;min-height:350px}
+ .trust-strip{grid-template-columns:1fr;gap:14px}
+ .trust-strip>div{border-right:0;border-bottom:1px solid #ffffff40;padding:0 0 12px}
+ .trust-strip>div:last-child{border-bottom:0;padding-bottom:0}
+}
+@media(max-width:650px){
+ .header{position:sticky}
+ .hero{padding-top:42px;padding-bottom:44px}
+ .hero h1{font-size:clamp(42px,11vw,54px);line-height:1.12}
+ .nepali .hero h1{font-size:clamp(38px,10vw,48px);line-height:1.55}
+ .hero-photo{height:275px;min-height:275px}
+ .motion-marquee-track span{font-size:10px}
+ .vehicle-section{padding-top:58px;padding-bottom:64px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
