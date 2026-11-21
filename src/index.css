@@ -227,3 +227,104 @@ button,input,select,textarea{font:inherit}
 .nepali .service-detail h3{font-size:clamp(25px,3vw,36px);line-height:1.6}
 .nepali .service-detail p{font-size:16px;line-height:2}
 @media(max-width:700px){.service-detail{align-items:flex-start;flex-direction:column;padding:24px}.service-detail .primary-button{width:100%;justify-content:center}}
+
+
+/* NTSL dealership visual system — approved brand palette */
+:root{
+  --brand-green:#1F4D2E;
+  --brand-crimson:#B4232A;
+  --brand-gold:#E0A526;
+  --brand-paper:#F7F4EC;
+  --brand-white:#FFFFFF;
+  --brand-border:#DDD6C3;
+  --brand-ink:#1F2A1F;
+  --brand-muted:#5B645A;
+  --brand-footer:#14291B;
+  font-family:'DM Sans','Noto Sans Devanagari',sans-serif;
+  color:var(--brand-ink);
+  background:var(--brand-paper);
+}
+html,body,.site{background:var(--brand-paper);color:var(--brand-ink)}
+body{min-width:320px}
+.topline{background:var(--brand-green);color:#F7F4EC}
+.top-location{color:#e8eee8}
+.lang{color:#d5e1d5}
+.lang button{color:#d5e1d5}
+.header{background:var(--brand-green);border-bottom:3px solid var(--brand-crimson);color:#fff}
+.logo strong{color:#fff}
+.logo small{color:#e0e9e0}
+.logo-mark{background:var(--brand-gold);color:var(--brand-green)}
+.nav{color:#f7f4ec}
+.nav>a:not(.nav-contact):after{background:var(--brand-gold)}
+.nav-contact{background:var(--brand-crimson);color:#fff}
+.menu-button{color:#fff}
+.hero{background:var(--brand-paper);padding-top:58px;padding-bottom:64px}
+.hero:before{color:#1F4D2E0A}
+.eyebrow{color:var(--brand-green)}
+.eyebrow>span{background:var(--brand-crimson)}
+.hero h1,.company h2,.tractor-copy h2,.support-heading h2{color:var(--brand-green)}
+.hero h1 i,.company h2 i,.tractor-copy h2 i,.support-heading h2 i{color:var(--brand-ink)}
+.hero-text>p,.company-copy p,.tractor-copy p,.support-heading>p{color:var(--brand-muted)}
+.primary-button{background:var(--brand-crimson);color:#fff;border-radius:3px;min-height:48px;padding:0 21px;font-size:13px}
+.primary-button:hover{background:#941c23;transform:translateY(-1px)}
+.text-button{color:var(--brand-green)}
+.text-button svg,.hero-address svg,.underlined-link svg{color:var(--brand-crimson)}
+.hero-address{color:var(--brand-muted)}
+.hero-photo{height:470px;background:var(--brand-white);border:1px solid var(--brand-border)}
+.hero-photo:before{background:var(--brand-white)}
+.hero-photo:after{inset:14px;border:1px solid var(--brand-border)}
+.hero-photo img{width:100%;height:82%;object-fit:contain;filter:none}
+.photo-heading,.photo-caption{color:var(--brand-green)}
+.photo-caption{border-top:1px solid var(--brand-border)}
+.trust-strip{background:var(--brand-green);color:var(--brand-paper)}
+.trust-strip span{color:var(--brand-gold)}
+.trust-strip strong{color:#fff}
+.trust-strip small{color:#e0e9e0}
+.section{background:var(--brand-paper)}
+.section-label{color:var(--brand-green);border-color:var(--brand-border)}
+.section-label span{color:var(--brand-muted)}
+.company h2,.tractor-copy h2,.support-heading h2{color:var(--brand-green)}
+.company h2 i,.tractor-copy h2 i,.support-heading h2 i{color:var(--brand-ink)}
+.company-copy .muted-note{border-color:var(--brand-gold);color:var(--brand-muted)}
+.underlined-link{border-color:var(--brand-crimson);color:var(--brand-green)}
+.tractor-section{background:#F7F4EC}
+.tractor-photo{background:#fff;border:1px solid var(--brand-border);min-height:390px}
+.tractor-photo:before{color:#1F4D2E0A}
+.tractor-photo img{filter:none;max-height:340px}
+.service-list{border-color:var(--brand-border)}
+.service-row{border-color:var(--brand-border)}
+.service-row:hover{background:#fff}
+.service-icon{background:var(--brand-green);color:#fff}
+.service-copy h3{color:var(--brand-green)}
+.service-copy p{color:var(--brand-muted)}
+.service-action,.service-arrow{color:var(--brand-crimson)}
+.service-detail{background:var(--brand-green);border-left:4px solid var(--brand-gold);color:#fff}
+.service-detail .eyebrow{color:#f3dfae}
+.service-detail p{color:#e4ebe4}
+.contact-section{background:var(--brand-green);color:#fff}
+.contact-section:before{color:#ffffff08}
+.contact-left h2{color:#fff}
+.contact-left h2 i{color:#f1e8d4}
+.contact-left>p,.branch-info span{color:#e1e9e1}
+.branch-info>svg{color:var(--brand-gold)}
+.branch-info a{color:#fff;text-decoration-color:var(--brand-gold)}
+.contact-form{background:var(--brand-white);color:var(--brand-ink);border:1px solid var(--brand-border);box-shadow:none;border-radius:3px}
+.form-heading{border-color:var(--brand-border)}
+.form-heading strong{color:var(--brand-green)}
+.contact-form label{color:var(--brand-ink)}
+.contact-form input,.contact-form select,.contact-form textarea{border-color:var(--brand-border);border-radius:3px;background:#fff;color:var(--brand-ink)}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--brand-green);outline:1px solid var(--brand-green)}
+.demo-message{color:var(--brand-muted)}
+.footer{background:var(--brand-footer);color:#f7f4ec}
+.footer .logo-mark{background:var(--brand-gold);color:var(--brand-green)}
+.footer-center,.footer-links a,.footer-bottom{color:#d8e3d8}
+.footer-bottom{border-color:#ffffff24}
+.nepali .hero h1,.nepali .company h2,.nepali .tractor-copy h2,.nepali .support-heading h2,.nepali .contact-left h2{font-family:'Noto Sans Devanagari','DM Sans',sans-serif}
+.nepali .service-detail{border-left-color:var(--brand-gold)}
+@media(max-width:650px){
+ .nav{background:var(--brand-green);color:#fff;border-bottom:3px solid var(--brand-crimson)}
+ .hero{padding-top:40px}
+ .hero-photo{height:310px}
+ .tractor-photo{min-height:250px}
+}
+@media(prefers-reduced-motion:reduce){.primary-button{transition:none}}
