@@ -5,7 +5,7 @@ const content = {
   en: {
     top: 'NTSL AUTOMOTIVE PRIVATE LIMITED',
     location: 'BIRATNAGAR, NEPAL',
-    nav: [['Home', '#home'], ['Company', '#company'], ['Vehicles', '#tractors'], ['After-sales', '#support'], ['Contact', '#contact']],
+    nav: [['Home', '#home'], ['Company', '#company'], ['Tractors', '/tractors'], ['Electric Scooters', '/electric-scooters'], ['Electric Tempos', '/electric-tempos'], ['After-sales', '#support'], ['Contact', '#contact']],
     contact: 'Contact us',
     topAction: 'View location',
     kicker: 'NTSL AUTOMOTIVE · BIRATNAGAR BRANCH',
@@ -47,7 +47,7 @@ const content = {
   ne: {
     top: 'NTSL अटोमोटिभ प्रा. लि.',
     location: 'विराटनगर, नेपाल',
-    nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['सवारी साधन', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
+    nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['ट्र्याक्टर', '/tractors'], ['इलेक्ट्रिक स्कुटर', '/electric-scooters'], ['इलेक्ट्रिक टेम्पो', '/electric-tempos'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
     contact: 'Contact us',
     topAction: 'नक्सामा हेर्नुहोस्',
     kicker: 'NTSL अटोमोटिभ · विराटनगर शाखा',
@@ -98,7 +98,50 @@ function Logo() {
   </a>
 }
 
+
+const vehiclePages = {
+  '/tractors': {
+    en: { title: 'Tractors', kicker: 'TRACTOR RANGE', intro: 'Explore tractor models available through NTSL Automotive. Confirm specifications, prices and stock with the Biratnagar branch.', note: 'The tractor catalogue is being prepared. Verified model names, photographs, specifications and prices will appear here after company confirmation.', cta: 'Enquire about tractors', category: 'Agricultural and utility tractors' },
+    ne: { title: 'ट्र्याक्टर', kicker: 'ट्र्याक्टर दायरा', intro: 'NTSL Automotive मार्फत उपलब्ध ट्र्याक्टरका मोडेलबारे जानकारी लिनुहोस्। विशेषता, मूल्य तथा मौज्दात विराटनगर शाखाबाट पुष्टि गर्नुहोस्।', note: 'ट्र्याक्टरको सूची तयार हुँदैछ। कम्पनीबाट पुष्टि भएपछि वास्तविक मोडेल, तस्बिर, विशेषता तथा मूल्य यहाँ राखिनेछ।', cta: 'ट्र्याक्टरबारे सोध्नुहोस्', category: 'कृषि तथा उपयोगी ट्र्याक्टर' }
+  },
+  '/electric-scooters': {
+    en: { title: 'Electric Scooters', kicker: 'TWO-WHEELER ELECTRIC SCOOTERS', intro: 'Browse the two-wheeler electric scooter range and contact the Biratnagar branch for product information.', note: 'Verified scooter models, real product photos, specifications, prices and availability will be added after confirmation by NTSL Automotive.', cta: 'Enquire about electric scooters', category: 'Two-wheel electric scooters' },
+    ne: { title: 'इलेक्ट्रिक स्कुटर', kicker: 'दुई पाङ्ग्रे इलेक्ट्रिक स्कुटर', intro: 'दुई पाङ्ग्रे इलेक्ट्रिक स्कुटरबारे जानकारी लिनुहोस् र विराटनगर शाखामा सम्पर्क गर्नुहोस्।', note: 'NTSL Automotive बाट पुष्टि भएपछि वास्तविक स्कुटर मोडेल, तस्बिर, विशेषता, मूल्य तथा उपलब्धता यहाँ राखिनेछ।', cta: 'इलेक्ट्रिक स्कुटरबारे सोध्नुहोस्', category: 'दुई पाङ्ग्रे इलेक्ट्रिक स्कुटर' }
+  },
+  '/electric-tempos': {
+    en: { title: 'Electric Tempos', kicker: 'ELECTRIC THREE-WHEELERS', intro: 'Find information about electric tempos and contact the Biratnagar branch for current product details.', note: 'Verified tempo models, passenger or cargo configurations, specifications, prices and availability will be added after company confirmation.', cta: 'Enquire about electric tempos', category: 'Electric three-wheelers' },
+    ne: { title: 'इलेक्ट्रिक टेम्पो', kicker: 'इलेक्ट्रिक तीन पाङ्ग्रे सवारी', intro: 'इलेक्ट्रिक टेम्पोसम्बन्धी जानकारीका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्।', note: 'कम्पनीबाट पुष्टि भएपछि वास्तविक टेम्पो मोडेल, यात्रु वा सामान बोक्ने प्रकार, विशेषता, मूल्य तथा उपलब्धता यहाँ राखिनेछ।', cta: 'इलेक्ट्रिक टेम्पोबारे सोध्नुहोस्', category: 'इलेक्ट्रिक तीन पाङ्ग्रे सवारी' }
+  }
+}
+
+function VehiclePage({ path }) {
+  const [lang, setLang] = useState('en')
+  const [menu, setMenu] = useState(false)
+  const page = vehiclePages[path][lang]
+  const mapUrl = branchMapUrl
+  const nav = lang === 'en'
+    ? [['Home','/'],['Tractors','/tractors'],['Electric Scooters','/electric-scooters'],['Electric Tempos','/electric-tempos'],['Contact','/#contact']]
+    : [['गृहपृष्ठ','/'],['ट्र्याक्टर','/tractors'],['इलेक्ट्रिक स्कुटर','/electric-scooters'],['इलेक्ट्रिक टेम्पो','/electric-tempos'],['सम्पर्क','/#contact']]
+  const subject = lang === 'en'
+    ? (path === '/tractors' ? 'Tractor information' : path === '/electric-scooters' ? 'Electric scooter information' : 'Electric tempo information')
+    : (path === '/tractors' ? 'ट्र्याक्टरसम्बन्धी जानकारी' : path === '/electric-scooters' ? 'इलेक्ट्रिक स्कुटरसम्बन्धी जानकारी' : 'इलेक्ट्रिक टेम्पोसम्बन्धी जानकारी')
+  return <div className={lang === 'ne' ? 'site nepali' : 'site'}>
+    <div className="topline"><span>NTSL AUTOMOTIVE PRIVATE LIMITED</span><span className="top-location"><MapPin size={12}/>BIRATNAGAR, NEPAL</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
+    <header className="header"><a className="logo" href="/" aria-label="NTSL Automotive home"><span className="logo-mark">N</span><span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span></a><nav id="primary-navigation" className={menu ? 'nav nav-open' : 'nav'}>{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}</nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} aria-controls="primary-navigation">{menu ? <X/> : <Menu/>}</button></header>
+    <main>
+      <section className="category-hero">
+        <div className="category-copy"><div className="eyebrow"><span/>{page.kicker}</div><h1>{page.title}</h1><p>{page.intro}</p><a className="primary-button" href={'/#contact'}>{page.cta}<ArrowUpRight size={16}/></a><div className="category-location"><MapPin size={16}/>Munalpath, Biratnagar, Koshi Province</div></div>
+        <div className="category-visual">{path === '/tractors' ? <img src={tractorImage} alt="Tractor product" /> : path === '/electric-scooters' ? <Zap size={100} strokeWidth={1}/> : <Truck size={100} strokeWidth={1}/>}</div>
+      </section>
+      <section className="category-catalogue"><div className="section-label">{lang === 'en' ? 'PRODUCT CATALOGUE' : 'उत्पादन सूची'}<span>01 — 01</span></div><div className="catalogue-empty"><span>{lang === 'en' ? 'CATALOGUE IN PREPARATION' : 'उत्पादन सूची तयार हुँदैछ'}</span><h2>{page.category}</h2><p>{page.note}</p><a className="underlined-link" href={'/#contact'}>{lang === 'en' ? 'Ask the Biratnagar branch' : 'विराटनगर शाखामा सोध्नुहोस्'}<ArrowUpRight size={15}/></a></div></section>
+    </main>
+    <footer className="footer"><a className="logo" href="/"><span className="logo-mark">N</span><span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span></a><span className="footer-center">NTSL Automotive Pvt. Ltd. · Biratnagar, Nepal</span><div className="footer-links"><a href="/">Home</a><a href={mapUrl} target="_blank" rel="noreferrer">View location</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>Website preview. Company details subject to verification.</span></div></footer>
+  </div>
+}
+
 export default function App() {
+  const currentPath = window.location.pathname.replace(/\\/$/, '') || '/'
+  if (vehiclePages[currentPath]) return <VehiclePage path={currentPath} />
   const [lang, setLang] = useState('en')
   const [menu, setMenu] = useState(false)
   const [sent, setSent] = useState(false)
@@ -125,7 +168,7 @@ export default function App() {
       </section>
       <div className="trust-strip"><div><span>०१</span><strong>स्थानीय शाखा</strong><small>विराटनगर, कोशी प्रदेश</small></div><div><span>०२</span><strong>ट्र्याक्टर, स्कुटर र टेम्पो</strong><small>मोडेल तथा उत्पादन जानकारी</small></div><div><span>०३</span><strong>बिक्रीपछिको सेवा</strong><small>मर्मत तथा पार्टपुर्जासम्बन्धी सहयोग</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
-      <section className="vehicle-section section" id="tractors"><div className="section-label">{lang === 'ne' ? 'हाम्रा सवारी साधन' : 'OUR VEHICLES'}<span>02 — 03</span></div><div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो आवश्यकता अनुसार छान्नुहोस्।' : 'Explore our vehicle categories.'}</h2><p>{lang === 'ne' ? 'मोडेल, मूल्य र उपलब्धता कम्पनीबाट पुष्टि भएपछि थपिनेछ।' : 'Model details, prices and availability will be added after confirmation by the company.'}</p></div><div className="vehicle-categories"><article className="vehicle-card tractor-card"><div className="vehicle-card-image"><img src={tractorImage} alt="Tractor category" loading="lazy" /></div><div className="vehicle-card-copy"><span>01</span><h3>{lang === 'ne' ? 'ट्र्याक्टर' : 'Tractors'}</h3><p>{lang === 'ne' ? 'कृषि तथा अन्य कामका लागि।' : 'Agricultural and utility tractors.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[0])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Zap size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>02</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक स्कुटर' : 'Electric scooters'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[1])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Truck size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>03</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempos'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[2])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article></div></section>
+      <section className="vehicle-section section" id="tractors"><div className="section-label">{lang === 'ne' ? 'हाम्रा सवारी साधन' : 'OUR VEHICLES'}<span>02 — 03</span></div><div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो आवश्यकता अनुसार छान्नुहोस्।' : 'Explore our vehicle categories.'}</h2><p>{lang === 'ne' ? 'मोडेल, मूल्य र उपलब्धता कम्पनीबाट पुष्टि भएपछि थपिनेछ।' : 'Model details, prices and availability will be added after confirmation by the company.'}</p></div><div className="vehicle-categories"><article className="vehicle-card tractor-card"><div className="vehicle-card-image"><img src={tractorImage} alt="Tractor category" loading="lazy" /></div><div className="vehicle-card-copy"><span>01</span><h3>{lang === 'ne' ? 'ट्र्याक्टर' : 'Tractors'}</h3><p>{lang === 'ne' ? 'कृषि तथा अन्य कामका लागि।' : 'Agricultural and utility tractors.'}</p><a href="/tractors">{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Zap size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>02</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक स्कुटर' : 'Electric scooters'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="/electric-scooters">{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Truck size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>03</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempos'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="/electric-tempos">{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article></div></section>
       <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];const subject = t.subjects[i === 0 ? 0 : i === 1 ? 4 : 5];return <a className="service-row" href="#service-details" key={title} onClick={() => setActiveService(i)}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p><span className="service-action">सोधपुछ गर्नुहोस् <ArrowUpRight size={13}/></span></div><ArrowUpRight className="service-arrow" size={19}/></a>})}</div>{activeService !== null && <div className="service-detail" id="service-details"><div><span className="eyebrow">{t.services[activeService][0]}</span><h3>{t.services[activeService][0]}</h3><p>{t.services[activeService][1]}</p></div><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[activeService === 0 ? 0 : activeService === 1 ? 4 : 5])}>सोधपुछ गर्नुहोस् <ArrowUpRight size={16}/></a></div>}</section>
       <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href={branchMapUrl} target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required value={selectedSubject} onChange={event => setSelectedSubject(event.target.value)}><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">Submit enquiry<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
