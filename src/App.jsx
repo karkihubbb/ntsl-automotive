@@ -9,7 +9,7 @@ const content = {
     contact: 'Contact us',
     topAction: 'View location',
     kicker: 'NTSL AUTOMOTIVE · BIRATNAGAR BRANCH',
-    headline: <>Vehicles for work<br/>and everyday travel in <i>Biratnagar.</i></>,
+    headline: <>Tractors and electric vehicles<br/>at <i>NTSL Automotive.</i></>,
     intro: 'Explore tractors, electric scooters and electric tempos. Contact our Biratnagar branch for product details and availability.',
     primary: 'Explore vehicles', secondary: 'Contact the branch',
     address: 'Munalpath, Biratnagar, Koshi Province',
