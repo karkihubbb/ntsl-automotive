@@ -47,7 +47,7 @@ const content = {
     top: 'NTSL अटोमोटिभ प्रा. लि.',
     location: 'विराटनगर, नेपाल',
     nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['ट्र्याक्टर', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
-    contact: 'सम्पर्क गर्नुहोस्',
+    contact: 'Contact us',
     kicker: 'कृषि यन्त्र तथा ग्राहक सहयोग',
     headline: <>कामलाई सहज<br/>बनाउने <i>सहयोग।</i></>,
     intro: 'विराटनगरमा ट्र्याक्टरसम्बन्धी जानकारी, सोधपुछ तथा ग्राहक सहयोगका लागि स्थानीय सम्पर्क।',
@@ -70,13 +70,13 @@ const content = {
       ['पार्ट्ससम्बन्धी सोधपुछ', 'पार्ट्स र उपलब्धताबारे जानकारीका लागि सम्पर्क गर्नुहोस्।', '०३']
     ],
     contactLabel: 'सम्पर्क',
-    contactTitle: <>हामी कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></>,
+    contactTitle: <>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></>,
     contactText: 'तलको फारम वेबसाइटको पूर्वावलोकनका लागि मात्र हो। यसले व्यक्तिगत विवरण पठाउँदैन वा सुरक्षित गर्दैन। कम्पनीबाट पुष्टि भएपछि आधिकारिक फोन र इमेल राखिनेछ।',
     formTitle: 'सोधपुछ पठाउनुहोस्',
     name: 'पूरा नाम', phone: 'फोन नम्बर', subject: 'सोधपुछको विषय', select: 'विषय छान्नुहोस्',
     subjects: ['ट्र्याक्टरसम्बन्धी जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'स्पेयर पार्ट्स', 'अन्य'],
     message: 'सन्देश', messageHint: 'आफ्नो जिज्ञासा लेख्नुहोस्',
-    send: 'सोधपुछ फारम जाँच गर्नुहोस्', demo: 'पूर्वावलोकन मात्र। तपाईंको विवरण पठाइएको वा सुरक्षित गरिएको छैन।',
+    send: 'Submit enquiry', demo: 'पूर्वावलोकन मात्र। तपाईंको विवरण पठाइएको वा सुरक्षित गरिएको छैन।',
     branch: 'विराटनगर शाखा',
     branchAddress: 'मुनालपथ, विराटनगर, कोशी प्रदेश, नेपाल',
     directions: 'स्थान हेर्नुहोस्',
@@ -122,7 +122,7 @@ export default function App() {
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
       <section className="tractor-section section" id="tractors"><div className="section-label">ट्र्याक्टर तथा उपकरण<span>०२ — ०३</span></div><div className="tractor-grid"><div className="tractor-photo"><img src={tractorImage} alt="Agricultural tractor product photograph" loading="lazy" decoding="async" /></div><div className="tractor-copy"><h2>{t.tractorTitle}</h2><p>{t.tractorText}</p><a className="primary-button" href="#contact">{t.tractorButton}<ArrowUpRight size={16}/></a></div></div></section>
       <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];return <article className="service-row" key={title}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p></div><ArrowUpRight className="service-arrow" size={19}/></article>})}</div></section>
-      <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>{t.contactTitle}</h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href="https://www.google.com/maps/search/?api=1&query=Munalpath%2C+Biratnagar%2C+Nepal" target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required defaultValue=""><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">सोधपुछ पठाउनुहोस्<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
+      <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href="https://www.google.com/maps/search/?api=1&query=Munalpath%2C+Biratnagar%2C+Nepal" target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required defaultValue=""><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">Submit enquiry<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
     <footer className="footer"><Logo/><span className="footer-center">{t.footer}</span><div className="footer-links"><a href="/privacy.html">{t.privacy}</a><a href="/terms.html">{t.terms}</a><a href="#home">{t.topLink}</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>{t.footerNote}</span></div></footer>
   </div>
