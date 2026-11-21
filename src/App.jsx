@@ -88,7 +88,8 @@ const content = {
   }
 }
 
-const tractorImage = 'https://powertrac.escortskubota.com/_next/image?q=100&url=https%3A%2F%2Fcorpapi.escortskubota.com%2Fimages%2Fpowertrac%2Fproduct-series%2Fstar%2F30.webp&w=3840'\nconst branchMapUrl = 'https://www.google.com/maps/search/?api=1&query=N.T.S.L+Automotive+Pvt.+Ltd+Munal+Path+Biratnagar'
+const tractorImage = 'https://powertrac.escortskubota.com/_next/image?q=100&url=https%3A%2F%2Fcorpapi.escortskubota.com%2Fimages%2Fpowertrac%2Fproduct-series%2Fstar%2F30.webp&w=3840'
+const branchMapUrl = 'https://www.google.com/maps/search/?api=1&query=N.T.S.L+Automotive+Pvt.+Ltd+Munal+Path+Biratnagar'
 
 function Logo() {
   return <a className="logo" href="#home" aria-label="NTSL Automotive home">
