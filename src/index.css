@@ -52,3 +52,33 @@
  .nepali .hero-text>p,.nepali .company-copy p,.nepali .tractor-copy p,.nepali .support-heading>p,.nepali .contact-left>p{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.service-row,.primary-button,.nav-contact{transition:none}}
+
+/* Make each customer journey distinct and easy to follow */
+.service-row{display:grid;text-decoration:none;color:inherit;cursor:pointer}
+.service-row:focus-visible{outline:2px solid var(--green2);outline-offset:4px}
+.service-action{display:inline-flex;align-items:center;gap:5px;margin-top:10px;color:var(--green2);font-size:11px;font-weight:700}
+.service-row:hover .service-action{text-decoration:underline}
+.hero-actions .primary-button{min-width:170px}
+.tractor-copy .primary-button{min-width:190px}
+.contact-form .submit{font-size:12px;letter-spacing:.01em}
+.nepali .service-action{font-size:13px}
+.nepali .contact-form label{font-size:14px;line-height:1.7}
+.nepali .contact-form input,.nepali .contact-form select,.nepali .contact-form textarea{font-size:14px;line-height:1.7;padding:13px 14px}
+.nepali .demo-message,.nepali .privacy-link{font-size:11px;line-height:1.8}
+.nepali .trust-strip{padding-top:29px;padding-bottom:29px}
+.nepali .trust-strip>div{min-height:70px}
+.nepali .trust-strip small{font-size:13px}
+.nepali .trust-strip strong{font-size:15px}
+.nepali .service-copy h3{font-size:17px;line-height:1.7}
+.nepali .service-copy p{font-size:13px;line-height:2}
+.nepali .branch-info strong{font-size:15px}
+.nepali .branch-info span{font-size:13px;line-height:2}
+.nepali .section-label{font-size:12px}
+.nepali .footer-bottom,.nepali .footer-links a,.nepali .footer-center{font-size:11px}
+@media(max-width:650px){
+ .service-row{padding:20px 0}
+ .service-row:hover{padding-left:6px;padding-right:6px}
+ .service-action{font-size:12px}
+ .nepali .service-copy h3{font-size:16px}
+ .nepali .service-copy p{font-size:13px}
+}
