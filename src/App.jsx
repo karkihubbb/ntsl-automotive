@@ -1,224 +1,125 @@
 import { useState } from 'react'
-import {
-  ArrowUpRight, Menu, X, MapPin, Phone, ChevronRight,
-  Tractor, Wrench, Settings2, MessageCircle, ShieldCheck, Clock3
-} from 'lucide-react'
+import { ArrowUpRight, Menu, X, MapPin, Phone, Wrench, Settings, Tractor, ChevronRight } from 'lucide-react'
 
-const copy = {
+const content = {
   en: {
-    top: 'POWERTRAC TRACTORS', location: 'BIRATNAGAR · NEPAL',
-    nav: [['Tractors', '#tractors'], ['Our support', '#support'], ['About NTSL', '#about'], ['Contact', '#contact']],
-    enquire: 'Make an enquiry', eyebrow: 'YOUR LOCAL POWERTRAC CONNECTION',
-    titleA: 'Ready for', titleB: 'the work', titleC: 'ahead.',
-    intro: 'Explore Powertrac tractors through NTSL Automotive, Biratnagar. Get straightforward information and speak with the team about the machine that fits your work.',
-    explore: 'Explore the range', talk: 'Talk to our team',
-    note: 'Munalpath, Biratnagar', rangeLabel: 'THE POWERTRAC RANGE',
-    rangeTitle: 'Find a tractor that', rangeAccent: 'fits your work.',
-    rangeText: 'Tell us what you need. Our team can help you enquire about Powertrac models and their availability in the Biratnagar area.',
-    rangeCta: 'Ask about available models',
-    supportEyebrow: 'HELP WHEN YOU NEED IT',
-    supportTitle: 'More than a', supportAccent: 'showroom visit.',
-    supportText: 'Get in touch with NTSL Automotive for guidance on your tractor enquiry and information about available support.',
-    supportItems: [
-      ['Product guidance', 'Discuss your requirements and ask about suitable Powertrac models.'],
-      ['Service enquiries', 'Contact the team for information about service and maintenance support.'],
-      ['Parts enquiries', 'Ask about parts availability and the right way to get support.']
+    top: 'NTSL AUTOMOTIVE PRIVATE LIMITED',
+    location: 'BIRATNAGAR, NEPAL',
+    nav: [['Home', '#home'], ['Company', '#company'], ['Tractors', '#tractors'], ['After-sales', '#support'], ['Contact', '#contact']],
+    contact: 'Contact us',
+    kicker: 'AGRICULTURAL MACHINERY & CUSTOMER SUPPORT',
+    headline: <>Supporting work<br/>that moves <i>you forward.</i></>,
+    intro: 'A local point of contact for tractor enquiries, product information and customer support in Biratnagar.',
+    primary: 'Enquire now', secondary: 'Explore our services',
+    address: 'Munalpath, Biratnagar, Koshi Province',
+    aboutLabel: 'COMPANY PROFILE',
+    aboutTitle: <>A local presence<br/>in <i>Biratnagar.</i></>,
+    aboutText: 'NTSL Automotive Pvt. Ltd. serves customers from its Biratnagar location at Munalpath. We are preparing this website to make company information, tractor enquiries and customer support easier to access.',
+    aboutNote: 'Company profile and operating details will be published after confirmation by NTSL Automotive.',
+    tractorLabel: 'TRACTOR ENQUIRIES',
+    tractorTitle: <>Find the right machine<br/>for your <i>requirements.</i></>,
+    tractorText: 'Speak with our team about available tractors, specifications and product information. Model details and availability will be confirmed directly by the company.',
+    tractorButton: 'Ask about tractors',
+    supportLabel: 'CUSTOMER SUPPORT',
+    supportTitle: <>Support beyond<br/>the <i>purchase.</i></>,
+    supportText: 'Contact our team for information about the support options available through the Biratnagar location.',
+    services: [
+      ['Product information', 'Discuss your requirements and request details about available tractors.', '01'],
+      ['Service enquiries', 'Ask the team about service, maintenance and support arrangements.', '02'],
+      ['Parts enquiries', 'Contact us to enquire about parts and availability.', '03']
     ],
-    aboutEyebrow: 'ABOUT NTSL AUTOMOTIVE',
-    aboutTitle: 'A local team. A', aboutAccent: 'clear connection.',
-    aboutText: 'NTSL Automotive Pvt. Ltd. is presenting its Powertrac tractor enquiry point for customers in Biratnagar. This website is being prepared with verified company information.',
-    aboutPlace: 'Our Biratnagar location', aboutAddress: 'Munalpath, Biratnagar, Koshi Province, Nepal',
-    contactEyebrow: 'START A CONVERSATION', contactTitle: 'What are you', contactAccent: 'looking for?',
-    contactText: 'Send a demo enquiry below. This preview does not transmit or save your details. Official contact channels will be added after confirmation by the company.',
-    name: 'Your name', phone: 'Phone number', interest: 'What can we help you with?', choose: 'Choose an enquiry',
-    options: ['Powertrac tractor information', 'Model availability', 'Service and maintenance', 'Parts enquiry', 'Other'],
-    message: 'Your message', messagePlaceholder: 'Tell us briefly what you need',
-    submit: 'Preview enquiry', demo: 'Demo only: your details have not been sent or stored.',
-    privacy: 'Privacy information', footerLine: 'POWERTRAC TRACTORS · BIRATNAGAR, NEPAL',
-    footerNote: 'Company details and contact information subject to NTSL approval.',
-    legal: 'Privacy', terms: 'Terms', back: 'Back to top ↑',
-    formRequired: 'Please complete the required fields.'
+    contactLabel: 'GET IN TOUCH',
+    contactTitle: <>How can we<br/><i>assist you?</i></>,
+    contactText: 'Send an enquiry using the preview form. It does not transmit or store personal information. Official phone and email details will be added after company confirmation.',
+    formTitle: 'SEND AN ENQUIRY',
+    name: 'Full name', phone: 'Phone number', subject: 'Enquiry type', select: 'Select a subject',
+    subjects: ['Tractor information', 'Model availability', 'Service and maintenance', 'Spare parts', 'Other'],
+    message: 'Message', messageHint: 'Write your enquiry here',
+    send: 'Submit enquiry', demo: 'Preview only. Your information has not been sent or saved.',
+    branch: 'BIRATNAGAR LOCATION',
+    branchAddress: 'Munalpath, Biratnagar, Koshi Province, Nepal',
+    directions: 'View location',
+    footer: 'NTSL Automotive Pvt. Ltd. · Biratnagar, Nepal',
+    footerNote: 'Website preview. Company details subject to verification.',
+    privacy: 'Privacy policy', terms: 'Terms of use', topLink: 'Back to top ↑'
   },
   ne: {
-    top: 'पावरट्र्याक ट्र्याक्टर', location: 'विराटनगर · नेपाल',
-    nav: [['ट्र्याक्टर', '#tractors'], ['हाम्रो सहयोग', '#support'], ['NTSL बारे', '#about'], ['सम्पर्क', '#contact']],
-    enquire: 'जानकारी लिनुहोस्', eyebrow: 'तपाईंको स्थानीय पावरट्र्याक सम्पर्क',
-    titleA: 'कामका लागि', titleB: 'भरपर्दो', titleC: 'साथी।',
-    intro: 'NTSL Automotive, विराटनगरमार्फत पावरट्र्याक ट्र्याक्टरबारे जानकारी लिनुहोस्। आफ्नो कामअनुसार उपयुक्त ट्र्याक्टरबारे हाम्रो टोलीसँग कुरा गर्नुहोस्।',
-    explore: 'ट्र्याक्टर हेर्नुहोस्', talk: 'हाम्रो टोलीसँग कुरा गर्नुहोस्',
-    note: 'मुनालपथ, विराटनगर', rangeLabel: 'पावरट्र्याक ट्र्याक्टर',
-    rangeTitle: 'तपाईंको कामका लागि', rangeAccent: 'उपयुक्त ट्र्याक्टर।',
-    rangeText: 'तपाईंलाई कस्तो ट्र्याक्टर चाहिएको हो बताउनुहोस्। उपलब्ध मोडेल र जानकारीबारे हाम्रो टोलीसँग सोधपुछ गर्न सक्नुहुन्छ।',
-    rangeCta: 'उपलब्ध मोडेलबारे सोध्नुहोस्',
-    supportEyebrow: 'आवश्यक पर्दा सहयोग',
-    supportTitle: 'शोरुमभन्दा', supportAccent: 'अझ बढी।',
-    supportText: 'ट्र्याक्टरसम्बन्धी जानकारी तथा उपलब्ध सहयोगबारे NTSL Automotive सँग सम्पर्क गर्नुहोस्।',
-    supportItems: [
-      ['उत्पादनसम्बन्धी जानकारी', 'आफ्नो आवश्यकता बताउनुहोस् र उपयुक्त मोडेलबारे सोध्नुहोस्।'],
-      ['सर्भिससम्बन्धी सोधपुछ', 'मर्मत तथा सर्भिस सहयोगबारे जानकारी लिनुहोस्।'],
-      ['पार्ट्ससम्बन्धी सोधपुछ', 'पार्ट्सको उपलब्धता र सहयोगबारे सोध्नुहोस्।']
+    top: 'NTSL अटोमोटिभ प्रा. लि.',
+    location: 'विराटनगर, नेपाल',
+    nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['ट्र्याक्टर', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
+    contact: 'सम्पर्क गर्नुहोस्',
+    kicker: 'कृषि यन्त्र तथा ग्राहक सहयोग',
+    headline: <>कामलाई सहज<br/>बनाउने <i>सहयोग।</i></>,
+    intro: 'विराटनगरमा ट्र्याक्टरसम्बन्धी जानकारी, सोधपुछ तथा ग्राहक सहयोगका लागि स्थानीय सम्पर्क।',
+    primary: 'सोधपुछ गर्नुहोस्', secondary: 'हाम्रा सेवाहरू',
+    address: 'मुनालपथ, विराटनगर, कोशी प्रदेश',
+    aboutLabel: 'कम्पनी परिचय',
+    aboutTitle: <>विराटनगरमा<br/><i>स्थानीय उपस्थिति।</i></>,
+    aboutText: 'NTSL Automotive Pvt. Ltd. ले विराटनगरको मुनालपथस्थित कार्यालयबाट ग्राहकलाई सेवा प्रदान गर्दछ। कम्पनीको जानकारी, ट्र्याक्टरसम्बन्धी सोधपुछ र ग्राहक सहयोग सहज बनाउन यो वेबसाइट तयार गरिँदैछ।',
+    aboutNote: 'कम्पनीबाट पुष्टि भएपछि मात्र विस्तृत परिचय तथा सञ्चालनसम्बन्धी जानकारी प्रकाशित गरिनेछ।',
+    tractorLabel: 'ट्र्याक्टरसम्बन्धी सोधपुछ',
+    tractorTitle: <>आफ्नो आवश्यकताअनुसार<br/><i>उपयुक्त मेसिन।</i></>,
+    tractorText: 'उपलब्ध ट्र्याक्टर, विशेषता र उत्पादनसम्बन्धी जानकारीका लागि हाम्रो टोलीसँग कुरा गर्नुहोस्। मोडेल तथा उपलब्धता कम्पनीबाट पुष्टि गरिनेछ।',
+    tractorButton: 'ट्र्याक्टरबारे सोध्नुहोस्',
+    supportLabel: 'ग्राहक सहयोग',
+    supportTitle: <>खरिदपछि पनि<br/><i>सहयोग।</i></>,
+    supportText: 'विराटनगर शाखाबाट उपलब्ध सहयोगका विकल्पबारे जानकारी लिन हाम्रो टोलीसँग सम्पर्क गर्नुहोस्।',
+    services: [
+      ['उत्पादन जानकारी', 'आफ्नो आवश्यकता बताउनुहोस् र उपलब्ध ट्र्याक्टरबारे जानकारी लिनुहोस्।', '०१'],
+      ['सर्भिससम्बन्धी सोधपुछ', 'सर्भिस, मर्मत तथा सहयोग व्यवस्थाबारे जानकारी लिनुहोस्।', '०२'],
+      ['पार्ट्ससम्बन्धी सोधपुछ', 'पार्ट्स र उपलब्धताबारे जानकारीका लागि सम्पर्क गर्नुहोस्।', '०३']
     ],
-    aboutEyebrow: 'NTSL AUTOMOTIVE बारे',
-    aboutTitle: 'स्थानीय टोली।', aboutAccent: 'सजिलो सम्पर्क।',
-    aboutText: 'NTSL Automotive Pvt. Ltd. ले विराटनगरका ग्राहकका लागि पावरट्र्याक ट्र्याक्टरसम्बन्धी जानकारी र सोधपुछको सुविधा प्रस्तुत गर्दैछ। कम्पनीबाट पुष्टि भएका विवरण मात्र यहाँ राखिनेछन्।',
-    aboutPlace: 'विराटनगर शाखा', aboutAddress: 'मुनालपथ, विराटनगर, कोशी प्रदेश, नेपाल',
-    contactEyebrow: 'कुरा सुरु गरौँ', contactTitle: 'तपाईंलाई के', contactAccent: 'चाहिएको छ?',
-    contactText: 'तलको फारम डेमोका लागि मात्र हो। यसबाट तपाईंको विवरण पठाइँदैन वा सुरक्षित गरिँदैन। कम्पनीबाट पुष्टि भएपछि आधिकारिक सम्पर्क विवरण राखिनेछ।',
-    name: 'तपाईंको नाम', phone: 'फोन नम्बर', interest: 'कुन विषयमा सहयोग चाहिन्छ?', choose: 'विषय छान्नुहोस्',
-    options: ['पावरट्र्याक ट्र्याक्टर जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'पार्ट्ससम्बन्धी जानकारी', 'अन्य'],
-    message: 'तपाईंको सन्देश', messagePlaceholder: 'आफ्नो आवश्यकता छोटकरीमा लेख्नुहोस्',
-    submit: 'डेमो फारम जाँच गर्नुहोस्', demo: 'डेमो मात्र: तपाईंको विवरण पठाइएको वा सुरक्षित गरिएको छैन।',
-    privacy: 'गोपनीयता जानकारी', footerLine: 'पावरट्र्याक ट्र्याक्टर · विराटनगर, नेपाल',
-    footerNote: 'कम्पनीका विवरण तथा सम्पर्क जानकारी NTSL बाट पुष्टि हुन बाँकी।',
-    legal: 'गोपनीयता', terms: 'सर्तहरू', back: 'माथि जानुहोस् ↑',
-    formRequired: 'कृपया आवश्यक विवरण भर्नुहोस्।'
+    contactLabel: 'सम्पर्क',
+    contactTitle: <>हामी कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></>,
+    contactText: 'तलको फारम वेबसाइटको पूर्वावलोकनका लागि मात्र हो। यसले व्यक्तिगत विवरण पठाउँदैन वा सुरक्षित गर्दैन। कम्पनीबाट पुष्टि भएपछि आधिकारिक फोन र इमेल राखिनेछ।',
+    formTitle: 'सोधपुछ पठाउनुहोस्',
+    name: 'पूरा नाम', phone: 'फोन नम्बर', subject: 'सोधपुछको विषय', select: 'विषय छान्नुहोस्',
+    subjects: ['ट्र्याक्टरसम्बन्धी जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'स्पेयर पार्ट्स', 'अन्य'],
+    message: 'सन्देश', messageHint: 'आफ्नो जिज्ञासा लेख्नुहोस्',
+    send: 'सोधपुछ फारम जाँच गर्नुहोस्', demo: 'पूर्वावलोकन मात्र। तपाईंको विवरण पठाइएको वा सुरक्षित गरिएको छैन।',
+    branch: 'विराटनगर शाखा',
+    branchAddress: 'मुनालपथ, विराटनगर, कोशी प्रदेश, नेपाल',
+    directions: 'स्थान हेर्नुहोस्',
+    footer: 'NTSL Automotive Pvt. Ltd. · विराटनगर, नेपाल',
+    footerNote: 'वेबसाइट पूर्वावलोकन। कम्पनीका विवरण पुष्टि हुन बाँकी।',
+    privacy: 'गोपनीयता नीति', terms: 'प्रयोगका सर्तहरू', topLink: 'माथि जानुहोस् ↑'
   }
 }
 
-function Brand() {
-  return <a className="brand" href="#top" aria-label="NTSL Automotive home">
-    <span className="brand-symbol">N</span>
-    <span className="brand-name"><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span>
+const tractorImage = 'https://powertrac.escortskubota.com/_next/image?q=100&url=https%3A%2F%2Fcorpapi.escortskubota.com%2Fimages%2Fpowertrac%2Fproduct-series%2Fstar%2F30.webp&w=3840'
+
+function Logo() {
+  return <a className="logo" href="#home" aria-label="NTSL Automotive home">
+    <span className="logo-mark">N</span>
+    <span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span>
   </a>
 }
 
-function App() {
-  const [language, setLanguage] = useState('en')
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const t = copy[language]
+export default function App() {
+  const [lang, setLang] = useState('en')
+  const [menu, setMenu] = useState(false)
+  const [sent, setSent] = useState(false)
+  const t = content[lang]
 
-  function handleSubmit(event) {
+  function submit(event) {
     event.preventDefault()
-    setSubmitted(true)
+    setSent(true)
   }
 
-  return <div className={`site-shell ${language === 'ne' ? 'nepali' : ''}`}>
-    <div className="utility-bar">
-      <span>{t.top}</span>
-      <span className="utility-location"><MapPin size={12}/>{t.location}</span>
-      <div className="language-switch" aria-label="Choose language">
-        <button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button>
-        <span>/</span>
-        <button className={language === 'ne' ? 'active' : ''} onClick={() => setLanguage('ne')}>नेपाली</button>
-      </div>
-    </div>
-
-    <header className="site-header">
-      <Brand/>
-      <nav className={menuOpen ? 'main-nav open' : 'main-nav'} aria-label="Main navigation">
-        {t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
-        <a className="nav-action" href="#contact" onClick={() => setMenuOpen(false)}>{t.enquire}<ArrowUpRight size={15}/></a>
-      </nav>
-      <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>{menuOpen ? <X/> : <Menu/>}</button>
-    </header>
-
-    <main id="top">
-      <section className="hero">
-        <div className="hero-copy">
-          <div className="eyebrow"><span/> {t.eyebrow}</div>
-          <h1>{t.titleA}<br/><span>{t.titleB}</span><br/>{t.titleC}</h1>
-          <p>{t.intro}</p>
-          <div className="hero-buttons">
-            <a className="button button-blue" href="#tractors">{t.explore}<ArrowUpRight size={17}/></a>
-            <a className="button-link" href="#contact">{t.talk}<ChevronRight size={16}/></a>
-          </div>
-          <div className="hero-location"><MapPin size={15}/>{t.note}</div>
-        </div>
-        <div className="hero-visual" aria-label="Powertrac tractor brand feature">
-          <div className="visual-top"><span>NTSL / 01</span><span>POWERTRAC</span></div>
-          <div className="visual-center">
-            <div className="visual-orbit orbit-one"/><div className="visual-orbit orbit-two"/>
-            <div className="visual-letter">P<span>.</span></div>
-            <div className="visual-caption">POWERTRAC<br/>TRACTORS</div>
-          </div>
-          <div className="visual-bottom"><span>BUILT FOR THE WORK AHEAD</span><span>BIRATNAGAR, NEPAL</span></div>
-          <div className="visual-side">NTSL AUTOMOTIVE</div>
-        </div>
-        <div className="hero-vertical">LOCAL ENQUIRIES · MUNALPATH</div>
+  return <div className={lang === 'ne' ? 'site nepali' : 'site'}>
+    <div className="topline"><span>{t.top}</span><span className="top-location"><MapPin size={12}/>{t.location}</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
+    <header className="header"><Logo/><nav className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href="#contact" onClick={() => setMenu(false)}>{t.contact}<ArrowUpRight size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label="Toggle navigation">{menu ? <X/> : <Menu/>}</button></header>
+    <main>
+      <section className="hero" id="home">
+        <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#contact">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#support">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
+        <div className="hero-photo"><div className="photo-heading"><span>NTSL AUTOMOTIVE</span><span>01 / PRODUCT</span></div><img src={tractorImage} alt="Blue agricultural tractor" /><div className="photo-caption"><span>AGRICULTURAL MACHINERY</span><span>BIRATNAGAR, NEPAL</span></div></div>
       </section>
-
-      <section className="quick-facts" aria-label="NTSL information">
-        <div><span className="fact-index">01</span><div><strong>Powertrac</strong><small>Tractor enquiries</small></div></div>
-        <div><span className="fact-index">02</span><div><strong>Biratnagar</strong><small>Local point of contact</small></div></div>
-        <div><span className="fact-index">03</span><div><strong>NTSL Automotive</strong><small>Munalpath, Nepal</small></div></div>
-      </section>
-
-      <section className="range-section section-pad" id="tractors">
-        <div className="section-overline"><span>01 / {t.rangeLabel}</span><span>PRODUCT ENQUIRIES</span></div>
-        <div className="range-layout">
-          <div><div className="eyebrow"><span/>{t.rangeLabel}</div><h2>{t.rangeTitle}<br/><em>{t.rangeAccent}</em></h2></div>
-          <div className="range-detail"><p>{t.rangeText}</p><a className="button button-dark" href="#contact">{t.rangeCta}<ArrowUpRight size={16}/></a></div>
-        </div>
-        <div className="range-feature">
-          <div className="range-art">
-            <div className="range-art-grid"/>
-            <div className="range-art-mark">PT<span>/</span></div>
-            <div className="range-art-note">POWERTRAC<br/>TRACTOR RANGE</div>
-            <div className="range-art-foot">MODEL DETAILS AVAILABLE ON ENQUIRY</div>
-          </div>
-          <div className="range-aside">
-            <span className="aside-number">NTSL / POWERTRAC</span>
-            <h3>One conversation<br/>starts the search.</h3>
-            <p>Ask about model details, specifications and availability. Information will be confirmed by the NTSL team before being published here.</p>
-            <a href="#contact" className="inline-arrow">Make an enquiry <ArrowUpRight size={16}/></a>
-          </div>
-        </div>
-      </section>
-
-      <section className="support-section section-pad" id="support">
-        <div className="support-heading">
-          <div><div className="eyebrow"><span/>{t.supportEyebrow}</div><h2>{t.supportTitle}<br/><em>{t.supportAccent}</em></h2></div>
-          <p>{t.supportText}</p>
-        </div>
-        <div className="support-grid">
-          {t.supportItems.map(([title, description], index) => {
-            const Icon = [Tractor, Wrench, Settings2][index]
-            return <article className="support-card" key={title}>
-              <div className="support-card-top"><span>0{index + 1}</span><Icon size={22}/></div>
-              <h3>{title}</h3><p>{description}</p><a href="#contact" aria-label={title}><ArrowUpRight size={17}/></a>
-            </article>
-          })}
-        </div>
-      </section>
-
-      <section className="about-section section-pad" id="about">
-        <div className="about-stamp">NTSL<br/><span>EST.</span><br/>AUTO</div>
-        <div className="about-main">
-          <div className="eyebrow"><span/>{t.aboutEyebrow}</div>
-          <h2>{t.aboutTitle}<br/><em>{t.aboutAccent}</em></h2>
-        </div>
-        <div className="about-description"><p>{t.aboutText}</p><div className="address-card"><MapPin size={19}/><div><strong>{t.aboutPlace}</strong><span>{t.aboutAddress}</span></div></div></div>
-      </section>
-
-      <section className="contact-section section-pad" id="contact">
-        <div className="contact-intro">
-          <div className="eyebrow inverse"><span/>{t.contactEyebrow}</div>
-          <h2>{t.contactTitle}<br/><em>{t.contactAccent}</em></h2>
-          <p>{t.contactText}</p>
-          <div className="contact-location"><MapPin size={17}/><span>Munalpath, Biratnagar<br/><small>Koshi Province, Nepal</small></span></div>
-          <div className="contact-location"><ShieldCheck size={17}/><span>Company contact details<br/><small>To be confirmed before launch</small></span></div>
-        </div>
-        <form className="enquiry-form" onSubmit={handleSubmit}>
-          <div className="form-top"><span>ENQUIRY FORM</span><span>PREVIEW / 01</span></div>
-          <label>{t.name}<input name="name" autoComplete="name" required placeholder={t.name}/></label>
-          <label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label>
-          <label>{t.interest}<select name="interest" defaultValue="" required><option value="" disabled>{t.choose}</option>{t.options.map(option => <option key={option}>{option}</option>)}</select></label>
-          <label>{t.message}<textarea name="message" rows="3" placeholder={t.messagePlaceholder}/></label>
-          <button className="button button-blue submit-button" type="submit">{t.submit}<ArrowUpRight size={16}/></button>
-          {submitted && <p className="demo-confirmation" role="status">{t.demo}</p>}
-          <small className="form-privacy">{t.privacy}: <a href="/privacy.html">read here</a></small>
-        </form>
-      </section>
+      <div className="trust-strip"><div><span>01</span><strong>Local presence</strong><small>Biratnagar, Koshi Province</small></div><div><span>02</span><strong>Product enquiries</strong><small>Information from our team</small></div><div><span>03</span><strong>Customer support</strong><small>Service and parts enquiries</small></div></div>
+      <section className="company section" id="company"><div className="section-label">{t.aboutLabel}<span>01 — 03</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
+      <section className="tractor-section section" id="tractors"><div className="section-label">{t.tractorLabel}<span>02 — 03</span></div><div className="tractor-grid"><div className="tractor-photo"><img src={tractorImage} alt="Agricultural tractor product photograph" /></div><div className="tractor-copy"><h2>{t.tractorTitle}</h2><p>{t.tractorText}</p><a className="primary-button" href="#contact">{t.tractorButton}<ArrowUpRight size={16}/></a></div></div></section>
+      <section className="support section" id="support"><div className="section-label">{t.supportLabel}<span>03 — 03</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];return <article className="service-row" key={title}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p></div><ArrowUpRight className="service-arrow" size={19}/></article>})}</div></section>
+      <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>{t.contactLabel}</div><h2>{t.contactTitle}</h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>{t.branch}</strong><span>{t.branchAddress}</span><a href="https://www.google.com/maps/search/?api=1&query=Munalpath%2C+Biratnagar%2C+Nepal" target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>{t.formTitle}</strong><span>ONLINE ENQUIRY</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required defaultValue=""><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">{t.send}<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
-
-    <footer className="site-footer">
-      <Brand/>
-      <div className="footer-center">{t.footerLine}</div>
-      <div className="footer-links"><a href="/privacy.html">{t.legal}</a><a href="/terms.html">{t.terms}</a><a href="#top">{t.back}</a></div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>{t.footerNote}</span></div>
-    </footer>
+    <footer className="footer"><Logo/><span className="footer-center">{t.footer}</span><div className="footer-links"><a href="/privacy.html">{t.privacy}</a><a href="/terms.html">{t.terms}</a><a href="#home">{t.topLink}</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>{t.footerNote}</span></div></footer>
   </div>
 }
-
-export default App
