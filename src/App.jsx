@@ -51,8 +51,8 @@ const content = {
     contact: 'Contact us',
     topAction: 'नक्सामा हेर्नुहोस्',
     kicker: 'NTSL अटोमोटिभ · विराटनगर शाखा',
-    headline: <>ट्र्याक्टर, इलेक्ट्रिक स्कुटर<br/><i>तथा इलेक्ट्रिक टेम्पो</i></>,
-    intro: 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर तथा इलेक्ट्रिक टेम्पोका मोडेल, विशेषता र उपलब्धताबारे जानकारीका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्।',
+    headline: <>कृषि तथा यातायातका लागि <i>सवारी साधन</i></>,
+    intro: 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर तथा इलेक्ट्रिक टेम्पोसम्बन्धी जानकारीका लागि NTSL Automotive, विराटनगर शाखामा सम्पर्क गर्नुहोस्।',
     primary: 'सवारी साधन हेर्नुहोस्', secondary: 'शाखामा सम्पर्क गर्नुहोस्',
     address: 'मुनालपथ, विराटनगर, कोशी प्रदेश',
     aboutLabel: 'कम्पनी परिचय',
@@ -170,9 +170,9 @@ export default function App() {
     <main>
       <section className="hero" id="home">
         <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
-        <div className="hero-photo hero-gallery" aria-label="NTSL vehicle categories">
-          <div className="hero-gallery-main"><img src={vehicleImages.tractors} alt="Agricultural tractor" /><span>ट्र्याक्टर</span></div>
-          <div className="hero-gallery-side"><div><img src={vehicleImages.scooters} alt="Two-wheel electric scooter" /><span>इलेक्ट्रिक स्कुटर</span></div><div><img src={vehicleImages.tempos} alt="Electric passenger tempo" /><span>इलेक्ट्रिक टेम्पो</span></div></div>
+        <div className="hero-photo" aria-label="Agricultural tractor illustrative photograph">
+          <img src={vehicleImages.tractors} alt="कृषि ट्र्याक्टरको उदाहरणात्मक तस्बिर" />
+          <span className="hero-photo-caption">कृषि ट्र्याक्टर</span>
         </div>
       </section>
       <div className="trust-strip"><div><span>०१</span><strong>विराटनगर शाखा</strong><small>मुनालपथ, कोशी प्रदेश</small></div><div><span>०२</span><strong>तीन सवारी श्रेणी</strong><small>ट्र्याक्टर · इलेक्ट्रिक स्कुटर · इलेक्ट्रिक टेम्पो</small></div><div><span>०३</span><strong>सिधा सोधपुछ</strong><small>मोडेल, मूल्य र उपलब्धता पुष्टि गर्न</small></div></div>
