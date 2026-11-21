@@ -15,6 +15,9 @@ A React + Vite website foundation for NTSL Automotive Pvt. Ltd., prepared as a d
 ## Production build
 `npm run build`
 
+## Preview deployment
+The `build/ntsl-foundation` branch is linked to Vercel for preview deployments. The production branch remains `main`.
+
 ## Important project rules
 - Do not invent company history, branch details, contact information, tractor models, specifications, prices, warranties, testimonials or service promises.
 - Use only official or company-approved Powertrac and NTSL photographs. Do not use unrelated people or other dealerships' photos.
