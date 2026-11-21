@@ -177,3 +177,42 @@ button,input,select,textarea{font:inherit}
  .nepali .service-copy p{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service-row,.primary-button,.nav-contact{transition:none}}
+
+/* Stronger Nepali typography: readable at normal viewing distance */
+.nepali .nav{font-size:15px;gap:28px}
+.nepali .nav-contact{font-size:15px;padding:15px 20px}
+.nepali .topline{font-size:12px}
+.nepali .hero h1{font-size:clamp(54px,6vw,80px);line-height:1.5}
+.nepali .hero-text>p,.nepali .company-copy p,.nepali .tractor-copy p,.nepali .support-heading>p,.nepali .contact-left>p{font-size:17px;line-height:2.05}
+.nepali .hero-address{font-size:14px}
+.nepali .hero-actions .primary-button,.nepali .hero-actions .text-button,.nepali .underlined-link{font-size:15px}
+.nepali .eyebrow,.nepali .section-label{font-size:13px;line-height:1.8}
+.nepali .trust-strip strong{font-size:17px;line-height:1.7}
+.nepali .trust-strip small{font-size:14px;line-height:1.9}
+.nepali .company h2,.nepali .tractor-copy h2,.nepali .support-heading h2,.nepali .contact-left h2{font-size:clamp(48px,5vw,68px);line-height:1.55}
+.nepali .service-copy h3{font-size:19px;line-height:1.8}
+.nepali .service-copy p{font-size:15px;line-height:2}
+.nepali .service-action{font-size:15px}
+.nepali .branch-info strong{font-size:17px}
+.nepali .branch-info span{font-size:15px;line-height:2}
+.nepali .contact-form label{font-size:16px;line-height:1.9}
+.nepali .form-heading strong{font-size:18px}
+.nepali .contact-form input,.nepali .contact-form select,.nepali .contact-form textarea{font-size:16px;line-height:1.8;min-height:52px}
+.nepali .demo-message,.nepali .privacy-link{font-size:13px;line-height:1.9}
+.nepali .footer-center,.nepali .footer-links a,.nepali .footer-bottom{font-size:13px;line-height:1.8}
+@media(max-width:650px){
+ .nepali .nav{font-size:16px}
+ .nepali .nav-contact{font-size:15px}
+ .nepali .hero h1{font-size:clamp(46px,12vw,62px);line-height:1.55}
+ .nepali .hero-text>p,.nepali .company-copy p,.nepali .tractor-copy p,.nepali .support-heading>p,.nepali .contact-left>p{font-size:15px;line-height:2.05}
+ .nepali .company h2,.nepali .tractor-copy h2,.nepali .support-heading h2,.nepali .contact-left h2{font-size:clamp(40px,10vw,50px);line-height:1.55}
+ .nepali .trust-strip strong{font-size:16px}
+ .nepali .trust-strip small{font-size:14px}
+ .nepali .service-copy h3{font-size:17px;line-height:1.8}
+ .nepali .service-copy p{font-size:14px;line-height:2}
+ .nepali .service-action{font-size:14px}
+ .nepali .branch-info strong{font-size:16px}
+ .nepali .branch-info span{font-size:14px}
+ .nepali .contact-form label{font-size:15px}
+ .nepali .contact-form input,.nepali .contact-form select,.nepali .contact-form textarea{font-size:15px}
+}
