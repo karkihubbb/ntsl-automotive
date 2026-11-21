@@ -170,10 +170,13 @@ export default function App() {
     <main>
       <section className="hero" id="home">
         <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
-        <div className="hero-photo" aria-label="Agricultural tractor illustrative photograph">
-          <img src={vehicleImages.tractors} alt="कृषि ट्र्याक्टरको उदाहरणात्मक तस्बिर" />
-          <span className="hero-photo-caption">कृषि ट्र्याक्टर</span>
-        </div>
+        <aside className="hero-category-panel" aria-label="सवारी साधनका श्रेणी">
+          <div className="hero-panel-heading"><span>हाम्रा सवारी साधन</span><small>VEHICLE CATEGORIES</small></div>
+          <a href="/tractors"><span>०१</span><strong>ट्र्याक्टर</strong><ArrowUpRight size={18}/></a>
+          <a href="/electric-scooters"><span>०२</span><strong>इलेक्ट्रिक स्कुटर</strong><ArrowUpRight size={18}/></a>
+          <a href="/electric-tempos"><span>०३</span><strong>इलेक्ट्रिक टेम्पो</strong><ArrowUpRight size={18}/></a>
+          <p>मोडेल, मूल्य तथा उपलब्धताबारे विराटनगर शाखाबाट जानकारी लिनुहोस्।</p>
+        </aside>
       </section>
       <div className="trust-strip"><div><span>०१</span><strong>विराटनगर शाखा</strong><small>मुनालपथ, कोशी प्रदेश</small></div><div><span>०२</span><strong>तीन सवारी श्रेणी</strong><small>ट्र्याक्टर · इलेक्ट्रिक स्कुटर · इलेक्ट्रिक टेम्पो</small></div><div><span>०३</span><strong>सिधा सोधपुछ</strong><small>मोडेल, मूल्य र उपलब्धता पुष्टि गर्न</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
