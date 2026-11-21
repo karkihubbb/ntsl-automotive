@@ -3,3 +3,52 @@
 @media(max-width:850px){.nav{gap:16px;font-size:11px}.hero{gap:4%}.hero-photo{height:340px}.company-grid{gap:6%}.contact-section{gap:6%}}
 @media(max-width:650px){.topline{padding:0 5%;font-size:7px;gap:10px}.header{height:72px;padding:0 5%}.menu-button{display:block}.nav{display:none;position:absolute;z-index:10;top:106px;left:0;right:0;background:#fff;padding:22px 5%;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.nav.nav-open{display:flex}.nav-contact{justify-content:space-between}.hero{padding:48px 5%;grid-template-columns:1fr;gap:32px}.hero h1{font-size:54px}.hero-photo{height:290px}.trust-strip{padding:12px 5%;grid-template-columns:1fr}.trust-strip>div,.trust-strip>div:first-child{padding:13px 0;border-right:0;border-bottom:1px solid var(--line)}.trust-strip>div:last-child{border:0}.section{padding:60px 5%}.company-grid,.tractor-grid{grid-template-columns:1fr;gap:24px;padding-top:27px}.company h2,.tractor-copy h2,.support-heading h2{font-size:43px}.tractor-photo{min-height:230px}.tractor-photo img{height:210px}.support-heading{display:block;padding:27px 0}.support-heading>p{margin-top:16px}.service-row{grid-template-columns:28px 40px 1fr 18px;gap:10px}.service-copy h3{font-size:14px}.contact-section{padding:60px 5%;grid-template-columns:1fr;gap:30px}.contact-form{padding:24px 20px}.footer{padding:25px 5% 17px;grid-template-columns:1fr 1fr}.footer-center{grid-column:1/-1;grid-row:2;text-align:left}.footer-links{gap:10px}.footer-links a{font-size:8px}.footer-bottom{grid-column:1/-1;flex-direction:column;gap:8px}.hero-actions{gap:15px}.primary-button{padding:0 14px;gap:10px;font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* Readability and stronger editorial hierarchy */
+.hero{position:relative;isolation:isolate}
+.hero:before{content:"";position:absolute;z-index:-1;left:0;top:0;bottom:0;width:5px;background:var(--green2)}
+.hero-photo{border:1px solid #d4ddd3;box-shadow:18px 18px 0 #e7ece5}
+.hero-photo:after{content:"";position:absolute;z-index:0;inset:12px;border:1px solid #ffffffa8;pointer-events:none}
+.trust-strip{background:#fbfcfa}
+.trust-strip>div{min-height:62px}
+.company{position:relative}
+.company-grid{padding-top:44px}
+.company-copy{max-width:510px}
+.tractor-section{background:#eef2ec}
+.tractor-photo{position:relative;overflow:hidden;border:1px solid #d9e1d8}
+.tractor-photo:after{content:"";position:absolute;inset:12px;border:1px solid #ffffffa8;pointer-events:none}
+.tractor-copy{padding:30px 0 30px 8px}
+.service-row{transition:background .2s ease,padding .2s ease}
+.service-row:hover{background:#f7f9f6;padding-left:12px;padding-right:12px}
+.contact-section{position:relative;overflow:hidden}
+.contact-section:before{content:"NTSL";position:absolute;right:-20px;top:-68px;font:800 clamp(130px,25vw,320px)/1 Manrope,sans-serif;letter-spacing:-.09em;color:#ffffff08;pointer-events:none}
+.contact-left,.contact-form{position:relative;z-index:1}
+.contact-form{box-shadow:0 20px 60px #10251b30}
+.primary-button,.nav-contact{transition:background .2s ease,transform .2s ease}
+.primary-button:hover,.nav-contact:hover{transform:translateY(-2px)}
+/* Devanagari needs a little more size, line-height and breathing room */
+.nepali{font-family:'Noto Sans Devanagari',sans-serif}
+.nepali .topline{font-size:10px;letter-spacing:0}
+.nepali .nav{font-size:14px}
+.nepali .nav-contact{font-size:13px}
+.nepali .eyebrow,.nepali .section-label{font-size:11px;letter-spacing:0}
+.nepali .hero h1{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(48px,5.7vw,76px);font-weight:700;line-height:1.42;letter-spacing:-.025em;margin-top:20px}
+.nepali .company h2,.nepali .tractor-copy h2,.nepali .support-heading h2,.nepali .contact-left h2{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(42px,4.7vw,62px);font-weight:700;line-height:1.5;letter-spacing:-.02em}
+.nepali .hero-text>p,.nepali .company-copy p,.nepali .tractor-copy p,.nepali .support-heading>p,.nepali .contact-left>p{font-size:15px;line-height:2}
+.nepali .primary-button,.nepali .text-button,.nepali .underlined-link{font-size:13px}
+.nepali .hero-address,.nepali .trust-strip small,.nepali .service-copy p,.nepali .branch-info span{font-size:12px;line-height:1.9}
+.nepali .trust-strip strong,.nepali .service-copy h3,.nepali .branch-info strong{font-size:14px}
+.nepali .contact-form label{font-size:13px}
+.nepali .form-heading strong{font-family:'Noto Sans Devanagari',sans-serif;font-size:15px}
+.nepali .form-heading span{font-size:10px;letter-spacing:0}
+.nepali .contact-form input,.nepali .contact-form select,.nepali .contact-form textarea{font-size:13px;min-height:46px}
+.nepali .footer-center,.nepali .footer-links a,.nepali .footer-bottom{font-size:10px}
+@media(max-width:650px){
+ .hero-photo{box-shadow:9px 9px 0 #e7ece5}
+ .nepali .hero h1{font-size:clamp(43px,11vw,58px);line-height:1.48}
+ .nepali .company h2,.nepali .tractor-copy h2,.nepali .support-heading h2,.nepali .contact-left h2{font-size:clamp(37px,9vw,47px);line-height:1.5}
+ .nepali .nav{font-size:15px}
+ .nepali .hero-text>p,.nepali .company-copy p,.nepali .tractor-copy p,.nepali .support-heading>p,.nepali .contact-left>p{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.service-row,.primary-button,.nav-contact{transition:none}}
