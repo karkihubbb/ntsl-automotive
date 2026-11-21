@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowUpRight, Menu, X, MapPin, Phone, Wrench, Settings, Tractor, ChevronRight } from 'lucide-react'
 
 const content = {
@@ -101,6 +101,10 @@ export default function App() {
   const [sent, setSent] = useState(false)
   const t = content[lang]
 
+  useEffect(() => {
+    document.documentElement.lang = lang === 'ne' ? 'ne' : 'en'
+  }, [lang])
+
   function submit(event) {
     event.preventDefault()
     setSent(true)
@@ -108,15 +112,15 @@ export default function App() {
 
   return <div className={lang === 'ne' ? 'site nepali' : 'site'}>
     <div className="topline"><span>{t.top}</span><span className="top-location"><MapPin size={12}/>{t.location}</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
-    <header className="header"><Logo/><nav className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href="#contact" onClick={() => setMenu(false)}>{t.contact}<ArrowUpRight size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label="Toggle navigation">{menu ? <X/> : <Menu/>}</button></header>
+    <header className="header"><Logo/><nav id="primary-navigation" className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href="#contact" onClick={() => setMenu(false)}>{t.contact}<ArrowUpRight size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label={menu ? "Close navigation" : "Open navigation"} aria-expanded={menu} aria-controls="primary-navigation">{menu ? <X/> : <Menu/>}</button></header>
     <main>
       <section className="hero" id="home">
         <div className="hero-text"><div className="eyebrow"><span/>कृषि यन्त्र तथा ग्राहक सेवा</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#contact">सोधपुछ गर्नुहोस्<ArrowUpRight size={16}/></a><a className="text-button" href="#support">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
-        <div className="hero-photo"><div className="photo-heading"><span>NTSL AUTOMOTIVE</span><span>०१ / उत्पादन</span></div><img src={tractorImage} alt="Blue agricultural tractor" /><div className="photo-caption"><span>कृषि यन्त्र</span><span>विराटनगर, नेपाल</span></div></div>
+        <div className="hero-photo"><div className="photo-heading"><span>NTSL AUTOMOTIVE</span><span>०१ / उत्पादन</span></div><img src={tractorImage} alt="Blue agricultural tractor" fetchPriority="high" decoding="async" /><div className="photo-caption"><span>कृषि यन्त्र</span><span>विराटनगर, नेपाल</span></div></div>
       </section>
       <div className="trust-strip"><div><span>०१</span><strong>स्थानीय शाखा</strong><small>विराटनगर, कोशी प्रदेश</small></div><div><span>०२</span><strong>ट्र्याक्टर तथा उपकरण</strong><small>उत्पादनसम्बन्धी जानकारी</small></div><div><span>०३</span><strong>बिक्रीपछिको सेवा</strong><small>मर्मत तथा पार्टपुर्जासम्बन्धी सहयोग</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
-      <section className="tractor-section section" id="tractors"><div className="section-label">ट्र्याक्टर तथा उपकरण<span>०२ — ०३</span></div><div className="tractor-grid"><div className="tractor-photo"><img src={tractorImage} alt="Agricultural tractor product photograph" /></div><div className="tractor-copy"><h2>{t.tractorTitle}</h2><p>{t.tractorText}</p><a className="primary-button" href="#contact">{t.tractorButton}<ArrowUpRight size={16}/></a></div></div></section>
+      <section className="tractor-section section" id="tractors"><div className="section-label">ट्र्याक्टर तथा उपकरण<span>०२ — ०३</span></div><div className="tractor-grid"><div className="tractor-photo"><img src={tractorImage} alt="Agricultural tractor product photograph" loading="lazy" decoding="async" /></div><div className="tractor-copy"><h2>{t.tractorTitle}</h2><p>{t.tractorText}</p><a className="primary-button" href="#contact">{t.tractorButton}<ArrowUpRight size={16}/></a></div></div></section>
       <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];return <article className="service-row" key={title}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p></div><ArrowUpRight className="service-arrow" size={19}/></article>})}</div></section>
       <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>{t.contactTitle}</h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href="https://www.google.com/maps/search/?api=1&query=Munalpath%2C+Biratnagar%2C+Nepal" target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required defaultValue=""><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">सोधपुछ पठाउनुहोस्<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
