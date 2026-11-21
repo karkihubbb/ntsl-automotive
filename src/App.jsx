@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Menu, X, MapPin, Phone, Wrench, Settings, Tractor, ChevronRight } from 'lucide-react'
+import { ArrowUpRight, Menu, X, MapPin, Phone, Wrench, Settings, Tractor, ChevronRight, Zap, Truck } from 'lucide-react'
 
 const content = {
   en: {
     top: 'NTSL AUTOMOTIVE PRIVATE LIMITED',
     location: 'BIRATNAGAR, NEPAL',
-    nav: [['Home', '#home'], ['Company', '#company'], ['Tractors', '#tractors'], ['After-sales', '#support'], ['Contact', '#contact']],
+    nav: [['Home', '#home'], ['Company', '#company'], ['Vehicles', '#tractors'], ['After-sales', '#support'], ['Contact', '#contact']],
     contact: 'Contact us',
     topAction: 'View location',
     kicker: 'NTSL AUTOMOTIVE · BIRATNAGAR BRANCH',
-    headline: <>Tractors & agricultural<br/>machinery in <i>Biratnagar.</i></>,
-    intro: 'Explore tractor models, compare specifications and contact our Biratnagar branch for prices and availability.',
-    primary: 'View tractor models', secondary: 'Contact the branch',
+    headline: <>Vehicles for work<br/>and everyday travel in <i>Biratnagar.</i></>,
+    intro: 'Explore tractors, electric scooters and electric tempos. Contact our Biratnagar branch for product details and availability.',
+    primary: 'Explore vehicles', secondary: 'Contact the branch',
     address: 'Munalpath, Biratnagar, Koshi Province',
     aboutLabel: 'COMPANY PROFILE',
     aboutTitle: <>A local presence<br/>in <i>Biratnagar.</i></>,
-    aboutText: 'NTSL Automotive Pvt. Ltd. serves customers from its Biratnagar location at Munalpath. We are preparing this website to make company information, tractor enquiries and customer support easier to access.',
+    aboutText: 'NTSL Automotive Pvt. Ltd. serves customers from its Biratnagar location at Munalpath. We are preparing this website to make company information, vehicle enquiries and customer support easier to access.',
     aboutNote: 'Company profile and operating details will be published after confirmation by NTSL Automotive.',
     tractorLabel: 'TRACTOR ENQUIRIES',
     tractorTitle: <>Find the right machine<br/>for your <i>requirements.</i></>,
@@ -25,7 +25,7 @@ const content = {
     supportTitle: <>Support beyond<br/>the <i>purchase.</i></>,
     supportText: 'Contact our team for information about the support options available through the Biratnagar location.',
     services: [
-      ['Product information', 'Discuss your requirements and request details about available tractors.', '01'],
+      ['Vehicle information', 'Ask about tractors, electric scooters and electric tempos.', '01'],
       ['Service enquiries', 'Ask the team about service, maintenance and support arrangements.', '02'],
       ['Parts enquiries', 'Contact us to enquire about parts and availability.', '03']
     ],
@@ -34,7 +34,7 @@ const content = {
     contactText: 'Send an enquiry using the preview form. It does not transmit or store personal information. Official phone and email details will be added after company confirmation.',
     formTitle: 'SEND AN ENQUIRY',
     name: 'Full name', phone: 'Phone number', subject: 'Enquiry type', select: 'Select a subject',
-    subjects: ['Tractor information', 'Model availability', 'Service and maintenance', 'Spare parts', 'Other'],
+    subjects: ['Tractor information', 'Electric scooter information', 'Electric tempo information', 'Model availability', 'Service and maintenance', 'Spare parts', 'Other'],
     message: 'Message', messageHint: 'Write your enquiry here',
     send: 'Submit enquiry', demo: 'Preview only. Your information has not been sent or saved.',
     branch: 'BIRATNAGAR LOCATION',
@@ -47,13 +47,13 @@ const content = {
   ne: {
     top: 'NTSL अटोमोटिभ प्रा. लि.',
     location: 'विराटनगर, नेपाल',
-    nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['ट्र्याक्टर', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
+    nav: [['गृहपृष्ठ', '#home'], ['कम्पनी', '#company'], ['सवारी साधन', '#tractors'], ['सेवा सहयोग', '#support'], ['सम्पर्क', '#contact']],
     contact: 'Contact us',
     topAction: 'नक्सामा हेर्नुहोस्',
     kicker: 'NTSL अटोमोटिभ · विराटनगर शाखा',
-    headline: <>ट्र्याक्टर तथा<br/><i>कृषि यन्त्र</i></>,
-    intro: 'ट्र्याक्टरका मोडेल, विशेषता, मूल्य तथा उपलब्धताबारे जानकारीका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्।',
-    primary: 'ट्र्याक्टरका मोडेल हेर्नुहोस्', secondary: 'शाखामा सम्पर्क गर्नुहोस्',
+    headline: <>ट्र्याक्टर, इलेक्ट्रिक स्कुटर<br/><i>तथा इलेक्ट्रिक टेम्पो</i></>,
+    intro: 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर तथा इलेक्ट्रिक टेम्पोका मोडेल, विशेषता र उपलब्धताबारे जानकारीका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्।',
+    primary: 'सवारी साधन हेर्नुहोस्', secondary: 'शाखामा सम्पर्क गर्नुहोस्',
     address: 'मुनालपथ, विराटनगर, कोशी प्रदेश',
     aboutLabel: 'कम्पनी परिचय',
     aboutTitle: <>विराटनगरमा<br/><i>स्थानीय उपस्थिति।</i></>,
@@ -67,7 +67,7 @@ const content = {
     supportTitle: <>खरिदपछि पनि<br/><i>सहयोग।</i></>,
     supportText: 'विराटनगर शाखाबाट उपलब्ध सहयोगका विकल्पबारे जानकारी लिन हाम्रो टोलीसँग सम्पर्क गर्नुहोस्।',
     services: [
-      ['उत्पादन जानकारी', 'आफ्नो आवश्यकता बताउनुहोस् र उपलब्ध ट्र्याक्टरबारे जानकारी लिनुहोस्।', '०१'],
+      ['सवारी साधनको जानकारी', 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर तथा इलेक्ट्रिक टेम्पोबारे जानकारी लिनुहोस्।', '०१'],
       ['सर्भिससम्बन्धी सोधपुछ', 'सर्भिस, मर्मत तथा सहयोग व्यवस्थाबारे जानकारी लिनुहोस्।', '०२'],
       ['पार्ट्ससम्बन्धी सोधपुछ', 'पार्ट्स र उपलब्धताबारे जानकारीका लागि सम्पर्क गर्नुहोस्।', '०३']
     ],
@@ -76,7 +76,7 @@ const content = {
     contactText: 'तलको फारम वेबसाइटको पूर्वावलोकनका लागि मात्र हो। यसले व्यक्तिगत विवरण पठाउँदैन वा सुरक्षित गर्दैन। कम्पनीबाट पुष्टि भएपछि आधिकारिक फोन र इमेल राखिनेछ।',
     formTitle: 'सोधपुछ पठाउनुहोस्',
     name: 'पूरा नाम', phone: 'फोन नम्बर', subject: 'सोधपुछको विषय', select: 'विषय छान्नुहोस्',
-    subjects: ['ट्र्याक्टरसम्बन्धी जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'स्पेयर पार्ट्स', 'अन्य'],
+    subjects: ['ट्र्याक्टरसम्बन्धी जानकारी', 'इलेक्ट्रिक स्कुटरसम्बन्धी जानकारी', 'इलेक्ट्रिक टेम्पोसम्बन्धी जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'स्पेयर पार्ट्स', 'अन्य'],
     message: 'सन्देश', messageHint: 'आफ्नो जिज्ञासा लेख्नुहोस्',
     send: 'Submit enquiry', demo: 'पूर्वावलोकन मात्र। तपाईंको विवरण पठाइएको वा सुरक्षित गरिएको छैन।',
     branch: 'विराटनगर शाखा',
@@ -123,10 +123,10 @@ export default function App() {
         <div className="hero-text"><div className="eyebrow"><span/>{t.kicker}</div><h1>{t.headline}</h1><p>{t.intro}</p><div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div><div className="hero-address"><MapPin size={16}/>{t.address}</div></div>
         <div className="hero-photo"><img src={tractorImage} alt="Agricultural tractor product image; local dealership photo pending" fetchPriority="high" decoding="async" /></div>
       </section>
-      <div className="trust-strip"><div><span>०१</span><strong>स्थानीय शाखा</strong><small>विराटनगर, कोशी प्रदेश</small></div><div><span>०२</span><strong>ट्र्याक्टर तथा उपकरण</strong><small>उत्पादनसम्बन्धी जानकारी</small></div><div><span>०३</span><strong>बिक्रीपछिको सेवा</strong><small>मर्मत तथा पार्टपुर्जासम्बन्धी सहयोग</small></div></div>
+      <div className="trust-strip"><div><span>०१</span><strong>स्थानीय शाखा</strong><small>विराटनगर, कोशी प्रदेश</small></div><div><span>०२</span><strong>ट्र्याक्टर, स्कुटर र टेम्पो</strong><small>मोडेल तथा उत्पादन जानकारी</small></div><div><span>०३</span><strong>बिक्रीपछिको सेवा</strong><small>मर्मत तथा पार्टपुर्जासम्बन्धी सहयोग</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
-      <section className="tractor-section section" id="tractors"><div className="section-label">ट्र्याक्टर तथा उपकरण<span>०२ — ०३</span></div><div className="tractor-grid"><div className="tractor-photo"><img src={tractorImage} alt="Agricultural tractor product photograph" loading="lazy" decoding="async" /></div><div className="tractor-copy"><h2>{t.tractorTitle}</h2><p>{t.tractorText}</p><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[0])}>{t.tractorButton}<ArrowUpRight size={16}/></a></div></div></section>
-      <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];const subject = t.subjects[i === 0 ? 0 : i === 1 ? 2 : 3];return <a className="service-row" href="#service-details" key={title} onClick={() => setActiveService(i)}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p><span className="service-action">सोधपुछ गर्नुहोस् <ArrowUpRight size={13}/></span></div><ArrowUpRight className="service-arrow" size={19}/></a>})}</div>{activeService !== null && <div className="service-detail" id="service-details"><div><span className="eyebrow">{t.services[activeService][0]}</span><h3>{t.services[activeService][0]}</h3><p>{t.services[activeService][1]}</p></div><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[activeService === 0 ? 0 : activeService === 1 ? 2 : 3])}>सोधपुछ गर्नुहोस् <ArrowUpRight size={16}/></a></div>}</section>
+      <section className="vehicle-section section" id="tractors"><div className="section-label">{lang === 'ne' ? 'हाम्रा सवारी साधन' : 'OUR VEHICLES'}<span>02 — 03</span></div><div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो आवश्यकता अनुसार छान्नुहोस्।' : 'Explore our vehicle categories.'}</h2><p>{lang === 'ne' ? 'मोडेल, मूल्य र उपलब्धता कम्पनीबाट पुष्टि भएपछि थपिनेछ।' : 'Model details, prices and availability will be added after confirmation by the company.'}</p></div><div className="vehicle-categories"><article className="vehicle-card tractor-card"><div className="vehicle-card-image"><img src={tractorImage} alt="Tractor category" loading="lazy" /></div><div className="vehicle-card-copy"><span>01</span><h3>{lang === 'ne' ? 'ट्र्याक्टर' : 'Tractors'}</h3><p>{lang === 'ne' ? 'कृषि तथा अन्य कामका लागि।' : 'Agricultural and utility tractors.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[0])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Zap size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>02</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक स्कुटर' : 'Electric scooters'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[1])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article><article className="vehicle-card"><div className="vehicle-card-icon"><Truck size={54} strokeWidth={1.25}/></div><div className="vehicle-card-copy"><span>03</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempos'}</h3><p>{lang === 'ne' ? 'मोडेल तथा विशेषता छिट्टै थपिनेछ।' : 'Models and specifications coming soon.'}</p><a href="#contact" onClick={() => setSelectedSubject(t.subjects[2])}>{lang === 'ne' ? 'जानकारी लिनुहोस्' : 'Enquire'} <ArrowUpRight size={15}/></a></div></article></div></section>
+      <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];const subject = t.subjects[i === 0 ? 0 : i === 1 ? 4 : 5];return <a className="service-row" href="#service-details" key={title} onClick={() => setActiveService(i)}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p><span className="service-action">सोधपुछ गर्नुहोस् <ArrowUpRight size={13}/></span></div><ArrowUpRight className="service-arrow" size={19}/></a>})}</div>{activeService !== null && <div className="service-detail" id="service-details"><div><span className="eyebrow">{t.services[activeService][0]}</span><h3>{t.services[activeService][0]}</h3><p>{t.services[activeService][1]}</p></div><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[activeService === 0 ? 0 : activeService === 1 ? 4 : 5])}>सोधपुछ गर्नुहोस् <ArrowUpRight size={16}/></a></div>}</section>
       <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href={branchMapUrl} target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required value={selectedSubject} onChange={event => setSelectedSubject(event.target.value)}><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">Submit enquiry<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
     </main>
     <footer className="footer"><Logo/><span className="footer-center">{t.footer}</span><div className="footer-links"><a href="/privacy.html">{t.privacy}</a><a href="/terms.html">{t.terms}</a><a href="#home">{t.topLink}</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>{t.footerNote}</span></div></footer>
