@@ -141,7 +141,8 @@ function VehiclePage({ path }) {
       </section>
       <section className="category-catalogue"><div className="section-label">{lang === 'en' ? 'PRODUCT CATALOGUE' : 'उत्पादन सूची'}<span>01 — 01</span></div><div className="catalogue-empty"><span>{lang === 'en' ? 'CATALOGUE IN PREPARATION' : 'उत्पादन सूची तयार हुँदैछ'}</span><h2>{page.category}</h2><p>{page.note}</p><a className="underlined-link" href={'/#contact'}>{lang === 'en' ? 'Ask the Biratnagar branch' : 'विराटनगर शाखामा सोध्नुहोस्'}<ArrowUpRight size={15}/></a></div></section>
     </main>
-    <footer className="footer"><a className="logo" href="/"><span className="logo-mark">N</span><span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span></a><span className="footer-center">NTSL Automotive Pvt. Ltd. · Biratnagar, Nepal</span><div className="footer-links"><a href="/">Home</a><a href={mapUrl} target="_blank" rel="noreferrer">View location</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>Website preview. Company details subject to verification.</span></div></footer>
+    <footer className="footer"><a className="logo" href="/"><span className="logo-mark">N</span><span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span></a><span className="footer-center">NTSL Automotive Pvt. Ltd. · Biratnagar, Nepal</span><div className="footer-links"><a href="/">Home</a><a href={mapUrl} target="_blank" rel="noreferrer">View location</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/accessibility">Accessibility</a><a href="/legal">Legal</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>Website preview. Company details subject to verification.</span></div></footer>
+    <CookieNotice/>
   </div>
 }
 
