@@ -1144,3 +1144,110 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Sans D
  .cinematic-video{display:none}
  .cinematic-hero{background:#294b39}
 }
+
+
+/* NTSL OEM identity: midnight navy, engineered silver, clean white, signal red */
+:root{
+ --ink:#17212b;--paper:#f7f8fa;--panel:#edf0f3;--line:#d9dfe5;--muted:#687582;
+ --accent:#d52b35;--dark:#111c27;--dark2:#1d2b38;
+ --brand-green:#d52b35;--brand-crimson:#d52b35;--brand-gold:#aeb8c2;
+ --brand-paper:#f7f8fa;--brand-border:#d9dfe5;--brand-muted:#687582;
+}
+body,.site,.legal-site{background:#f7f8fa;color:#17212b}
+.topline{background:#101a24;color:#d9e0e7}
+.header{background:#fff;border-color:#e1e5e9}
+.logo-mark,.footer .logo-mark{background:#d52b35!important;color:#fff!important}
+.logo strong{color:#15212d}
+.logo small{color:#7b8792}
+.nav{color:#354454}
+.nav>a:not(.nav-contact):after{background:#d52b35}
+.nav-contact,.primary-button,.submit{background:#d52b35;color:#fff}
+.nav-contact:hover,.primary-button:hover,.submit:hover{background:#ad202a}
+.eyebrow>span,.section-label span{background:#d52b35}
+.hero,.company,.showroom-services,.legal-main{background:#f7f8fa}
+.hero h1,.company h2,.tractor-copy h2,.support-heading h2,.contact-left h2{color:#172633}
+.hero h1 i,.company h2 i,.tractor-copy h2 i,.support-heading h2 i,.contact-left h2 i{color:#d52b35}
+.hero-text>p,.company-copy p,.tractor-copy p,.support-heading>p{color:#596775}
+.hero-photo{background:#172634}
+.hero-photo:before{background:linear-gradient(135deg,#314253,#101b26)}
+.hero-photo:after{border-color:#ffffff45}
+.trust-strip{background:#172633;color:#fff}
+.trust-strip>div{border-color:#ffffff2b}
+.trust-strip span{color:#e35b62}
+.trust-strip small{color:#c2ccd5}
+.cinematic-hero{background:#101d29;color:#fff}
+.cinematic-video{filter:saturate(.78) contrast(1.08)}
+.cinematic-shade{background:linear-gradient(90deg,rgba(10,20,30,.88),rgba(14,27,39,.62) 47%,rgba(14,27,39,.16)),linear-gradient(0deg,rgba(8,17,26,.58),transparent 48%)}
+.cinematic-kicker>span,.cinematic-footnote svg{background:#e33c46;color:#fff}
+.cinematic-overline{color:#d5dde5}
+.cinematic-title em{color:#f06a70}
+.cinematic-intro{color:#e0e6ec}
+.cinematic-primary{background:#fff;color:#172633}
+.cinematic-primary:hover{background:#d52b35;color:#fff}
+.cinematic-secondary:hover{color:#ff858b}
+.cinematic-index span,.cinematic-scroll span{color:#f06a70}
+.category-marquee{background:#e9edf1;color:#34475a;border-color:#d7dfe6}
+.marquee-track span{color:#425568}
+.marquee-track b{color:#d52b35}
+.vehicle-section,.support,.category-catalogue{background:#edf1f4}
+.vehicle-intro h2,.showroom-services-head h2,.catalogue-empty h2{color:#172633}
+.vehicle-intro p,.showroom-services-head>p{color:#657381}
+.vehicle-card{background:#fff;border:1px solid #e0e5ea}
+.vehicle-card-image{background:#e5e9ed}
+.vehicle-card-image:after{background:linear-gradient(0deg,#101d2a70,transparent)}
+.vehicle-card-copy h3{color:#1b2a38}
+.vehicle-card-copy p{color:#657381}
+.vehicle-card-copy a,.underlined-link{color:#bd2630;border-color:#d52b35}
+.showroom-service-grid,.showroom-service-grid article,.service-list,.service-row{border-color:#d9e0e6}
+.showroom-service-icon{background:#e8edf2;color:#d52b35}
+.showroom-service-grid h3,.service-copy h3{color:#1c2b39}
+.showroom-service-grid p,.service-copy p{color:#64717e}
+.service-icon{background:#1b2b3a;color:#fff}
+.service-row:hover{background:#e5eaf0}
+.service-action,.service-arrow{color:#d52b35}
+.service-detail{background:#172a3a;border-left-color:#d52b35;color:#fff}
+.service-detail p{color:#d1dbe4}
+.contact-section{background:#142330;color:#fff}
+.contact-left h2{color:#fff}
+.contact-left h2 i{color:#f06a70}
+.contact-left>p{color:#c6d0d9}
+.branch-info>svg{color:#f06a70}
+.branch-info strong{color:#fff}
+.branch-info span{color:#c6d0d9}
+.contact-form{background:#fff;color:#1a2937;box-shadow:10px 10px 0 #d52b3522}
+.form-heading{border-color:#e1e6eb}
+.contact-form label{color:#455667}
+.contact-form input,.contact-form select,.contact-form textarea{border-color:#d6dee5;background:#fbfcfd;color:#172633}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#d52b35}
+.footer{background:#0e1822;color:#e6ebef}
+.footer .logo strong{color:#fff}
+.footer .logo small{color:#aab6c1}
+.footer-center,.footer-bottom{color:#aebbc6}
+.footer-links a{color:#e1e7ec}
+.category-hero{background:#f7f8fa}
+.category-copy h1{color:#172633}
+.category-copy>p,.category-location{color:#657381}
+.category-location svg{color:#d52b35}
+.category-visual{background:#e7ecf0}
+.catalogue-empty{background:#fff;border-left-color:#d52b35}
+.catalogue-empty p{color:#657381}
+.cookie-notice{background:#fff;color:#172633;border-color:#dce2e8}
+.cookie-eyebrow,.legal-kicker{color:#c72b35}
+.cookie-copy p{color:#657381}
+.cookie-detail a,.cookie-primary{color:#fff;background:#d52b35;border-color:#d52b35}
+.cookie-secondary{color:#34485a;border-color:#cbd4dc}
+.legal-breadcrumb a,.legal-back,.legal-related a{color:#c52b35}
+.legal-heading{border-color:#dce2e8}
+.legal-heading h1,.legal-content h2{color:#172633}
+.legal-heading p,.legal-content p{color:#657381}
+.legal-index a.active{color:#c52b35}
+.legal-content section{border-color:#e1e6eb}
+.legal-content section>span{color:#d52b35}
+.legal-review-note{background:#f5eeee;border-left-color:#d52b35}
+.legal-review-note strong,.legal-review-note p{color:#71434a}
+.nepali .cinematic-title em{color:#f06a70}
+@media(max-width:650px){
+ .nav{background:#fff;border-color:#e1e5e9}
+ .cinematic-shade{background:linear-gradient(90deg,rgba(10,20,30,.88),rgba(14,27,39,.5)),linear-gradient(0deg,rgba(8,17,26,.58),transparent 58%)}
+ .vehicle-card{border:1px solid #e0e5ea}
+}
