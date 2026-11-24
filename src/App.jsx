@@ -185,7 +185,7 @@ export default function App() {
         <div className="cinematic-content" data-reveal>
           <div className="cinematic-kicker"><span />{t.kicker}</div>
           <p className="cinematic-overline">AGRICULTURE <b>·</b> MOBILITY <b>·</b> ELECTRIC</p>
-          <h1>{lang === 'en' ? <>The right vehicle<br />for <i>what moves you.</i></> : <>तपाईंको आवश्यकताका लागि<br /><i>उपयुक्त सवारी।</i></>}</h1>
+          <h1 className="cinematic-title">{lang === 'en' ? <><span className="title-line"><span>Built for the</span></span><span className="title-line"><span>way you <em>move.</em></span></span></> : <><span className="title-line"><span>तपाईंको यात्राका</span></span><span className="title-line"><span>लागि <em>उपयुक्त।</em></span></span></>}</h1>
           <p className="cinematic-intro">{t.intro}</p>
           <div className="cinematic-actions">
             <a className="cinematic-primary" href="#tractors">{t.primary}<ArrowUpRight size={17} /></a>
