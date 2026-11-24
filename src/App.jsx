@@ -91,9 +91,9 @@ const content = {
 const branchMapUrl = 'https://www.google.com/maps/search/?api=1&query=N.T.S.L+Automotive+Pvt.+Ltd+Munal+Path+Biratnagar'
 
 const vehicleImages = {
-  tractors: 'https://pngpix.com/images/hd/tractor-with-disc-harrow-png-51-1m87auxxy6g09l74.jpg',
-  scooters: 'https://bike.zigcdn.com/processedimages/yakuza-electric/rubie/source/rubie689067a76b314.jpg',
-  tempos: 'https://images.livemint.com/img/2022/06/10/original/OSM_STREAM_1654853237834.jpeg'
+  tractors: '/vehicle-tractor.svg',
+  scooters: '/vehicle-scooter.svg',
+  tempos: '/vehicle-tempo.svg'
 }
 
 
@@ -139,7 +139,35 @@ function VehiclePage({ path }) {
         <div className="category-copy"><div className="eyebrow"><span/>{page.kicker}</div><h1>{page.title}</h1><p>{page.intro}</p><a className="primary-button" href={'/#contact'}>{page.cta}<ArrowUpRight size={16}/></a><div className="category-location"><MapPin size={16}/>Munalpath, Biratnagar, Koshi Province</div></div>
         <div className="category-visual"><img src={vehicleImages[path === '/tractors' ? 'tractors' : path === '/electric-scooters' ? 'scooters' : 'tempos']} alt={page.title + ' illustrative photo'} /></div>
       </section>
-      <section className="category-catalogue"><div className="section-label">{lang === 'en' ? 'PRODUCT CATALOGUE' : 'उत्पादन सूची'}<span>01 — 01</span></div><div className="catalogue-empty"><span>{lang === 'en' ? 'CATALOGUE IN PREPARATION' : 'उत्पादन सूची तयार हुँदैछ'}</span><h2>{page.category}</h2><p>{page.note}</p><a className="underlined-link" href={'/#contact'}>{lang === 'en' ? 'Ask the Biratnagar branch' : 'विराटनगर शाखामा सोध्नुहोस्'}<ArrowUpRight size={15}/></a></div></section>
+      <section className="category-catalogue">
+        <div className="section-label">{lang === 'en' ? 'MODEL INFORMATION' : 'मोडेलसम्बन्धी जानकारी'}<span>01 — 03</span></div>
+        <div className="category-details-intro"><div><span className="category-detail-kicker">{lang === 'en' ? 'UNDERSTAND THE MACHINE' : 'सवारीलाई बुझ्नुहोस्'}</span><h2>{lang === 'en' ? 'Every detail, clearly explained.' : 'हरेक विशेषता स्पष्ट रूपमा।'}</h2></div><p>{lang === 'en' ? 'A model page should explain what each specification means, how it affects everyday use, and which details to compare before choosing. Model-specific figures will be published only after NTSL confirms its actual range.' : 'मोडेल पृष्ठमा प्रत्येक विशेषताको अर्थ, दैनिक प्रयोगमा यसको प्रभाव र छनोट गर्नुअघि तुलना गर्नुपर्ने विवरण स्पष्ट गरिनेछ। NTSL बाट वास्तविक मोडेल पुष्टि भएपछि मात्र मोडेलअनुसारका तथ्याङ्क राखिनेछन्।'}</p></div>
+        <div className="category-spec-grid">
+          {(path === '/tractors' ? [
+            ['Engine power (HP)','Shows the engine output and helps compare the work a tractor is designed to handle.'],
+            ['Transmission','Explains the gearbox and available speeds, which affect control across field and transport work.'],
+            ['Drive type','Shows whether power is delivered to two wheels or all four, affecting traction in different conditions.'],
+            ['PTO and hydraulics','Describes support for compatible implements and the tractor’s ability to lift and operate equipment.'],
+            ['Fuel and operating data','Covers the manufacturer’s stated fuel-use information and the conditions used for any published figure.'],
+            ['Dimensions and capacity','Includes weight, turning dimensions, lifting capacity and other measurements relevant to the task.']
+          ] : path === '/electric-scooters' ? [
+            ['Motor power','Rated and peak output describe the motor’s continuous capability and short-duration maximum output.'],
+            ['Battery and capacity','Identifies battery chemistry and capacity; capacity is commonly expressed in kWh or Ah with voltage.'],
+            ['Claimed range','The maker’s stated distance per charge, with test conditions and real-world factors explained.'],
+            ['Charging time','The stated time to charge, including charger type and the starting and ending battery levels.'],
+            ['Brakes, tyres and safety','Explains braking equipment, tyre dimensions, lighting and any manufacturer-stated safety features.'],
+            ['Dimensions and warranty','Includes weight, seat height, load limits and the official warranty terms, where confirmed.']
+          ] : [
+            ['Vehicle configuration','Clarifies whether the vehicle is designed for passengers, cargo or another approved use.'],
+            ['Motor and power','Explains the electric motor’s rated output and peak output as specified by the manufacturer.'],
+            ['Battery and charging','Lists battery chemistry, capacity, charger type and the maker’s stated charging time.'],
+            ['Range and load','Explains the stated range and how passenger or cargo load, route and driving conditions affect it.'],
+            ['Capacity and dimensions','Covers approved seating or payload, vehicle size, ground clearance and turning dimensions.'],
+            ['Brakes, safety and warranty','Summarises braking equipment, safety features and warranty terms confirmed by the manufacturer.']
+          ]).map(([title,desc],i)=><article className="category-spec-card" key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{desc}</p></div></article>)}
+        </div>
+        <div className="catalogue-empty"><span>{lang === 'en' ? 'MODEL CATALOGUE' : 'मोडेल सूची'}</span><h2>{page.category}</h2><p>{page.note}</p><p className="catalogue-caution">{lang === 'en' ? 'We will add an individual page for every confirmed model, including its overview, specifications, feature explanations, operating information and official product imagery. No unverified model names, figures or prices will be shown.' : 'पुष्टि भएका प्रत्येक मोडेलका लागि परिचय, विशेषता, सुविधाको व्याख्या, सञ्चालनसम्बन्धी जानकारी र आधिकारिक तस्बिरसहित छुट्टै पृष्ठ बनाइनेछ। पुष्टि नभएका मोडेल, तथ्याङ्क वा मूल्य राखिने छैन।'}</p><a className="underlined-link" href={'/#contact'}>{page.cta}<ArrowUpRight size={15}/></a></div>
+      </section>
     </main>
     <footer className="footer"><a className="logo" href="/"><span className="logo-mark">N</span><span><strong>NTSL</strong><small>AUTOMOTIVE PVT. LTD.</small></span></a><span className="footer-center">NTSL Automotive Pvt. Ltd. · Biratnagar, Nepal</span><div className="footer-links"><a href="/">Home</a><a href={mapUrl} target="_blank" rel="noreferrer">View location</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/accessibility">Accessibility</a><a href="/legal">Legal</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>Website preview. Company details subject to verification.</span></div></footer>
     <CookieNotice/>
@@ -280,9 +308,9 @@ export default function App() {
         <div className="section-label">{lang === 'ne' ? 'सवारी साधन सूची' : 'THE VEHICLE COLLECTION'}<span>02 — 03</span></div>
         <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो यात्राका लागि उपयुक्त सवारी।' : 'Engineered for every journey.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टरदेखि इलेक्ट्रिक मोबिलिटीसम्मका सवारीहरू।' : 'A closer look at our vehicle categories.'}</p></div>
         <div className="vehicle-editorial-grid">
-          <a className="vehicle-editorial-card vehicle-tractor" href="#contact"><img src="/vehicle-tractor.svg" alt="Original cinematic tractor illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">01 / AGRICULTURE</span><span className="vehicle-editorial-copy"><small>POWERING PROGRESS</small><strong>Tractors</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
-          <a className="vehicle-editorial-card vehicle-scooter" href="#contact"><img src="/vehicle-scooter.svg" alt="Original cinematic electric scooter illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">02 / ELECTRIC MOBILITY</span><span className="vehicle-editorial-copy"><small>MOVE DIFFERENTLY</small><strong>Electric Scooters</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
-          <a className="vehicle-editorial-card vehicle-tempo" href="#contact"><img src="/vehicle-tempo.svg" alt="Original cinematic electric tempo illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">03 / THREE-WHEELERS</span><span className="vehicle-editorial-copy"><small>BUILT FOR EVERYDAY</small><strong>Electric Tempos</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-tractor" href="/tractors"><img src="/vehicle-tractor.svg" alt="Original cinematic tractor illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">01 / AGRICULTURE</span><span className="vehicle-editorial-copy"><small>POWERING PROGRESS</small><strong>Tractors</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-scooter" href="/electric-scooters"><img src="/vehicle-scooter.svg" alt="Original cinematic electric scooter illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">02 / ELECTRIC MOBILITY</span><span className="vehicle-editorial-copy"><small>MOVE DIFFERENTLY</small><strong>Electric Scooters</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-tempo" href="/electric-tempos"><img src="/vehicle-tempo.svg" alt="Original cinematic electric tempo illustration" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">03 / THREE-WHEELERS</span><span className="vehicle-editorial-copy"><small>BUILT FOR EVERYDAY</small><strong>Electric Tempos</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
         </div>
         <p className="vehicle-image-note">Original illustrative vehicle artwork created for this website. These illustrations are not exact product photographs and do not confirm NTSL models, stock or availability.</p>
       </section>
