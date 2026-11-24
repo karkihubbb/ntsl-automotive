@@ -1617,3 +1617,24 @@ body,.site,.legal-site{background:#f7f8fa;color:#17212b}
 .vehicle-image-note{margin:17px 0 0;color:#aab8c0;font-size:10px;line-height:1.7;max-width:850px}
 @media(max-width:900px){.vehicle-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vehicle-tractor{height:390px}.vehicle-scooter,.vehicle-tempo{height:300px}}
 @media(max-width:540px){.vehicle-editorial-grid{grid-template-columns:1fr;gap:12px}.vehicle-tractor{grid-column:1;height:300px}.vehicle-scooter,.vehicle-tempo{height:260px}.vehicle-editorial-copy{left:19px;bottom:20px}.vehicle-editorial-number{left:18px;top:17px}.vehicle-editorial-copy strong{font-size:32px}.vehicle-tractor .vehicle-editorial-copy strong{font-size:39px}}
+
+
+/* Vehicle category detail pages */
+.category-details-intro{display:grid;grid-template-columns:1fr .8fr;gap:8%;align-items:end;margin:38px 0 34px}
+.category-detail-kicker{font-size:10px;font-weight:800;letter-spacing:.15em;color:#d52b35}
+.category-details-intro h2{font:750 clamp(34px,4vw,54px)/1.08 Manrope,sans-serif;letter-spacing:-.055em;color:#172633;margin:13px 0 0}
+.category-details-intro>p{font-size:14px;line-height:1.95;color:#64727e;margin:0;max-width:540px}
+.category-spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.category-spec-card{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:25px 24px;background:#fff;border:1px solid #dce2e7;min-height:145px}
+.category-spec-card>span{font:800 11px Manrope;color:#d52b35;padding-top:4px}
+.category-spec-card h3{font:750 17px Manrope,sans-serif;color:#172633;margin:0 0 8px}
+.category-spec-card p{font-size:12px;line-height:1.85;color:#667582;margin:0}
+.catalogue-empty{margin-top:40px;max-width:none}
+.catalogue-empty .catalogue-caution{border-top:1px solid #e0e5e9;margin-top:20px;padding-top:18px;font-size:12px}
+.category-hero .category-visual img{object-fit:contain}
+@media(max-width:700px){
+ .category-details-intro{grid-template-columns:1fr;gap:15px;margin:27px 0}
+ .category-spec-grid{grid-template-columns:1fr}
+ .category-spec-card{min-height:unset;padding:21px}
+ .category-details-intro h2{font-size:36px}
+}
