@@ -566,3 +566,57 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 @media(max-width:900px){.showroom-hero{grid-template-columns:1fr!important;gap:30px!important}.showroom-stage{height:440px}.showroom-services-head{grid-template-columns:1fr;gap:16px}}
 @media(max-width:650px){.showroom-hero{padding:40px 5% 44px!important}.showroom-stage{height:370px}.stage-caption{left:18px;right:18px;bottom:74px}.stage-caption>strong{font-size:34px}.stage-caption>p{font-size:12px}.stage-topline{padding:13px}.showroom-services{padding:58px 5%}.showroom-service-grid{grid-template-columns:1fr}.showroom-service-grid article,.showroom-service-grid article:last-child{min-height:0;padding:24px 0;border-right:0;border-bottom:1px solid var(--brand-border);margin:0}.showroom-service-grid article:last-child{border-bottom:0}.hero-slide-progress{margin-top:20px}.marquee-track span{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-track,.stage-slide>img,.hero-slide-progress i{animation:none!important}.stage-slide,.stage-slide.active,.stage-caption,[data-reveal]{transition:none!important;transform:none!important}.stage-slide:not(.active){display:none}.vehicle-card,.vehicle-card-image img,.service-row{transition:none!important}}
+
+
+/* NTSL cinematic homepage hero */
+.cinematic-hero{
+  position:relative;isolation:isolate;min-height:clamp(560px,calc(100svh - 117px),780px);
+  display:flex;align-items:center;overflow:hidden;background:#17291d;color:#fff;
+  padding:92px 7.2% 106px;
+}
+.cinematic-video,.cinematic-shade{position:absolute;inset:0;width:100%;height:100%}
+.cinematic-video{z-index:-2;object-fit:cover;object-position:center 54%}
+.cinematic-shade{z-index:-1;background:linear-gradient(90deg,rgba(10,24,16,.86) 0%,rgba(10,24,16,.68) 39%,rgba(10,24,16,.22) 75%,rgba(10,24,16,.12) 100%),linear-gradient(0deg,rgba(8,20,13,.56),transparent 38%)}
+.cinematic-content{width:min(760px,72%);position:relative;z-index:1}
+.cinematic-kicker{display:flex;align-items:center;gap:11px;color:#f1eadb;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.cinematic-kicker>span{width:29px;height:2px;background:var(--brand-gold)}
+.cinematic-overline{margin:29px 0 0;color:#e5c77c;font-size:10px;font-weight:800;letter-spacing:.2em}
+.cinematic-overline b{padding:0 7px;color:#fff8}
+.cinematic-content h1{max-width:800px;margin:17px 0 20px;color:#fff;font-size:clamp(48px,6.2vw,84px);line-height:1.04;letter-spacing:-.055em;font-weight:800}
+.cinematic-content h1 i{font-style:normal;color:#e9c46a}
+.cinematic-intro{max-width:550px;margin:0;color:#f0f1e9;font-size:16px;line-height:1.9}
+.cinematic-actions{display:flex;align-items:center;gap:27px;flex-wrap:wrap;margin-top:31px}
+.cinematic-primary{min-height:52px;padding:0 20px;display:inline-flex;align-items:center;gap:20px;background:var(--brand-crimson);color:#fff;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
+.cinematic-primary:hover{background:#951b22;transform:translateY(-2px)}
+.cinematic-secondary{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:12px;font-weight:700}
+.cinematic-secondary svg{transition:transform .2s}
+.cinematic-secondary:hover svg{transform:translateX(4px)}
+.cinematic-footnote{display:flex;align-items:center;gap:9px;margin-top:42px;color:#e2e8df;font-size:11px}
+.cinematic-footnote svg{color:#e9c46a}
+.cinematic-index{position:absolute;right:7.2%;bottom:35px;display:flex;align-items:center;gap:11px;color:#f1f0e9;font-size:9px;font-weight:800;letter-spacing:.16em}
+.cinematic-index span{color:#e9c46a;font-size:13px}
+.cinematic-index i{width:42px;height:1px;background:#ffffff8c}
+.cinematic-scroll{position:absolute;left:7.2%;bottom:35px;color:#ffffffb8;font-size:9px;font-weight:800;letter-spacing:.16em}
+.cinematic-scroll span{padding-left:10px;color:#e9c46a;font-size:14px}
+.nepali .cinematic-content h1{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(43px,5.4vw,70px);line-height:1.48;letter-spacing:0}
+.nepali .cinematic-intro{font-size:17px;line-height:2}
+.nepali .cinematic-kicker{font-size:13px;letter-spacing:0}
+.nepali .cinematic-primary,.nepali .cinematic-secondary{font-size:14px}
+@media(max-width:760px){
+  .cinematic-hero{min-height:690px;padding:76px 5% 104px;align-items:center}
+  .cinematic-video{object-position:58% center}
+  .cinematic-shade{background:linear-gradient(90deg,rgba(9,23,15,.82),rgba(9,23,15,.47)),linear-gradient(0deg,rgba(8,20,13,.58),transparent 55%)}
+  .cinematic-content{width:100%;max-width:620px}
+  .cinematic-content h1{font-size:clamp(44px,10vw,66px);line-height:1.08}
+  .cinematic-intro{font-size:14px;line-height:1.85;max-width:480px}
+  .cinematic-footnote{margin-top:31px}
+  .cinematic-scroll{left:5%;bottom:28px}
+  .cinematic-index{right:5%;bottom:28px;font-size:8px;gap:7px}
+  .cinematic-index i{width:20px}
+  .nepali .cinematic-content h1{font-size:clamp(39px,9vw,56px);line-height:1.55}
+  .nepali .cinematic-intro{font-size:15px;line-height:2}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinematic-video{display:none}
+  .cinematic-hero{background:#183b25 url('https://pngpix.com/images/hd/tractor-with-disc-harrow-png-51-1m87auxxy6g09l74.jpg') center/cover no-repeat}
+}
