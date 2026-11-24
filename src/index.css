@@ -1475,3 +1475,69 @@ body,.site,.legal-site{background:#f7f8fa;color:#17212b}
   .vehicle-card,.vehicle-card-image img,.vehicle-card-copy a{transition:none}
   .vehicle-card:hover{transform:none}
 }
+
+
+/* Interactive 3D vehicle showroom */
+.vehicle-section{background:#101d28!important;color:#f5f7f8;padding-top:88px;padding-bottom:88px}
+.vehicle-section .section-label{color:#d4dce0;border-color:#ffffff28}
+.vehicle-section .section-label span{color:#9eabb2}
+.vehicle-intro{margin:38px 0 30px;align-items:end}
+.vehicle-intro h2{color:#fff!important;font-size:clamp(36px,4.4vw,58px);letter-spacing:-.045em;line-height:1.08}
+.vehicle-intro p{color:#b4c0c6!important;border-left:2px solid #d52b35;padding-left:18px;line-height:1.9}
+.showroom-switcher{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.showroom-switcher button{display:flex;align-items:center;gap:12px;padding:13px 18px;background:#1a2b37;border:1px solid #ffffff22;color:#c5d0d5;font-size:12px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.showroom-switcher button span{font-size:9px;color:#e35b62;letter-spacing:.1em}
+.showroom-switcher button.active{background:#d52b35;border-color:#d52b35;color:#fff}
+.showroom-switcher button.active span{color:#fff}
+.showroom-stage{background:radial-gradient(ellipse at 50% 48%,#334754 0%,#1c2d39 48%,#14232e 100%);border:1px solid #ffffff24;min-height:560px;position:relative;overflow:hidden}
+.showroom-stage:after{content:'';position:absolute;left:10%;right:10%;bottom:80px;height:1px;background:linear-gradient(90deg,transparent,#ffffff35,transparent);pointer-events:none}
+.showroom-stage-top{position:absolute;z-index:2;top:22px;left:26px;right:26px;display:flex;justify-content:space-between;gap:16px;color:#dce4e7;font-size:9px;font-weight:800;letter-spacing:.13em;pointer-events:none}
+.showroom-stage-top span:last-child{display:flex;align-items:center;gap:8px;color:#b9c6cc}
+.showroom-stage-top i{width:7px;height:7px;border-radius:50%;background:#d52b35;box-shadow:0 0 12px #d52b35}
+.vehicle-model{display:block;width:100%;height:500px;--poster-color:transparent;background:transparent;outline:none;--progress-bar-color:#d52b35;--progress-bar-height:3px}
+.vehicle-model::part(default-progress-bar){background:#d52b35}
+.model-progress{height:3px;background:#ffffff20}
+.model-progress span{display:block;height:100%;width:35%;background:#d52b35;animation:model-loading 1.2s ease-in-out infinite alternate}
+@keyframes model-loading{to{width:90%}}
+.model-ar-button{display:none}
+.showroom-controls{position:absolute;z-index:3;bottom:0;left:0;right:0;min-height:58px;padding:0 24px;display:flex;align-items:center;gap:24px;background:#0b1720b8;border-top:1px solid #ffffff18;color:#c7d1d5;font-size:9px;font-weight:800;letter-spacing:.1em}
+.showroom-controls span{display:flex;align-items:center;gap:8px}
+.showroom-controls b{font-size:16px;color:#e45b61}
+.showroom-controls button{margin-left:auto;border:0;border-bottom:1px solid #d52b35;background:none;color:#fff;padding:8px 0;font-size:9px;font-weight:800;letter-spacing:.1em;cursor:pointer}
+.tempo-preview{height:500px;display:flex;align-items:center;justify-content:center;gap:7%;padding:50px 9%}
+.tempo-preview img{width:55%;height:330px;object-fit:contain;filter:drop-shadow(0 22px 20px #0005)}
+.tempo-preview>div{max-width:300px}
+.tempo-preview>div>span,.showroom-disclaimer>span{font-size:9px;letter-spacing:.16em;font-weight:800;color:#e66b70}
+.tempo-preview h3{font-size:clamp(28px,3vw,40px);color:#fff;margin:15px 0}
+.tempo-preview p{font-size:13px;line-height:1.8;color:#bdc8cd}
+.showroom-disclaimer{display:flex;gap:24px;align-items:flex-start;padding:20px 0 0}
+.showroom-disclaimer>span{white-space:nowrap;padding-top:3px}
+.showroom-disclaimer p{margin:0;color:#aebbc2;font-size:11px;line-height:1.8;max-width:850px}
+.nepali .vehicle-intro h2,.nepali .tempo-preview h3{font-family:'Noto Sans Devanagari',sans-serif;letter-spacing:0;line-height:1.5}
+.nepali .vehicle-intro p,.nepali .showroom-disclaimer p{font-size:14px;line-height:2}
+@media(max-width:760px){
+ .vehicle-section{padding:64px 5%}
+ .vehicle-intro{display:grid;grid-template-columns:1fr;gap:15px}
+ .vehicle-intro p{max-width:460px}
+ .showroom-stage{min-height:440px}
+ .vehicle-model{height:390px}
+ .tempo-preview{height:390px;padding:54px 6% 66px;flex-direction:column;gap:0;text-align:center}
+ .tempo-preview img{width:100%;height:220px}
+ .tempo-preview>div{max-width:440px}
+ .showroom-controls{gap:12px;padding:0 12px;font-size:8px}
+ .showroom-controls button{font-size:8px}
+ .showroom-stage-top{left:14px;right:14px;top:15px;font-size:8px}
+ .showroom-disclaimer{display:block}
+ .showroom-disclaimer p{margin-top:8px}
+}
+@media(max-width:480px){
+ .showroom-switcher{display:grid;grid-template-columns:1fr 1fr}
+ .showroom-switcher button{justify-content:flex-start;padding:12px 10px;font-size:10px}
+ .showroom-switcher button:last-child{grid-column:1/-1}
+ .vehicle-model{height:350px}
+ .showroom-stage{min-height:405px}
+ .showroom-controls{min-height:55px;gap:8px;letter-spacing:.03em}
+ .showroom-controls span{gap:4px}
+ .showroom-controls button{max-width:94px;text-align:right;line-height:1.4}
+}
+@media(prefers-reduced-motion:reduce){.showroom-switcher button,.model-progress span{transition:none;animation:none}}
