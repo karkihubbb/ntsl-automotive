@@ -153,21 +153,7 @@ export default function App() {
   const [sent, setSent] = useState(false)
   const [selectedSubject, setSelectedSubject] = useState('')
   const [activeService, setActiveService] = useState(null)
-  const [heroSlide, setHeroSlide] = useState(0)
-  const [slidePaused, setSlidePaused] = useState(false)
   const t = content[lang]
-  const heroSlides = [
-    { label: 'AGRICULTURE & UTILITY', title: 'Tractors', sub: 'Explore agricultural and utility tractor options.', image: vehicleImages.tractors, href: '/tractors', index: '01' },
-    { label: 'ELECTRIC TWO-WHEELERS', title: 'Electric scooters', sub: 'Discover electric mobility for everyday journeys.', image: vehicleImages.scooters, href: '/electric-scooters', index: '02' },
-    { label: 'ELECTRIC THREE-WHEELERS', title: 'Electric tempos', sub: 'Explore electric passenger and utility transport.', image: vehicleImages.tempos, href: '/electric-tempos', index: '03' }
-  ]
-
-  useEffect(() => {
-    if (slidePaused) return
-    const timer = window.setInterval(() => setHeroSlide(current => (current + 1) % heroSlides.length), 5200)
-    return () => window.clearInterval(timer)
-  }, [slidePaused, heroSlides.length])
-
   useEffect(() => {
     const nodes = document.querySelectorAll('[data-reveal]')
     if (!('IntersectionObserver' in window)) { nodes.forEach(node => node.classList.add('is-visible')); return }
@@ -191,25 +177,24 @@ export default function App() {
     <div className="topline"><span>{t.top}</span><span className="top-location"><MapPin size={12}/>{t.location}</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
     <header className="header"><Logo/><nav id="primary-navigation" className={menu ? 'nav nav-open' : 'nav'}>{t.nav.map(([label, href]) => <a key={href} href={href} onClick={() => setMenu(false)}>{label}</a>)}<a className="nav-contact" href={branchMapUrl} target="_blank" rel="noreferrer" onClick={() => setMenu(false)}>{t.topAction}<MapPin size={15}/></a></nav><button className="menu-button" onClick={() => setMenu(!menu)} aria-label={menu ? "Close navigation" : "Open navigation"} aria-expanded={menu} aria-controls="primary-navigation">{menu ? <X/> : <Menu/>}</button></header>
     <main>
-      <section className="hero showroom-hero" id="home">
-        <div className="hero-text" data-reveal>
-          <div className="eyebrow"><span/>{t.kicker}</div>
-          <p className="hero-overline">MOBILITY · AGRICULTURE · ELECTRIC</p>
-          <h1>{lang === 'en' ? <>The right vehicle<br/>for <i>what moves you.</i></> : <>तपाईंको आवश्यकताका लागि<br/><i>उपयुक्त सवारी।</i></>}</h1>
-          <p>{t.intro}</p>
-          <div className="hero-actions"><a className="primary-button" href="#tractors">{t.primary}<ArrowUpRight size={16}/></a><a className="text-button" href="#contact">{t.secondary}<ChevronRight size={16}/></a></div>
-          <div className="hero-address"><MapPin size={16}/>{t.address}</div>
-          <div className="hero-slide-progress"><span>0{heroSlide + 1}</span><div><i style={{width: slidePaused ? '100%' : '100%'}}/></div><span>03</span></div>
+      <section className="cinematic-hero" id="home">
+        <video className="cinematic-video" autoPlay muted loop playsInline preload="metadata" poster={vehicleImages.tractors} aria-hidden="true">
+          <source src="https://videos.pexels.com/video-files/33971961/14413067_1920_1080_50fps.mp4" type="video/mp4" />
+        </video>
+        <div className="cinematic-shade" />
+        <div className="cinematic-content" data-reveal>
+          <div className="cinematic-kicker"><span />{t.kicker}</div>
+          <p className="cinematic-overline">AGRICULTURE <b>·</b> MOBILITY <b>·</b> ELECTRIC</p>
+          <h1>{lang === 'en' ? <>The right vehicle<br />for <i>what moves you.</i></> : <>तपाईंको आवश्यकताका लागि<br /><i>उपयुक्त सवारी।</i></>}</h1>
+          <p className="cinematic-intro">{t.intro}</p>
+          <div className="cinematic-actions">
+            <a className="cinematic-primary" href="#tractors">{t.primary}<ArrowUpRight size={17} /></a>
+            <a className="cinematic-secondary" href="#contact">{t.secondary}<ChevronRight size={16} /></a>
+          </div>
+          <div className="cinematic-footnote"><MapPin size={15} />{t.address}</div>
         </div>
-        <div className="showroom-stage" onMouseEnter={() => setSlidePaused(true)} onMouseLeave={() => setSlidePaused(false)} onFocus={() => setSlidePaused(true)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setSlidePaused(false) }}>
-          <div className="stage-topline"><span>FEATURED CATEGORIES</span><span>01 / 03</span></div>
-          {heroSlides.map((slide, index) => <div className={index === heroSlide ? 'stage-slide active' : 'stage-slide'} key={slide.index} aria-hidden={index !== heroSlide}>
-            <img src={slide.image} alt={slide.title + ' illustrative vehicle image'} />
-            <div className="stage-image-wash"/>
-            <div className="stage-caption"><span>{slide.label}</span><strong>{slide.title}</strong><p>{slide.sub}</p><a href={slide.href}>Explore category <ArrowUpRight size={16}/></a></div>
-          </div>)}
-          <div className="stage-controls"><div className="stage-dots">{heroSlides.map((slide,index)=><button key={slide.index} className={index===heroSlide?'active':''} onClick={()=>setHeroSlide(index)} aria-label={'Show '+slide.title}/>)}</div><div className="stage-arrows"><button onClick={()=>setHeroSlide(current=>(current+2)%3)} aria-label="Previous slide"><ChevronRight className="flip-arrow"/></button><button onClick={()=>setHeroSlide(current=>(current+1)%3)} aria-label="Next slide"><ChevronRight/></button></div></div>
-        </div>
+        <div className="cinematic-index"><span>01</span><i />NTSL AUTOMOTIVE · BIRATNAGAR</div>
+        <div className="cinematic-scroll">SCROLL TO EXPLORE <span>↓</span></div>
       </section>
       <div className="category-marquee" aria-label="Vehicle categories"><div className="marquee-track">{Array.from({length:2}).map((_,i)=><span key={i}>TRACTORS <b>✳</b> ELECTRIC SCOOTERS <b>✳</b> ELECTRIC TEMPOS <b>✳</b> NTSL AUTOMOTIVE <b>✳</b> कृषि तथा यातायात <b>✳</b></span>)}</div></div>
       <div className="trust-strip"><div><span>०१</span><strong>विराटनगर शाखा</strong><small>मुनालपथ, कोशी प्रदेश</small></div><div><span>०२</span><strong>तीन सवारी श्रेणी</strong><small>ट्र्याक्टर · इलेक्ट्रिक स्कुटर · इलेक्ट्रिक टेम्पो</small></div><div><span>०३</span><strong>सिधा सोधपुछ</strong><small>मोडेल, मूल्य र उपलब्धता पुष्टि गर्न</small></div></div>
