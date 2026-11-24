@@ -1596,3 +1596,24 @@ body,.site,.legal-site{background:#f7f8fa;color:#17212b}
 .vehicle-image-note{margin:17px 0 0;color:#aab8c0;font-size:10px;line-height:1.7;max-width:850px}
 @media(max-width:760px){.cinematic-vehicle-grid{grid-template-columns:1fr 1fr;grid-template-rows:330px 230px 230px}.tractor-card{grid-column:1 / span 2;grid-row:1}.scooter-card{grid-column:1 / span 2;grid-row:2}.tempo-one{grid-column:1;grid-row:3}.tempo-two{grid-column:2;grid-row:3}.vehicle-card-copy{left:16px;bottom:16px}.vehicle-card-copy strong{font-size:25px}.vehicle-card-index{left:16px;top:16px}}
 @media(max-width:480px){.cinematic-vehicle-grid{grid-template-rows:290px 220px 205px 205px}.tractor-card,.scooter-card,.tempo-one,.tempo-two{grid-column:1}.tractor-card{grid-row:1}.scooter-card{grid-row:2}.tempo-one{grid-row:3}.tempo-two{grid-row:4}.vehicle-card-copy strong{font-size:27px}}
+
+
+/* Cinematic vehicle category photography: tractor feature, three distinct EV categories */
+.vehicle-editorial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:38px}
+.vehicle-editorial-card{position:relative;display:block;min-width:0;overflow:hidden;background:#14232e;color:#fff;text-decoration:none;isolation:isolate;border:1px solid rgba(255,255,255,.14)}
+.vehicle-editorial-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.78) saturate(.86);transition:transform 900ms cubic-bezier(.2,.7,.2,1),filter 700ms}
+.vehicle-editorial-card:hover img{transform:scale(1.035);filter:brightness(.9) saturate(1)}
+.vehicle-tractor{grid-column:1/-1;height:470px}
+.vehicle-scooter,.vehicle-motorcycle,.vehicle-tempo{height:340px}
+.vehicle-editorial-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,14,21,.62) 0%,rgba(5,14,21,.08) 75%),linear-gradient(0deg,rgba(5,14,21,.78),transparent 58%)}
+.vehicle-editorial-number{position:absolute;z-index:2;top:24px;left:26px;font-size:10px;font-weight:800;letter-spacing:.15em;color:rgba(255,255,255,.9)}
+.vehicle-editorial-copy{position:absolute;z-index:2;left:25px;right:18px;bottom:27px;display:flex;flex-direction:column;align-items:flex-start}
+.vehicle-editorial-copy small{font-size:9px;font-weight:800;letter-spacing:.16em;color:#ff777d;margin-bottom:9px}
+.vehicle-editorial-copy strong{font-size:clamp(26px,2.5vw,38px);line-height:1.04;letter-spacing:-.05em;font-weight:650}
+.vehicle-tractor .vehicle-editorial-copy strong{font-size:clamp(38px,4.3vw,62px)}
+.vehicle-editorial-copy em{display:flex;align-items:center;gap:8px;margin-top:17px;font-size:10px;font-style:normal;font-weight:750;letter-spacing:.05em}
+.vehicle-editorial-copy em svg{color:#ff777d;transition:transform .2s}
+.vehicle-editorial-card:hover .vehicle-editorial-copy em svg{transform:translate(4px,-3px)}
+.vehicle-image-note{margin:17px 0 0;color:#aab8c0;font-size:10px;line-height:1.7;max-width:850px}
+@media(max-width:900px){.vehicle-editorial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vehicle-tractor{height:390px}.vehicle-scooter,.vehicle-motorcycle,.vehicle-tempo{height:300px}}
+@media(max-width:540px){.vehicle-editorial-grid{grid-template-columns:1fr;gap:12px}.vehicle-tractor{grid-column:1;height:300px}.vehicle-scooter,.vehicle-motorcycle,.vehicle-tempo{height:260px}.vehicle-editorial-copy{left:19px;bottom:20px}.vehicle-editorial-number{left:18px;top:17px}.vehicle-editorial-copy strong{font-size:32px}.vehicle-tractor .vehicle-editorial-copy strong{font-size:39px}}

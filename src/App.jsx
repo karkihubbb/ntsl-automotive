@@ -278,34 +278,14 @@ export default function App() {
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
       <section className="vehicle-section section" id="tractors">
         <div className="section-label">{lang === 'ne' ? 'सवारी साधन सूची' : 'THE VEHICLE COLLECTION'}<span>02 — 03</span></div>
-        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो यात्राका लागि उपयुक्त सवारी।' : 'Made for the way you move.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर र इलेक्ट्रिक टेम्पोका झलकहरू हेर्नुहोस्।' : 'Explore a focused selection of vehicle categories through cinematic photography.'}</p></div>
-        <div className="cinematic-vehicle-grid">
-          <a className="cinematic-vehicle-card tractor-card" href="#contact">
-            <img src="https://images.pexels.com/photos/40535839/pexels-photo-40535839.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Tractor working in a green agricultural field" loading="lazy"/>
-            <span className="vehicle-card-shade"/>
-            <span className="vehicle-card-index">01 / AGRICULTURE</span>
-            <span className="vehicle-card-copy"><small>POWER & PURPOSE</small><strong>Tractors</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
-          </a>
-          <a className="cinematic-vehicle-card scooter-card" href="#contact">
-            <img src="https://images.pexels.com/photos/34534102/pexels-photo-34534102.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Electric scooter outside a modern building at night" loading="lazy"/>
-            <span className="vehicle-card-shade"/>
-            <span className="vehicle-card-index">02 / ELECTRIC MOBILITY</span>
-            <span className="vehicle-card-copy"><small>URBAN ELECTRIC</small><strong>Electric Scooters</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
-          </a>
-          <a className="cinematic-vehicle-card tempo-card tempo-one" href="#contact">
-            <img src="https://images.pexels.com/photos/35649501/pexels-photo-35649501.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Electric rickshaw in a green outdoor setting" loading="lazy"/>
-            <span className="vehicle-card-shade"/>
-            <span className="vehicle-card-index">03 / THREE-WHEELERS</span>
-            <span className="vehicle-card-copy"><small>EVERYDAY MOBILITY</small><strong>Electric Tempos</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
-          </a>
-          <a className="cinematic-vehicle-card tempo-card tempo-two" href="#contact">
-            <img src="https://images.pexels.com/photos/12352428/pexels-photo-12352428.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Three-wheeled auto rickshaw on a city street" loading="lazy"/>
-            <span className="vehicle-card-shade"/>
-            <span className="vehicle-card-index">04 / THREE-WHEELERS</span>
-            <span className="vehicle-card-copy"><small>LOCAL TRANSPORT</small><strong>Electric Tempos</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
-          </a>
+        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो यात्राका लागि उपयुक्त सवारी।' : 'Engineered for every journey.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टरदेखि इलेक्ट्रिक मोबिलिटीसम्मका सवारीहरू।' : 'A closer look at our vehicle categories.'}</p></div>
+        <div className="vehicle-editorial-grid">
+          <a className="vehicle-editorial-card vehicle-tractor" href="#contact"><img src="https://images.pexels.com/photos/40535839/pexels-photo-40535839.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Tractor in an agricultural field" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">01 / AGRICULTURE</span><span className="vehicle-editorial-copy"><small>POWERING PROGRESS</small><strong>Tractors</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-scooter" href="#contact"><img src="https://images.pexels.com/photos/34534102/pexels-photo-34534102.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Electric scooter" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">02 / ELECTRIC MOBILITY</span><span className="vehicle-editorial-copy"><small>MOVE DIFFERENTLY</small><strong>Electric Scooters</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-motorcycle" href="#contact"><img src="https://images.pexels.com/photos/34294046/pexels-photo-34294046.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Electric motorcycle in an urban setting" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">03 / ELECTRIC MOTORCYCLES</span><span className="vehicle-editorial-copy"><small>THE NEXT WAY FORWARD</small><strong>Electric Motorcycles</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
+          <a className="vehicle-editorial-card vehicle-tempo" href="#contact"><img src="https://images.pexels.com/photos/35649501/pexels-photo-35649501.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Electric three-wheeler" loading="lazy"/><span className="vehicle-editorial-overlay"/><span className="vehicle-editorial-number">04 / THREE-WHEELERS</span><span className="vehicle-editorial-copy"><small>BUILT FOR EVERYDAY</small><strong>Electric Tempos</strong><em>Explore category <ArrowUpRight size={17}/></em></span></a>
         </div>
-        <p className="vehicle-image-note">Illustrative category photography only. Images are not confirmed NTSL product models or proof of current stock or availability. Contact the Biratnagar branch for verified product details.</p>
+        <p className="vehicle-image-note">Illustrative category photography. Images do not confirm specific NTSL models, stock or availability. Contact NTSL for verified product information.</p>
       </section>
       <section className="showroom-services section" data-reveal>
         <div className="section-label">{lang === 'en' ? 'THE NTSL SHOWROOM' : 'NTSL शोरुम'}<span>03 — 04</span></div>
