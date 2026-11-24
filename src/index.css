@@ -620,3 +620,240 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   .cinematic-video{display:none}
   .cinematic-hero{background:#183b25 url('https://pngpix.com/images/hd/tractor-with-disc-harrow-png-51-1m87auxxy6g09l74.jpg') center/cover no-repeat}
 }
+
+
+/* NTSL premium art direction — warm mineral neutrals, graphite and restrained motion */
+:root{
+  font-family:'DM Sans','Noto Sans Devanagari',sans-serif;
+  color:#20211f;background:#f4f3ef;
+  --ink:#20211f;--paper:#f4f3ef;--panel:#e9e8e2;--line:#d8d7d0;
+  --muted:#74756f;--accent:#343a36;--dark:#202421;--dark2:#292e2a;
+  --brand-green:#343a36;--brand-crimson:#343a36;--brand-gold:#d7d5cc;
+  --brand-paper:#f4f3ef;--brand-border:#d8d7d0;--brand-muted:#74756f;
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+.site{max-width:none;background:var(--paper);overflow:hidden}
+.topline{height:31px;padding:0 6.2%;background:#202421;color:#c9cbc5;font-size:9px;letter-spacing:.14em}
+.top-location{color:#aeb2aa}
+.lang button{color:#aeb2aa;font-size:10px}
+.lang button.selected{color:#fff}
+.header{height:82px;padding:0 6.2%;background:rgba(248,247,243,.97);border-bottom:1px solid #deddd6;position:relative;z-index:20}
+.logo{gap:12px}
+.logo-mark,.footer .logo-mark{width:37px;height:37px;background:transparent!important;color:#202421!important;border:1px solid #92948c;font:600 20px Manrope;letter-spacing:-.08em}
+.logo strong{font:700 17px Manrope;letter-spacing:.17em;color:#222521}
+.logo small{font:500 8px Manrope;letter-spacing:.19em;color:#777a73}
+.nav{gap:clamp(16px,2.1vw,31px);font-size:11px;font-weight:600;color:#4e514c}
+.nav>a:not(.nav-contact):after{height:1px;background:#444a44}
+.nav-contact{padding:13px 17px;background:#282d29;color:#fff;font-size:10px;font-weight:600;letter-spacing:.02em}
+.nav-contact:hover{background:#454a45}
+.menu-button{color:#252925}
+.cinematic-hero{
+ position:relative;isolation:isolate;min-height:min(790px,calc(100svh - 113px));height:clamp(610px,calc(100svh - 113px),790px);
+ display:flex;align-items:center;overflow:hidden;background:#252a26;color:#fff;padding:80px 8.1% 100px;
+}
+.cinematic-video,.cinematic-shade{position:absolute;inset:0;width:100%;height:100%}
+.cinematic-video{z-index:-2;object-fit:cover;object-position:center 53%;filter:saturate(.72) contrast(1.03)}
+.cinematic-shade{z-index:-1;background:linear-gradient(90deg,rgba(17,21,18,.79) 0%,rgba(17,21,18,.58) 43%,rgba(17,21,18,.16) 100%),linear-gradient(0deg,rgba(17,21,18,.4),transparent 42%)}
+.cinematic-content{width:min(790px,75%);position:relative;z-index:1}
+.cinematic-kicker{display:flex;align-items:center;gap:12px;color:#e5e5df;font-size:10px;font-weight:600;letter-spacing:.19em;text-transform:uppercase}
+.cinematic-kicker>span{width:25px;height:1px;background:#d4d5ce}
+.cinematic-overline{margin:35px 0 0;color:#d1d2ca;font-size:9px;font-weight:600;letter-spacing:.23em}
+.cinematic-overline b{padding:0 9px;color:#ffffff80}
+.cinematic-title{max-width:850px;margin:20px 0 23px;color:#fff;font:500 clamp(56px,7.3vw,100px)/.99 Manrope,'Noto Sans Devanagari',sans-serif;letter-spacing:-.065em}
+.cinematic-title .title-line{display:block;overflow:hidden;padding:0 0 .12em;margin-bottom:-.12em}
+.cinematic-title .title-line>span{display:block;transform:translateY(112%);opacity:0;transition:transform 1.05s cubic-bezier(.2,.72,.18,1),opacity .85s ease}
+.cinematic-content.is-visible .title-line:nth-child(1)>span{transform:translateY(0);opacity:1;transition-delay:.12s}
+.cinematic-content.is-visible .title-line:nth-child(2)>span{transform:translateY(0);opacity:1;transition-delay:.28s}
+.cinematic-title em{font-style:normal;font-weight:500;color:#d8dad3}
+.cinematic-intro{max-width:490px;margin:0;color:#e0e1db;font-size:14px;line-height:1.95;opacity:0;transform:translateY(13px);transition:opacity .8s ease .48s,transform .8s ease .48s}
+.cinematic-content.is-visible .cinematic-intro{opacity:1;transform:translateY(0)}
+.cinematic-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:32px;opacity:0;transform:translateY(10px);transition:opacity .8s ease .62s,transform .8s ease .62s}
+.cinematic-content.is-visible .cinematic-actions{opacity:1;transform:translateY(0)}
+.cinematic-primary{min-height:49px;padding:0 20px;display:inline-flex;align-items:center;gap:22px;background:#f1f0eb;color:#222622;font-size:11px;font-weight:700;letter-spacing:.02em;transition:background .25s,color .25s}
+.cinematic-primary:hover{background:#d6d7d0;color:#171b18}
+.cinematic-secondary{display:inline-flex;align-items:center;gap:9px;color:#f2f2ed;font-size:11px;font-weight:600}
+.cinematic-secondary svg{transition:transform .25s}
+.cinematic-secondary:hover svg{transform:translateX(4px)}
+.cinematic-footnote{display:flex;align-items:center;gap:9px;margin-top:43px;color:#d3d5ce;font-size:10px;letter-spacing:.02em;opacity:0;transition:opacity .8s ease .78s}
+.cinematic-content.is-visible .cinematic-footnote{opacity:1}
+.cinematic-footnote svg{color:#d6d8d0}
+.cinematic-index{position:absolute;right:6.2%;bottom:34px;display:flex;align-items:center;gap:12px;color:#e2e3dd;font-size:8px;font-weight:600;letter-spacing:.17em}
+.cinematic-index span{color:#fff;font-size:11px}
+.cinematic-index i{width:38px;height:1px;background:#ffffff70}
+.cinematic-scroll{position:absolute;left:8.1%;bottom:34px;color:#ffffffb8;font-size:8px;font-weight:600;letter-spacing:.18em}
+.cinematic-scroll span{padding-left:11px;color:#fff;font-size:13px}
+.category-marquee{background:#e8e7e1;color:#565a53;padding:13px 0;border-bottom:1px solid #deddd6}
+.marquee-track{animation-duration:52s}
+.marquee-track span{font-size:9px;font-weight:600;letter-spacing:.17em;color:#656961}
+.marquee-track b{color:#a2a49b;font-size:10px}
+.trust-strip{background:#262b27;color:#f0f0eb;padding:25px 8.1%;grid-template-columns:repeat(3,1fr)}
+.trust-strip>div{border-color:#ffffff24;padding:0 27px}
+.trust-strip span{color:#b7bbb2;font:500 10px Manrope}
+.trust-strip strong{font-size:12px;font-weight:600;color:#f4f3ed}
+.trust-strip small{font-size:10px;color:#b9bcb4}
+.section{padding:100px 8.1%}
+.section-label{border-color:#d7d7d0;color:#777a73;font-size:9px;font-weight:600;letter-spacing:.18em;padding-bottom:17px}
+.section-label span{color:#a0a198}
+.company-grid{gap:12%;padding-top:49px}
+.company h2,.tractor-copy h2,.support-heading h2,.contact-left h2{font:500 clamp(42px,4.5vw,62px)/1.18 Manrope,'Noto Sans Devanagari',sans-serif;letter-spacing:-.045em;color:#272b27}
+.company h2 i,.tractor-copy h2 i,.support-heading h2 i,.contact-left h2 i{font-style:normal;color:#747970}
+.company-copy p,.tractor-copy p,.support-heading>p{font-size:14px;line-height:2;color:#696d66}
+.company-copy .muted-note{border-color:#9da198;color:#85877f}
+.underlined-link{border-color:#5d625b;color:#292e29;font-weight:600}
+.underlined-link svg{color:#545a52}
+.vehicle-section{background:#eeede7}
+.vehicle-intro{display:flex;align-items:end;justify-content:space-between;gap:8%;margin:34px 0 32px}
+.vehicle-intro h2{max-width:600px;margin:0;color:#292d29;font:500 clamp(34px,4vw,50px)/1.18 Manrope,'Noto Sans Devanagari',sans-serif;letter-spacing:-.045em}
+.vehicle-intro p{max-width:350px;margin:0;color:#777a73;font-size:12px;line-height:1.9}
+.vehicle-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.vehicle-card{background:#f7f6f1;border:1px solid #deddd6;box-shadow:none!important;transform:none!important;transition:border-color .3s ease}
+.vehicle-card:hover{border-color:#9b9e94}
+.vehicle-card-image{height:260px;background:#e6e5de;overflow:hidden}
+.vehicle-card-image img{width:100%;height:100%;object-fit:contain;padding:22px;mix-blend-mode:multiply;filter:none;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.vehicle-card:hover .vehicle-card-image img{transform:scale(1.035)}
+.vehicle-card-copy{padding:23px 23px 25px}
+.vehicle-card-copy>span{font-size:9px;letter-spacing:.14em;color:#858980;font-weight:600}
+.vehicle-card-copy h3{font:600 21px Manrope,'Noto Sans Devanagari',sans-serif;letter-spacing:-.025em;color:#292d29;margin:12px 0 7px}
+.vehicle-card-copy p{font-size:12px;line-height:1.8;color:#777a73;min-height:22px}
+.vehicle-card-copy a{display:inline-flex;align-items:center;gap:9px;margin-top:12px;color:#333832;font-size:11px;font-weight:700;border-bottom:1px solid #aeb0a8;padding-bottom:6px}
+.showroom-services{background:#f7f6f1}
+.showroom-services-head{grid-template-columns:1fr .7fr;gap:10%;margin:40px 0 38px}
+.showroom-services-head h2{font:500 clamp(36px,4.2vw,55px)/1.18 Manrope,'Noto Sans Devanagari',sans-serif;color:#292d29;letter-spacing:-.045em}
+.showroom-services-head h2 i{font-style:normal;color:#777c73}
+.showroom-services-head>p{font-size:13px;line-height:2;color:#777a73}
+.showroom-service-grid{border-color:#deddd6}
+.showroom-service-grid article{border-color:#deddd6;min-height:265px}
+.showroom-service-grid article>span{font-size:9px;letter-spacing:.16em;color:#81857c}
+.showroom-service-icon{background:#e7e6df;color:#353a35;width:42px;height:42px}
+.showroom-service-grid h3{font:600 17px Manrope,'Noto Sans Devanagari',sans-serif;color:#30352f}
+.showroom-service-grid p{font-size:12px;line-height:1.9;color:#777a73}
+.showroom-service-grid a{color:#3d433c;font-size:11px;font-weight:600}
+.support{background:#eeede7}
+.support-heading{gap:10%;padding:39px 0 33px}
+.support-heading>p{max-width:390px}
+.service-list{border-color:#d7d7d0}
+.service-row{grid-template-columns:42px 48px 1fr 22px;gap:19px;padding:23px 0;border-color:#d7d7d0}
+.service-row:hover{background:#e7e6df;padding-left:12px;padding-right:12px}
+.service-num{color:#858980;font:500 10px Manrope}
+.service-icon{width:42px;height:42px;background:#deded6;color:#343a34}
+.service-copy h3{font:600 16px Manrope,'Noto Sans Devanagari',sans-serif;color:#2c302b}
+.service-copy p{font-size:12px;color:#777a73}
+.service-action,.service-arrow{color:#51574f}
+.service-detail{background:#292e29;border:0;border-left:2px solid #aeb2a8;color:#f2f2ec}
+.service-detail .eyebrow{color:#c5c8be}
+.service-detail p{color:#d1d3cc}
+.contact-section{background:#252a26;color:#f5f5ef;padding:94px 8.1%;grid-template-columns:1fr .82fr;gap:11%}
+.contact-section:before{color:#ffffff06}
+.contact-left h2{color:#f4f3ed;font-size:clamp(44px,4.8vw,66px)}
+.contact-left h2 i{color:#c2c6bc}
+.contact-left>p{font-size:13px;line-height:2;color:#c0c4bb}
+.light{color:#d2d5cc}
+.light>span{background:#c2c6bc}
+.branch-info{color:#e1e3dc}
+.branch-info>svg{color:#c3c7bd}
+.branch-info strong{color:#fff}
+.branch-info span{color:#c0c4bb}
+.branch-info a{color:#f5f5ef;text-decoration-color:#c3c7bd}
+.contact-form{background:#f5f4ef;color:#292d29;padding:34px 35px;box-shadow:none}
+.form-heading{border-color:#d9d9d1}
+.form-heading strong{font:600 13px Manrope;letter-spacing:.08em}
+.form-heading span{color:#888b82}
+.contact-form label{color:#51564e;font-size:10px;font-weight:600}
+.contact-form input,.contact-form select,.contact-form textarea{border:1px solid #d6d6ce;background:#fbfaf7;color:#2c302b;font-size:12px;padding:14px}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#656b61}
+.primary-button,.submit{background:#292e29;color:#fff;border:0;font-size:11px;font-weight:600;letter-spacing:.02em;transition:background .25s}
+.primary-button:hover,.submit:hover{background:#484e47}
+.demo-message{color:#666b62}
+.privacy-link{color:#777b72}
+.footer{background:#1c211e;color:#daddd5;padding:34px 6.2% 20px}
+.footer .logo strong{color:#f5f5ef}
+.footer .logo small{color:#adb2a8}
+.footer-center{color:#aeb3aa}
+.footer-links a{color:#c3c7bf}
+.footer-bottom{border-color:#ffffff20;color:#969c91}
+.category-hero{padding:78px 8.1%;grid-template-columns:1fr .95fr;gap:8%;background:#f4f3ef}
+.category-copy h1{font:500 clamp(48px,5.5vw,72px)/1.08 Manrope,sans-serif;letter-spacing:-.055em;color:#292d29}
+.category-copy>p{font-size:14px;line-height:2;color:#6f736b;max-width:510px}
+.category-location{color:#73776f}
+.category-location svg{color:#555b53}
+.category-visual{background:#e9e8e1;border:0}
+.category-visual img{mix-blend-mode:multiply}
+.category-catalogue{padding:65px 8.1% 100px;background:#eeede7}
+.catalogue-empty{background:#f7f6f1;border:1px solid #deddd6;padding:38px}
+.catalogue-empty>span{color:#7b8076}
+.catalogue-empty h2{font:500 34px Manrope,sans-serif;color:#292d29}
+.catalogue-empty p{color:#777a73;line-height:2}
+.catalogue-empty .underlined-link{color:#30352f}
+.nepali .cinematic-title{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(43px,5.4vw,70px);line-height:1.55;letter-spacing:0;font-weight:500}
+.nepali .cinematic-title .title-line{padding-bottom:.15em;margin-bottom:-.15em}
+.nepali .cinematic-title em{font-style:normal;color:#d8dad3}
+.nepali .cinematic-intro{font-size:15px;line-height:2}
+.nepali .nav{font-size:13px;gap:19px}
+.nepali .nav-contact{font-size:12px}
+.nepali .vehicle-intro h2,.nepali .showroom-services-head h2,.nepali .company h2,.nepali .support-heading h2,.nepali .contact-left h2{font-family:'Noto Sans Devanagari',sans-serif;letter-spacing:0;line-height:1.55}
+.nepali .vehicle-card-copy h3,.nepali .showroom-service-grid h3{font-family:'Noto Sans Devanagari',sans-serif}
+.nepali .contact-form label{font-size:13px}
+@media(max-width:900px){
+ .nav{gap:14px;font-size:10px}
+ .cinematic-content{width:82%}
+ .vehicle-intro{align-items:flex-start;flex-direction:column;gap:13px}
+ .contact-section{gap:7%}
+}
+@media(max-width:650px){
+ .topline{padding:0 5%;font-size:8px}
+ .header{height:72px;padding:0 5%}
+ .nav{top:103px;background:#f5f4ef;padding:22px 5%;border-color:#d8d7d0}
+ .nav.nav-open{display:flex}
+ .nav-contact{justify-content:space-between}
+ .cinematic-hero{height:auto;min-height:690px;padding:78px 6% 105px}
+ .cinematic-video{object-position:59% center}
+ .cinematic-shade{background:linear-gradient(90deg,rgba(17,21,18,.77),rgba(17,21,18,.39)),linear-gradient(0deg,rgba(17,21,18,.48),transparent 58%)}
+ .cinematic-content{width:100%}
+ .cinematic-overline{margin-top:27px;font-size:8px}
+ .cinematic-title{font-size:clamp(49px,11vw,70px);line-height:1.02}
+ .cinematic-intro{font-size:13px;max-width:430px}
+ .cinematic-actions{gap:19px}
+ .cinematic-footnote{margin-top:32px}
+ .cinematic-scroll{left:6%;bottom:27px}
+ .cinematic-index{right:6%;bottom:27px;font-size:7px;gap:7px}
+ .cinematic-index i{width:20px}
+ .trust-strip{padding:16px 6%;grid-template-columns:1fr}
+ .trust-strip>div,.trust-strip>div:first-child{padding:14px 0;border-right:0;border-bottom:1px solid #ffffff25}
+ .trust-strip>div:last-child{border:0}
+ .section{padding:65px 6%}
+ .company-grid{grid-template-columns:1fr;gap:23px;padding-top:29px}
+ .company h2,.tractor-copy h2,.support-heading h2{font-size:clamp(37px,9vw,48px)}
+ .vehicle-categories{grid-template-columns:1fr;gap:13px}
+ .vehicle-card-image{height:250px}
+ .vehicle-intro h2{font-size:clamp(34px,8vw,43px)}
+ .showroom-services-head{grid-template-columns:1fr;gap:14px;margin:28px 0}
+ .showroom-service-grid{grid-template-columns:1fr}
+ .showroom-service-grid article,.showroom-service-grid article:last-child{min-height:0;padding:24px 0;border-right:0;border-bottom:1px solid #deddd6;margin:0}
+ .showroom-service-grid article:last-child{border-bottom:0}
+ .support-heading{display:block;padding:29px 0}
+ .support-heading>p{margin-top:14px}
+ .service-row{grid-template-columns:28px 40px 1fr 18px;gap:10px;padding:18px 0}
+ .service-icon{width:36px;height:36px}
+ .contact-section{padding:66px 6%;grid-template-columns:1fr;gap:30px}
+ .contact-form{padding:25px 21px}
+ .footer{padding:27px 6% 18px;grid-template-columns:1fr 1fr}
+ .footer-center{grid-column:1/-1;grid-row:2;text-align:left}
+ .footer-links{gap:10px}
+ .footer-bottom{grid-column:1/-1;flex-direction:column;gap:8px}
+ .category-hero{padding:48px 6%;grid-template-columns:1fr;gap:28px}
+ .category-visual{height:280px}
+ .category-catalogue{padding:48px 6% 70px}
+ .catalogue-empty{padding:25px}
+ .nepali .cinematic-title{font-size:clamp(40px,9vw,56px);line-height:1.65}
+ .nepali .nav{font-size:15px}
+ .nepali .vehicle-intro h2{font-size:clamp(31px,8vw,39px)}
+ .nepali .contact-form label{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .cinematic-title .title-line>span,.cinematic-intro,.cinematic-actions,.cinematic-footnote{opacity:1!important;transform:none!important;transition:none!important}
+ .marquee-track{animation:none!important}
+ .cinematic-video{display:none}
+ .cinematic-hero{background:#252a26}
+}
