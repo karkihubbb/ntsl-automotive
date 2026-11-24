@@ -1541,3 +1541,36 @@ body,.site,.legal-site{background:#f7f8fa;color:#17212b}
  .showroom-controls button{max-width:94px;text-align:right;line-height:1.4}
 }
 @media(prefers-reduced-motion:reduce){.showroom-switcher button,.model-progress span{transition:none;animation:none}}
+
+
+/* Multi-category vehicle collection and model explorer */
+.vehicle-section{background:#101d28!important;color:#f5f7f8}
+.vehicle-section .section-label{color:#d4dce0;border-color:#ffffff28}
+.vehicle-section .section-label span{color:#9eabb2}
+.vehicle-intro h2{color:#fff!important;font-size:clamp(36px,4.4vw,58px);letter-spacing:-.045em}
+.vehicle-intro p{color:#b4c0c6!important;border-left:2px solid #d52b35;padding-left:18px;line-height:1.9}
+.collection-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 18px}
+.collection-tabs button{background:#1b2c38;color:#c3cdd2;border:1px solid #ffffff20;padding:13px 17px;cursor:pointer;font-size:10px;font-weight:800;letter-spacing:.08em}
+.collection-tabs button span{margin-left:9px;font-size:12px;letter-spacing:0}
+.collection-tabs button.active{background:#d52b35;border-color:#d52b35;color:white}
+.collection-layout{display:grid;grid-template-columns:minmax(220px,.36fr) 1fr;gap:14px}
+.collection-list{background:#182a36;border:1px solid #ffffff20;max-height:580px;overflow:auto}
+.collection-list-heading{display:flex;justify-content:space-between;gap:8px;padding:19px 17px;border-bottom:1px solid #ffffff20;color:#e7edef;font-size:9px;letter-spacing:.1em;font-weight:800}
+.collection-list-heading small{color:#9aabb4}
+.collection-list>button{width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px 17px;border:0;border-bottom:1px solid #ffffff12;background:transparent;color:#cbd5d9;font-size:12px;cursor:pointer}
+.collection-list>button>span{color:#e45b61;font-size:9px}
+.collection-list>button svg{margin-left:auto;opacity:0}
+.collection-list>button:hover,.collection-list>button.selected{background:#263c4a;color:#fff}
+.collection-list>button.selected{box-shadow:inset 3px 0 #d52b35}
+.collection-list>button.selected svg{opacity:1;color:#e45b61}
+.collection-viewer{position:relative;min-height:530px;background:radial-gradient(ellipse at 50% 48%,#344956,#1b2d39 52%,#14232e);border:1px solid #ffffff24;overflow:hidden}
+.collection-viewer-meta{position:absolute;z-index:2;top:20px;left:22px;right:22px;display:flex;justify-content:space-between;gap:12px;color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em}
+.collection-viewer-meta span:last-child{color:#aab9c0;font-size:9px}
+.collection-model{height:460px;width:100%;background:transparent;--poster-color:transparent}
+.collection-viewer-controls{position:absolute;bottom:37px;left:20px;display:flex;gap:20px;color:#cbd5da;font-size:9px;font-weight:800;letter-spacing:.1em}
+.collection-model-note{position:absolute;right:20px;bottom:37px;color:#e5a1a2;font-size:8px;font-weight:800;letter-spacing:.1em}
+.collection-footnote{display:flex;gap:22px;padding-top:20px;align-items:flex-start}
+.collection-footnote strong{color:#e36b70;font-size:9px;letter-spacing:.13em;white-space:nowrap}
+.collection-footnote p{margin:0;max-width:900px;color:#aebbc2;font-size:11px;line-height:1.85}
+@media(max-width:760px){.collection-layout{grid-template-columns:1fr}.collection-list{max-height:260px}.collection-viewer{min-height:420px}.collection-model{height:365px}.collection-footnote{display:block}.collection-footnote p{margin-top:8px}}
+@media(max-width:500px){.collection-tabs{display:grid;grid-template-columns:1fr 1fr}.collection-tabs button{text-align:left;padding:12px 10px}.collection-tabs button span{display:block;margin:5px 0 0}.collection-viewer{min-height:380px}.collection-model{height:330px}.collection-viewer-controls{left:12px;bottom:35px;gap:10px;font-size:8px}.collection-model-note{right:12px;bottom:13px;font-size:7px}.collection-viewer-meta{left:13px;right:13px;font-size:9px}}
