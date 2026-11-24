@@ -230,11 +230,6 @@ export default function App() {
   const [sent, setSent] = useState(false)
   const [selectedSubject, setSelectedSubject] = useState('')
   const [activeService, setActiveService] = useState(null)
-  const [activeShowroom, setActiveShowroom] = useState('tractor')
-  const [collectionType, setCollectionType] = useState('tractors')
-  const [selectedModel, setSelectedModel] = useState('Powertrac Euro 50')
-  const collectionCatalog = { tractors: ['Powertrac 425 N','Powertrac 434 DS','Powertrac 439 Plus','Powertrac Euro 42 Plus','Powertrac Euro 45','Powertrac Euro 47','Powertrac Euro 50','Powertrac Euro 55 Next','Powertrac Euro 60'], scooters: ['CU MINI','CU','CITI','CPx','CPx PRO','CPx Explorer'], emoto: ['Stash','TS Street Hunter S','TC','TSx','TC Wanderer Pro','TC Max','ON-R','OFF-R'], fleet: ['VS1','VS2 CITI','VS3','VS4','CPx-D','CPx-D Explorer'] }
-  const collectionModels = collectionCatalog[collectionType]
   const t = content[lang]
   useEffect(() => {
     const nodes = document.querySelectorAll('[data-reveal]')
@@ -283,25 +278,34 @@ export default function App() {
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
       <section className="vehicle-section section" id="tractors">
         <div className="section-label">{lang === 'ne' ? 'सवारी साधन सूची' : 'THE VEHICLE COLLECTION'}<span>02 — 03</span></div>
-        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो रोजाइका मोडेलहरू खोज्नुहोस्।' : 'Find the model that fits your world.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टर र इलेक्ट्रिक सवारीका विभिन्न मोडेलहरू हेर्नुहोस्।' : 'Explore model families across tractors and electric mobility. Select a model to see its showcase preview.'}</p></div>
-        <div className="collection-tabs" role="tablist" aria-label="Vehicle categories">
-          <button className={collectionType==='tractors'?'active':''} onClick={()=>{setCollectionType('tractors');setSelectedModel('Powertrac Euro 50')}}>01 <span>Tractors</span></button>
-          <button className={collectionType==='scooters'?'active':''} onClick={()=>{setCollectionType('scooters');setSelectedModel('CPx PRO')}}>02 <span>Vmoto E-Scooters</span></button>
-          <button className={collectionType==='emoto'?'active':''} onClick={()=>{setCollectionType('emoto');setSelectedModel('Stash')}}>03 <span>Vmoto E-Motorcycles</span></button>
-          <button className={collectionType==='fleet'?'active':''} onClick={()=>{setCollectionType('fleet');setSelectedModel('VS1')}}>04 <span>Vmoto Fleet</span></button>
+        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो यात्राका लागि उपयुक्त सवारी।' : 'Made for the way you move.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर र इलेक्ट्रिक टेम्पोका झलकहरू हेर्नुहोस्।' : 'Explore a focused selection of vehicle categories through cinematic photography.'}</p></div>
+        <div className="cinematic-vehicle-grid">
+          <a className="cinematic-vehicle-card tractor-card" href="#contact">
+            <img src="https://images.pexels.com/photos/40535839/pexels-photo-40535839.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Tractor working in a green agricultural field" loading="lazy"/>
+            <span className="vehicle-card-shade"/>
+            <span className="vehicle-card-index">01 / AGRICULTURE</span>
+            <span className="vehicle-card-copy"><small>POWER & PURPOSE</small><strong>Tractors</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
+          </a>
+          <a className="cinematic-vehicle-card scooter-card" href="#contact">
+            <img src="https://images.pexels.com/photos/34534102/pexels-photo-34534102.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Electric scooter outside a modern building at night" loading="lazy"/>
+            <span className="vehicle-card-shade"/>
+            <span className="vehicle-card-index">02 / ELECTRIC MOBILITY</span>
+            <span className="vehicle-card-copy"><small>URBAN ELECTRIC</small><strong>Electric Scooters</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
+          </a>
+          <a className="cinematic-vehicle-card tempo-card tempo-one" href="#contact">
+            <img src="https://images.pexels.com/photos/35649501/pexels-photo-35649501.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Electric rickshaw in a green outdoor setting" loading="lazy"/>
+            <span className="vehicle-card-shade"/>
+            <span className="vehicle-card-index">03 / THREE-WHEELERS</span>
+            <span className="vehicle-card-copy"><small>EVERYDAY MOBILITY</small><strong>Electric Tempos</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
+          </a>
+          <a className="cinematic-vehicle-card tempo-card tempo-two" href="#contact">
+            <img src="https://images.pexels.com/photos/12352428/pexels-photo-12352428.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Three-wheeled auto rickshaw on a city street" loading="lazy"/>
+            <span className="vehicle-card-shade"/>
+            <span className="vehicle-card-index">04 / THREE-WHEELERS</span>
+            <span className="vehicle-card-copy"><small>LOCAL TRANSPORT</small><strong>Electric Tempos</strong><em>Enquire for details <ArrowUpRight size={16}/></em></span>
+          </a>
         </div>
-        <div className="collection-layout">
-          <aside className="collection-list"><div className="collection-list-heading"><span>{collectionType==='tractors'?'POWERTRAC RANGE':collectionType==='scooters'?'VMOTO E-SCOOTERS':collectionType==='emoto'?'VMOTO E-MOTORCYCLES':'VMOTO E-FLEET'}</span><small>{collectionModels.length} MODELS</small></div>
-            {collectionModels.map((model,i)=><button key={model} className={selectedModel===model?'selected':''} onClick={()=>setSelectedModel(model)}><span>{String(i+1).padStart(2,'0')}</span>{model}<ArrowUpRight size={14}/></button>)}
-          </aside>
-          <div className="collection-viewer">
-            <div className="collection-viewer-meta"><span>{selectedModel}</span><span>ILLUSTRATIVE SHOWCASE</span></div>
-            <model-viewer key={collectionType} className="vehicle-model collection-model" src={collectionType==='tractors'?'https://tevy.dev/models/farm-tractor/v1/lod0.glb':collectionType==='fleet'?'https://files.innerscene.com/library/urban-motor-scooter-9dd945f9/006f28087cc0c5d85bbc/urban-motor-scooter.glb':'https://files.innerscene.com/library/urban-motor-scooter-9dd945f9/006f28087cc0c5d85bbc/urban-motor-scooter.glb'} alt={'Generic illustrative 3D preview for '+selectedModel} camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="1800" rotation-per-second="12deg" interaction-prompt="none" shadow-intensity="1" exposure="1.05" environment-image="neutral" camera-orbit="35deg 72deg 4.5m" min-camera-orbit="auto 25deg auto" max-camera-orbit="auto 110deg auto" ar="false"/>
-            <div className="collection-viewer-controls"><span>↔ DRAG TO ROTATE</span><span>⌕ SCROLL TO ZOOM</span></div>
-            <div className="collection-model-note">DEMO 3D ASSET · NOT AN EXACT MODEL RENDER</div>
-          </div>
-        </div>
-        <div className="collection-footnote"><strong>CATALOGUE NOTE</strong><p>Model names are shown as examples from public manufacturer/model listings for design demonstration only. This does not confirm NTSL dealership, Nepal-market availability, stock or pricing. The 3D viewer currently uses generic sample geometry, not the exact selected vehicle. Replace with verified NTSL product details and manufacturer-approved assets before publishing as a live catalogue.</p></div>
+        <p className="vehicle-image-note">Illustrative category photography only. Images are not confirmed NTSL product models or proof of current stock or availability. Contact the Biratnagar branch for verified product details.</p>
       </section>
       <section className="showroom-services section" data-reveal>
         <div className="section-label">{lang === 'en' ? 'THE NTSL SHOWROOM' : 'NTSL शोरुम'}<span>03 — 04</span></div>
