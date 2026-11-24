@@ -1574,3 +1574,25 @@ body,.site,.legal-site{background:#f7f8fa;color:#17212b}
 .collection-footnote p{margin:0;max-width:900px;color:#aebbc2;font-size:11px;line-height:1.85}
 @media(max-width:760px){.collection-layout{grid-template-columns:1fr}.collection-list{max-height:260px}.collection-viewer{min-height:420px}.collection-model{height:365px}.collection-footnote{display:block}.collection-footnote p{margin-top:8px}}
 @media(max-width:500px){.collection-tabs{display:grid;grid-template-columns:1fr 1fr}.collection-tabs button{text-align:left;padding:12px 10px}.collection-tabs button span{display:block;margin:5px 0 0}.collection-viewer{min-height:380px}.collection-model{height:330px}.collection-viewer-controls{left:12px;bottom:35px;gap:10px;font-size:8px}.collection-model-note{right:12px;bottom:13px;font-size:7px}.collection-viewer-meta{left:13px;right:13px;font-size:9px}}
+
+
+/* Cinematic photographic vehicle collection */
+.cinematic-vehicle-grid{display:grid;grid-template-columns:1.18fr 1fr 1fr;grid-template-rows:270px 270px;gap:12px;margin-top:34px}
+.cinematic-vehicle-card{position:relative;display:block;min-width:0;overflow:hidden;background:#172631;color:#fff;text-decoration:none;border:1px solid #ffffff1c;isolation:isolate}
+.cinematic-vehicle-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s;filter:saturate(.82) brightness(.82)}
+.cinematic-vehicle-card:hover img{transform:scale(1.045);filter:saturate(1) brightness(.9)}
+.vehicle-card-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,13,19,.22) 0%,rgba(5,13,19,.04) 35%,rgba(5,13,19,.86) 100%);z-index:1}
+.vehicle-card-index{position:absolute;z-index:2;top:20px;left:22px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.14em}
+.vehicle-card-copy{position:absolute;z-index:2;left:24px;right:20px;bottom:22px;display:flex;flex-direction:column;align-items:flex-start}
+.vehicle-card-copy small{font-size:9px;font-weight:800;letter-spacing:.15em;color:#f0787d;margin-bottom:8px}
+.vehicle-card-copy strong{font-size:clamp(23px,2.4vw,36px);line-height:1.05;letter-spacing:-.045em;font-weight:650}
+.vehicle-card-copy em{display:flex;align-items:center;gap:8px;margin-top:15px;font-style:normal;font-size:10px;font-weight:750;letter-spacing:.04em;color:#fff}
+.vehicle-card-copy em svg{color:#f0787d;transition:transform .2s}
+.cinematic-vehicle-card:hover .vehicle-card-copy em svg{transform:translate(3px,-3px)}
+.tractor-card{grid-row:1 / span 2;grid-column:1}
+.scooter-card{grid-row:1;grid-column:2 / span 2}
+.tempo-one{grid-row:2;grid-column:2}
+.tempo-two{grid-row:2;grid-column:3}
+.vehicle-image-note{margin:17px 0 0;color:#aab8c0;font-size:10px;line-height:1.7;max-width:850px}
+@media(max-width:760px){.cinematic-vehicle-grid{grid-template-columns:1fr 1fr;grid-template-rows:330px 230px 230px}.tractor-card{grid-column:1 / span 2;grid-row:1}.scooter-card{grid-column:1 / span 2;grid-row:2}.tempo-one{grid-column:1;grid-row:3}.tempo-two{grid-column:2;grid-row:3}.vehicle-card-copy{left:16px;bottom:16px}.vehicle-card-copy strong{font-size:25px}.vehicle-card-index{left:16px;top:16px}}
+@media(max-width:480px){.cinematic-vehicle-grid{grid-template-rows:290px 220px 205px 205px}.tractor-card,.scooter-card,.tempo-one,.tempo-two{grid-column:1}.tractor-card{grid-row:1}.scooter-card{grid-row:2}.tempo-one{grid-row:3}.tempo-two{grid-row:4}.vehicle-card-copy strong{font-size:27px}}
