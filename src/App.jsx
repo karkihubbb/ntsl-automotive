@@ -231,6 +231,10 @@ export default function App() {
   const [selectedSubject, setSelectedSubject] = useState('')
   const [activeService, setActiveService] = useState(null)
   const [activeShowroom, setActiveShowroom] = useState('tractor')
+  const [collectionType, setCollectionType] = useState('tractors')
+  const [selectedModel, setSelectedModel] = useState('Powertrac Euro 50')
+  const collectionCatalog = { tractors: ['Powertrac 425 N','Powertrac 434 DS','Powertrac 439 Plus','Powertrac Euro 42 Plus','Powertrac Euro 45','Powertrac Euro 47','Powertrac Euro 50','Powertrac Euro 55 Next','Powertrac Euro 60'], scooters: ['CU MINI','CU','CITI','CPx','CPx PRO','CPx Explorer'], emoto: ['Stash','TS Street Hunter S','TC','TSx','TC Wanderer Pro','TC Max','ON-R','OFF-R'], fleet: ['VS1','VS2 CITI','VS3','VS4','CPx-D','CPx-D Explorer'] }
+  const collectionModels = collectionCatalog[collectionType]
   const t = content[lang]
   useEffect(() => {
     const nodes = document.querySelectorAll('[data-reveal]')
@@ -278,22 +282,26 @@ export default function App() {
       <div className="trust-strip"><div><span>०१</span><strong>विराटनगर शाखा</strong><small>मुनालपथ, कोशी प्रदेश</small></div><div><span>०२</span><strong>तीन सवारी श्रेणी</strong><small>ट्र्याक्टर · इलेक्ट्रिक स्कुटर · इलेक्ट्रिक टेम्पो</small></div><div><span>०३</span><strong>सिधा सोधपुछ</strong><small>मोडेल, मूल्य र उपलब्धता पुष्टि गर्न</small></div></div>
       <section className="company section" id="company"><div className="section-label">हाम्रो परिचय<span>०१ — ०३</span></div><div className="company-grid"><h2>{t.aboutTitle}</h2><div className="company-copy"><p>{t.aboutText}</p><p className="muted-note">{t.aboutNote}</p><a className="underlined-link" href="#contact">{t.contact}<ArrowUpRight size={15}/></a></div></div></section>
       <section className="vehicle-section section" id="tractors">
-        <div className="section-label">{lang === 'ne' ? 'हाम्रा सवारी साधन' : 'INTERACTIVE VEHICLE SHOWROOM'}<span>02 — 03</span></div>
-        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'नजिकबाट हेर्नुहोस्।' : 'Explore every angle.'}</h2><p>{lang === 'ne' ? 'मोडेललाई घुमाउन तान्नुहोस्। जुम गर्न स्क्रोल वा पिन्च गर्नुहोस्।' : 'Drag to rotate. Scroll or pinch to zoom. Explore the vehicle from every angle.'}</p></div>
-        <div className="showroom-switcher" role="tablist" aria-label="Vehicle model selection">
-          <button type="button" role="tab" aria-selected={activeShowroom === 'tractor'} className={activeShowroom === 'tractor' ? 'active' : ''} onClick={() => setActiveShowroom('tractor')}><span>01</span>{lang === 'ne' ? 'ट्र्याक्टर' : 'Tractor'}</button>
-          <button type="button" role="tab" aria-selected={activeShowroom === 'scooter'} className={activeShowroom === 'scooter' ? 'active' : ''} onClick={() => setActiveShowroom('scooter')}><span>02</span>{lang === 'ne' ? 'इलेक्ट्रिक स्कुटर' : 'Electric scooter'}</button>
-          <button type="button" role="tab" aria-selected={activeShowroom === 'tempo'} className={activeShowroom === 'tempo' ? 'active' : ''} onClick={() => setActiveShowroom('tempo')}><span>03</span>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempo'}</button>
+        <div className="section-label">{lang === 'ne' ? 'सवारी साधन सूची' : 'THE VEHICLE COLLECTION'}<span>02 — 03</span></div>
+        <div className="vehicle-intro"><h2>{lang === 'ne' ? 'आफ्नो रोजाइका मोडेलहरू खोज्नुहोस्।' : 'Find the model that fits your world.'}</h2><p>{lang === 'ne' ? 'ट्र्याक्टर र इलेक्ट्रिक सवारीका विभिन्न मोडेलहरू हेर्नुहोस्।' : 'Explore model families across tractors and electric mobility. Select a model to see its showcase preview.'}</p></div>
+        <div className="collection-tabs" role="tablist" aria-label="Vehicle categories">
+          <button className={collectionType==='tractors'?'active':''} onClick={()=>{setCollectionType('tractors');setSelectedModel('Powertrac Euro 50')}}>01 <span>Tractors</span></button>
+          <button className={collectionType==='scooters'?'active':''} onClick={()=>{setCollectionType('scooters');setSelectedModel('CPx PRO')}}>02 <span>Vmoto E-Scooters</span></button>
+          <button className={collectionType==='emoto'?'active':''} onClick={()=>{setCollectionType('emoto');setSelectedModel('Stash')}}>03 <span>Vmoto E-Motorcycles</span></button>
+          <button className={collectionType==='fleet'?'active':''} onClick={()=>{setCollectionType('fleet');setSelectedModel('VS1')}}>04 <span>Vmoto Fleet</span></button>
         </div>
-        <div className="showroom-stage">
-          <div className="showroom-stage-top"><span>{activeShowroom === 'tractor' ? 'AGRICULTURAL / 3D DEMO' : activeShowroom === 'scooter' ? 'ELECTRIC MOBILITY / 3D DEMO' : 'THREE-WHEELER / IMAGE PREVIEW'}</span><span><i/> {lang === 'ne' ? 'अन्तर्क्रियात्मक पूर्वावलोकन' : 'INTERACTIVE PREVIEW'}</span></div>
-          {activeShowroom !== 'tempo' ? <model-viewer key={activeShowroom} className="vehicle-model" src={activeShowroom === 'tractor' ? 'https://tevy.dev/models/farm-tractor/v1/lod0.glb' : 'https://files.innerscene.com/library/urban-motor-scooter-9dd945f9/006f28087cc0c5d85bbc/urban-motor-scooter.glb'} alt={activeShowroom === 'tractor' ? 'Generic green farm tractor 3D demonstration model' : 'Generic urban motor scooter 3D demonstration model'} camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="1800" rotation-per-second="14deg" interaction-prompt="none" shadow-intensity="1.1" exposure="1.05" environment-image="neutral" camera-orbit="35deg 72deg 4.5m" min-camera-orbit="auto 25deg auto" max-camera-orbit="auto 110deg auto" ar="false">
-            <div slot="progress-bar" className="model-progress"><span/></div>
-            <button slot="ar-button" className="model-ar-button">View in your space</button>
-          </model-viewer> : <div className="tempo-preview"><img src={vehicleImages.tempos} alt="Electric passenger tempo illustrative photo" /><div><span>3D MODEL COMING SOON</span><h3>{lang === 'ne' ? 'इलेक्ट्रिक टेम्पो' : 'Electric tempo'}</h3><p>{lang === 'ne' ? 'यो श्रेणीको 3D नमुना उपलब्ध भएपछि यहाँ राखिनेछ।' : 'A 3D demonstration model for this category will be added when a suitable asset is available.'}</p></div></div>}
-          <div className="showroom-controls"><span><b>↔</b> {lang === 'ne' ? 'घुमाउन तान्नुहोस्' : 'DRAG TO ROTATE'}</span><span><b>⌕</b> {lang === 'ne' ? 'जुम गर्न स्क्रोल गर्नुहोस्' : 'SCROLL TO ZOOM'}</span><button type="button" onClick={() => setActiveShowroom(activeShowroom)}>{lang === 'ne' ? 'दृश्य फेरि सुरु गर्नुहोस्' : 'RELOAD VIEW'} ↻</button></div>
+        <div className="collection-layout">
+          <aside className="collection-list"><div className="collection-list-heading"><span>{collectionType==='tractors'?'POWERTRAC RANGE':collectionType==='scooters'?'VMOTO E-SCOOTERS':collectionType==='emoto'?'VMOTO E-MOTORCYCLES':'VMOTO E-FLEET'}</span><small>{collectionModels.length} MODELS</small></div>
+            {collectionModels.map((model,i)=><button key={model} className={selectedModel===model?'selected':''} onClick={()=>setSelectedModel(model)}><span>{String(i+1).padStart(2,'0')}</span>{model}<ArrowUpRight size={14}/></button>)}
+          </aside>
+          <div className="collection-viewer">
+            <div className="collection-viewer-meta"><span>{selectedModel}</span><span>ILLUSTRATIVE SHOWCASE</span></div>
+            <model-viewer key={collectionType} className="vehicle-model collection-model" src={collectionType==='tractors'?'https://tevy.dev/models/farm-tractor/v1/lod0.glb':collectionType==='fleet'?'https://files.innerscene.com/library/urban-motor-scooter-9dd945f9/006f28087cc0c5d85bbc/urban-motor-scooter.glb':'https://files.innerscene.com/library/urban-motor-scooter-9dd945f9/006f28087cc0c5d85bbc/urban-motor-scooter.glb'} alt={'Generic illustrative 3D preview for '+selectedModel} camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="1800" rotation-per-second="12deg" interaction-prompt="none" shadow-intensity="1" exposure="1.05" environment-image="neutral" camera-orbit="35deg 72deg 4.5m" min-camera-orbit="auto 25deg auto" max-camera-orbit="auto 110deg auto" ar="false"/>
+            <div className="collection-viewer-controls"><span>↔ DRAG TO ROTATE</span><span>⌕ SCROLL TO ZOOM</span></div>
+            <div className="collection-model-note">DEMO 3D ASSET · NOT AN EXACT MODEL RENDER</div>
+          </div>
         </div>
-        <div className="showroom-disclaimer"><span>DEMONSTRATION ASSETS</span><p>{lang === 'ne' ? 'यी सामान्य 3D नमुना हुन्, NTSL का वास्तविक मोडेल वा बिक्रीका लागि उपलब्ध उत्पादन होइनन्। वास्तविक उत्पादन विवरण कम्पनीबाट पुष्टि भएपछि मात्र राखिनेछ।' : 'These are generic demonstration models, not confirmed NTSL products or representations of current stock. Actual product models and specifications will be added only after company confirmation.'}</p></div>
+        <div className="collection-footnote"><strong>CATALOGUE NOTE</strong><p>Model names are shown as examples from public manufacturer/model listings for design demonstration only. This does not confirm NTSL dealership, Nepal-market availability, stock or pricing. The 3D viewer currently uses generic sample geometry, not the exact selected vehicle. Replace with verified NTSL product details and manufacturer-approved assets before publishing as a live catalogue.</p></div>
       </section>
       <section className="showroom-services section" data-reveal>
         <div className="section-label">{lang === 'en' ? 'THE NTSL SHOWROOM' : 'NTSL शोरुम'}<span>03 — 04</span></div>
