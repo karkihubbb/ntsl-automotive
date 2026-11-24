@@ -31,7 +31,7 @@ const content = {
     ],
     contactLabel: 'GET IN TOUCH',
     contactTitle: <>How can we<br/><i>assist you?</i></>,
-    contactText: 'Send an enquiry using the preview form. It does not transmit or store personal information. Official phone and email details will be added after company confirmation.',
+    contactText: 'Visit the Biratnagar branch for vehicle information and customer assistance. Official phone and email details will be published once confirmed by NTSL Automotive.',
     formTitle: 'SEND AN ENQUIRY',
     name: 'Full name', phone: 'Phone number', subject: 'Enquiry type', select: 'Select a subject',
     subjects: ['Tractor information', 'Electric scooter information', 'Electric tempo information', 'Model availability', 'Service and maintenance', 'Spare parts', 'Other'],
@@ -73,7 +73,7 @@ const content = {
     ],
     contactLabel: 'सम्पर्क',
     contactTitle: <>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></>,
-    contactText: 'तलको फारम वेबसाइटको पूर्वावलोकनका लागि मात्र हो। यसले व्यक्तिगत विवरण पठाउँदैन वा सुरक्षित गर्दैन। कम्पनीबाट पुष्टि भएपछि आधिकारिक फोन र इमेल राखिनेछ।',
+    contactText: 'सवारी साधनसम्बन्धी जानकारी तथा ग्राहक सहयोगका लागि विराटनगर शाखामा सम्पर्क गर्नुहोस्। NTSL Automotive बाट पुष्टि भएपछि आधिकारिक फोन र इमेल यहाँ राखिनेछ।',
     formTitle: 'सोधपुछ पठाउनुहोस्',
     name: 'पूरा नाम', phone: 'फोन नम्बर', subject: 'सोधपुछको विषय', select: 'विषय छान्नुहोस्',
     subjects: ['ट्र्याक्टरसम्बन्धी जानकारी', 'इलेक्ट्रिक स्कुटरसम्बन्धी जानकारी', 'इलेक्ट्रिक टेम्पोसम्बन्धी जानकारी', 'मोडेल उपलब्धता', 'सर्भिस तथा मर्मत', 'स्पेयर पार्ट्स', 'अन्य'],
@@ -255,8 +255,6 @@ export default function App() {
   if (vehiclePages[currentPath]) return <VehiclePage path={currentPath} />
   const [lang, setLang] = useState('en')
   const [menu, setMenu] = useState(false)
-  const [sent, setSent] = useState(false)
-  const [selectedSubject, setSelectedSubject] = useState('')
   const [activeService, setActiveService] = useState(null)
   const t = content[lang]
   useEffect(() => {
@@ -273,10 +271,6 @@ export default function App() {
     document.documentElement.lang = lang === 'ne' ? 'ne' : 'en'
   }, [lang])
 
-  function submit(event) {
-    event.preventDefault()
-    setSent(true)
-  }
 
   return <div className={lang === 'ne' ? 'site nepali' : 'site'}>
     <div className="topline"><span>{t.top}</span><span className="top-location"><MapPin size={12}/>{t.location}</span><div className="lang"><button className={lang === 'en' ? 'selected' : ''} onClick={() => setLang('en')}>EN</button><span>/</span><button className={lang === 'ne' ? 'selected' : ''} onClick={() => setLang('ne')}>नेपाली</button></div></div>
@@ -324,7 +318,7 @@ export default function App() {
         </div>
       </section>
       <section className="support section" id="support"><div className="section-label">बिक्रीपछिको सेवा<span>०३ — ०३</span></div><div className="support-heading"><h2>{t.supportTitle}</h2><p>{t.supportText}</p></div><div className="service-list">{t.services.map(([title, desc, num], i) => {const Icon = [Tractor, Wrench, Settings][i];const subject = t.subjects[i === 0 ? 0 : i === 1 ? 4 : 5];return <a className="service-row" href="#service-details" key={title} onClick={() => setActiveService(i)}><span className="service-num">{num}</span><div className="service-icon"><Icon size={21}/></div><div className="service-copy"><h3>{title}</h3><p>{desc}</p><span className="service-action">सोधपुछ गर्नुहोस् <ArrowUpRight size={13}/></span></div><ArrowUpRight className="service-arrow" size={19}/></a>})}</div>{activeService !== null && <div className="service-detail" id="service-details"><div><span className="eyebrow">{t.services[activeService][0]}</span><h3>{t.services[activeService][0]}</h3><p>{t.services[activeService][1]}</p></div><a className="primary-button" href="#contact" onClick={() => setSelectedSubject(t.subjects[activeService === 0 ? 0 : activeService === 1 ? 4 : 5])}>सोधपुछ गर्नुहोस् <ArrowUpRight size={16}/></a></div>}</section>
-      <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>सम्पर्क तथा जानकारी</div><h2>हामी तपाईंलाई कसरी<br/><i>सहयोग गर्न सक्छौँ?</i></h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>विराटनगर शाखा</strong><span>{t.branchAddress}</span><a href={branchMapUrl} target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><form className="contact-form" onSubmit={submit}><div className="form-heading"><strong>सोधपुछ फारम</strong><span>अनलाइन सोधपुछ</span></div><label>{t.name}<input name="name" autoComplete="name" required /></label><label>{t.phone}<input name="phone" type="tel" autoComplete="tel" required placeholder="98XXXXXXXX"/></label><label>{t.subject}<select name="subject" required value={selectedSubject} onChange={event => setSelectedSubject(event.target.value)}><option value="" disabled>{t.select}</option>{t.subjects.map(s => <option key={s}>{s}</option>)}</select></label><label>{t.message}<textarea name="message" rows="3" placeholder={t.messageHint}/></label><button className="primary-button submit" type="submit">Submit enquiry<ArrowUpRight size={16}/></button>{sent && <p className="demo-message" role="status">{t.demo}</p>}<small className="privacy-link"><a href="/privacy.html">{t.privacy}</a></small></form></section>
+      <section className="contact-section" id="contact"><div className="contact-left"><div className="eyebrow light"><span/>{lang === 'en' ? 'CONTACT & INFORMATION' : 'सम्पर्क तथा जानकारी'}</div><h2>{lang === 'en' ? <>Get in<br/><i>touch with us.</i></> : <>हामीसँग<br/><i>सम्पर्क गर्नुहोस्।</i></>}</h2><p>{t.contactText}</p><div className="branch-info"><MapPin size={18}/><div><strong>{lang === 'en' ? 'Biratnagar Branch' : 'विराटनगर शाखा'}</strong><span>{t.branchAddress}</span><a href={branchMapUrl} target="_blank" rel="noreferrer">{t.directions}<ArrowUpRight size={13}/></a></div></div></div><div className="contact-information"><div className="contact-information-heading"><span>{lang === 'en' ? 'HOW WE CAN HELP' : 'हामीले कसरी सहयोग गर्न सक्छौँ'}</span><small>01 — 04</small></div><a className="contact-information-item" href="/tractors"><span>01</span><div><strong>{lang === 'en' ? 'Vehicle information' : 'सवारी साधनको जानकारी'}</strong><p>{lang === 'en' ? 'Explore tractors, electric scooters and electric tempos.' : 'ट्र्याक्टर, इलेक्ट्रिक स्कुटर तथा इलेक्ट्रिक टेम्पोबारे बुझ्नुहोस्।'}</p></div><ArrowUpRight size={18}/></a><a className="contact-information-item" href="/electric-scooters"><span>02</span><div><strong>{lang === 'en' ? 'Models & availability' : 'मोडेल तथा उपलब्धता'}</strong><p>{lang === 'en' ? 'Visit the branch to confirm current models, specifications and availability.' : 'हालका मोडेल, विशेषता तथा उपलब्धता शाखाबाट पुष्टि गर्नुहोस्।'}</p></div><ArrowUpRight size={18}/></a><div className="contact-information-item"><span>03</span><div><strong>{lang === 'en' ? 'Service & maintenance' : 'सर्भिस तथा मर्मत'}</strong><p>{lang === 'en' ? 'Ask the branch about service and maintenance support.' : 'सर्भिस तथा मर्मत सहयोगबारे शाखामा जानकारी लिनुहोस्।'}</p></div><Wrench size={18}/></div><div className="contact-information-item"><span>04</span><div><strong>{lang === 'en' ? 'Spare parts' : 'स्पेयर पार्ट्स'}</strong><p>{lang === 'en' ? 'Contact the branch to ask about parts and current availability.' : 'पार्ट्स तथा हालको उपलब्धताबारे शाखामा बुझ्नुहोस्।'}</p></div><Settings size={18}/></div><p className="contact-pending-note">{lang === 'en' ? 'Official phone number, email address and opening hours will be added after confirmation by NTSL Automotive.' : 'NTSL Automotive बाट पुष्टि भएपछि आधिकारिक फोन नम्बर, इमेल ठेगाना तथा खुल्ने समय यहाँ राखिनेछ।'}</p></div></section>
     </main>
     <footer className="footer"><Logo/><span className="footer-center">{t.footer}</span><div className="footer-links"><a href="/privacy">{t.privacy}</a><a href="/terms">{t.terms}</a><a href="/cookies">Cookies</a><a href="/accessibility">Accessibility</a><a href="/legal">Legal</a><a href="#home">{t.topLink}</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} NTSL Automotive Pvt. Ltd.</span><span>{t.footerNote}</span></div></footer>
     <CookieNotice/>
